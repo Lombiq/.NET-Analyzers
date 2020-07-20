@@ -1,10 +1,10 @@
-# Lombiq <add project name here>
+# Lombiq .NET Analyzers
 
 
 
 ## About
 
-Add a general overview of the project here. Don't forget to update the year in the Licence!
+.NET code analyzers and code convention settings for [Lombiq](https://lombiq.com) projects. We use these to enforce common standards across all our .NET projects, including e.g. in all of our [open-source Orchard Core extensions](https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions). If you contribute to our open-source projects you'll be guides by these rules too.
 
 
 ## Documentation
