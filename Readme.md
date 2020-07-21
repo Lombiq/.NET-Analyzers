@@ -9,7 +9,27 @@
 
 ## Documentation
 
-Add detailed documentation here. If it's a lot of content then create documentation pages under the *Docs* folder and link pages here.
+### Analyzer packages used
+
+- [Microsoft.CodeAnalysis.FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers/)
+- [StyleCop.Analyzers](https://www.nuget.org/packages/StyleCop.Analyzers/)
+- [SonarAnalyzer.CSharp](https://www.nuget.org/packages/SonarAnalyzer.CSharp/)
+
+### How to add analyzers to project repository
+
+1. Add to `.gitmodules` file:
+   ```
+   [submodule "analyzers"]
+       path = analyzers
+       url = https://github.com/Lombiq/.NET-Analyzers.git
+       branch = dev
+   ```
+1. Create `Directory.Build.props` file in the repository root folder with the following content:
+   ```xml
+   <Project>
+     <Import Project="analyzers/Build.props"/>
+   </Project>
+   ```
 
 
 ## Contributing and support
