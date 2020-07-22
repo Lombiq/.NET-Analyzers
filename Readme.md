@@ -19,15 +19,15 @@
 
 1. Add to `.gitmodules` file:
    ```
-   [submodule "analyzers"]
-       path = analyzers
+   [submodule "Lombiq.Analyzers"]
+       path = Lombiq.Analyzers
        url = https://github.com/Lombiq/.NET-Analyzers.git
        branch = dev
    ```
 1. Create `Directory.Build.props` file in the repository root folder with the following content:
    ```xml
    <Project>
-     <Import Project="analyzers/Build.props"/>
+     <Import Project="Lombiq.Analyzers/Build.props"/>
    </Project>
    ```
 
