@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <CodeAnalysisRuleSet>$(SolutionDir)analyzers\General.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>$(SolutionDir)Lombiq.Analyzers\General.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +24,6 @@
   </Target>
   
   <Target Name="Copy editorconfig" AfterTargets="AfterResolveReferences">
-    <Copy SourceFiles="$(SolutionDir)analyzers\.editorconfig" DestinationFolder="$(SolutionDir)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="$(SolutionDir)Lombiq.Analyzers\.editorconfig" DestinationFolder="$(SolutionDir)" SkipUnchangedFiles="true" />
   </Target>
 </Project>
