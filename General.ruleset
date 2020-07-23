@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="General C# rules" Description="" ToolsVersion="16.0">
+<RuleSet Name="General C# rules" ToolsVersion="16.0">
   <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp" RuleNamespace="Microsoft.CodeAnalysis.CSharp">
     <Rule Id="CS1591" Action="None" />
   </Rules>
@@ -86,8 +86,11 @@
   <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
     <Rule Id="SA0001" Action="None" />
     <Rule Id="SA1101" Action="None" />
+    <Rule Id="SA1124" Action="None" />
+    <Rule Id="SA1133" Action="None" />
     <Rule Id="SA1200" Action="None" />
     <Rule Id="SA1202" Action="None" />
+    <Rule Id="SA1204" Action="None" />
     <Rule Id="SA1208" Action="None" />
     <Rule Id="SA1309" Action="None" />
     <Rule Id="SA1404" Action="None" />
@@ -101,6 +104,8 @@
     <Rule Id="SA1600" Action="None" />
     <Rule Id="SA1601" Action="None" />
     <Rule Id="SA1602" Action="None" />
+    <Rule Id="SA1611" Action="None" />
+    <Rule Id="SA1612" Action="None" />
     <Rule Id="SA1633" Action="None" />
     <Rule Id="SA1649" Action="None" />
     <Rule Id="SX1101" Action="Warning" />
