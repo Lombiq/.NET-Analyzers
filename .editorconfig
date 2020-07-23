@@ -217,6 +217,8 @@ dotnet_naming_style.begins_with_i.capitalization = pascal_case
 dotnet_diagnostic.CA1031.severity = silent
 # Disabling "do not nest type" suggestion.
 dotnet_diagnostic.CA1034.severity = silent
+# Disabling "CA1810: Initialize reference type static fields inline" as RSPEC-3963 is used instead.
+dotnet_diagnostic.CA1810.severity = none
 
 # Various config files
 [*.{config,csproj,json,props,targets}]
