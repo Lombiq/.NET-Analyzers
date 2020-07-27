@@ -33,6 +33,21 @@
    ```
 
 
+### How to disable analyzers for particular projects
+
+Place `Directory.Build.props` file into the project's folder (or folder with set of projects) with contents:
+
+```xml
+<Project>
+  <ItemGroup> 
+      <Analyzer Remove="@(Analyzer)" /> 
+  </ItemGroup>
+</Project>
+```
+
+It will completely disable code analysis.
+
+
 ## Contributing and support
 
 Bug reports, feature requests, comments, questions, code contributions, and love letters are warmly welcome, please do so via GitHub issues and pull requests. Please adhere to our [open-source guidelines](https://lombiq.com/open-source-guidelines) while doing so.
