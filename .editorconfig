@@ -5,8 +5,6 @@
 # https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference
 # If you found some issue then try to fix it, which you can also do from VS Quick Actions: 
 # https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-language-conventions?view=vs-2019#automatically-configure-code-styles
-# However, in this case PLEASE LET US KNOW in the Developers channel since such conventions should be exactly the same
-# for all solutions of ours.
 # Add new file types at the bottom. For new rules for C# files follow the structure that VS generates.
 
 # All files
