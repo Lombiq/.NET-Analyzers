@@ -24,7 +24,8 @@
        url = https://github.com/Lombiq/.NET-Analyzers.git
        branch = dev
    ```
-1. Create `Directory.Build.props` file in the repository root folder with the following content:
+   *`path` should be tageting folder where the solution `.sln` file is located (mostly the repository root).*
+1. Create `Directory.Build.props` file in the folder where the solution `.sln` file is located (mostly the repository root) with the following content:
    ```xml
    <Project>
      <Import Project="Lombiq.Analyzers/Build.props"/>
