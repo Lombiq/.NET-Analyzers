@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <CodeAnalysisRuleSet>$(SolutionDir)Lombiq.Analyzers\General.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)General.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,8 +22,8 @@
       <Analyzer Remove="@(Analyzer)" /> 
     </ItemGroup> 
   </Target>
-  
+
   <Target Name="Copy editorconfig" AfterTargets="AfterResolveReferences">
-    <Copy SourceFiles="$(SolutionDir)Lombiq.Analyzers\.editorconfig" DestinationFolder="$(SolutionDir)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="$(MSBuildThisFileDirectory).editorconfig" DestinationFolder="$(MSBuildThisFileDirectory).." SkipUnchangedFiles="true" />
   </Target>
 </Project>
