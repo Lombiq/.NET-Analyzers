@@ -25,7 +25,7 @@
        branch = dev
    ```
    *`path` should be tageting folder where the solution `.sln` file is located (mostly the repository root).*
-1. Create `Directory.Build.props` file in the folder where the solution `.sln` file is located (mostly the repository root) with the following content:
+1. Create a `Directory.Build.props` file in the folder where the solution `.sln` file is located (mostly the repository root) with the following content:
    ```xml
    <Project>
      <Import Project="Lombiq.Analyzers/Build.props"/>
@@ -35,7 +35,7 @@
 
 ### How to disable analyzers for particular projects
 
-Place `Directory.Build.props` file into the project's folder (or folder with set of projects) with contents:
+Place a `Directory.Build.props` file into the project's folder (or folder with set of projects) with contents:
 
 ```xml
 <Project>
