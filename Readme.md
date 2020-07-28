@@ -48,6 +48,12 @@ Place a `Directory.Build.props` file into the project's folder (or folder with s
 It will completely disable code analysis.
 
 
+### Using the analyzers during development
+
+Output of the analyzers will show up as entries of various levels (i.e. Errors, Warnings, Messages) in the Error List window of Visual Studio for the currently open files, and for the whole solution after a rebuild (but not when you build an already built solution, just with a rebuild or a fresh build). Similarly, they'll show up in the build output of `dotnet build`. In Visual Studio you'll also see squiggly lines in the code editor as it is usual for any code issues.
+
+Note that if you have the [Microsoft Code Analysis Visual Studio extension](https://docs.microsoft.com/en-us/visualstudio/code-quality/install-fxcop-analyzers#vsix) installed then it'll clash with the analyzer packages and you'll see warnings of the like of "An instance of analyzer Microsoft.NetCore.CSharp.Analyzers.Runtime.CSharpDoNotRaiseReservedExceptionTypesAnalyzer cannot be created from..." To fix this, disable or uninstall the extension.
+
 ## Contributing and support
 
 Bug reports, feature requests, comments, questions, code contributions, and love letters are warmly welcome, please do so via GitHub issues and pull requests. Please adhere to our [open-source guidelines](https://lombiq.com/open-source-guidelines) while doing so.
