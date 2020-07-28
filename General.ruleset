@@ -98,6 +98,7 @@
     <Rule Id="SA1204" Action="None" />
     <Rule Id="SA1208" Action="None" />
     <Rule Id="SA1309" Action="None" />
+    <Rule Id="SA1401" Action="None" />
     <Rule Id="SA1402" Action="None" />
     <Rule Id="SA1404" Action="None" />
     <Rule Id="SA1413" Action="None" />
