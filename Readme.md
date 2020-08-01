@@ -24,8 +24,8 @@
        url = https://github.com/Lombiq/.NET-Analyzers.git
        branch = dev
    ```
-   *`path` should be tageting folder where the solution `.sln` file is located (mostly the repository root).*
-1. Create a `Directory.Build.props` file in the folder where the solution `.sln` file is located (mostly the repository root) with the following content:
+   *`path` can target anything but we suggest either the folder where the solution `.sln` file is located (mostly the repository root) or a "tools" subfolder therein.*
+1. Create a `Directory.Build.props` file in the folder where the solution `.sln` file is located (mostly the repository root) with the following content (if you've put the submodule in to a different folder then change the path):
    ```xml
    <Project>
      <Import Project="Lombiq.Analyzers/Build.props"/>
@@ -35,7 +35,7 @@
 
 ### How to disable analyzers for particular projects
 
-Place a `Directory.Build.props` file into the project's folder (or folder with set of projects) with contents:
+Place a `Directory.Build.props` file into the project's folder (or folder with set of projects) with the following contents:
 
 ```xml
 <Project>
@@ -45,7 +45,7 @@ Place a `Directory.Build.props` file into the project's folder (or folder with s
 </Project>
 ```
 
-It will completely disable code analysis.
+This will completely disable code analysis.
 
 
 ### Using the analyzers during development
