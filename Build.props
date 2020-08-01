@@ -23,7 +23,7 @@
     </ItemGroup> 
   </Target>
 
-  <Target Name="Copy editorconfig" AfterTargets="AfterResolveReferences">
-    <Copy SourceFiles="$(MSBuildThisFileDirectory).editorconfig" DestinationFolder="$(MSBuildThisFileDirectory).." SkipUnchangedFiles="true" />
+  <Target Name="Copy editorconfig" AfterTargets="AfterResolveReferences" Condition="'$(SolutionDir)' != '*Undefined*'">
+    <Copy SourceFiles="$(MSBuildThisFileDirectory).editorconfig" DestinationFolder="$(SolutionDir)" SkipUnchangedFiles="true" />
   </Target>
 </Project>
