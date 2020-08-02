@@ -50,9 +50,10 @@ This will completely disable code analysis.
 
 ### Using the analyzers during development
 
-Output of the analyzers will show up as entries of various levels (i.e. Errors, Warnings, Messages) in the Error List window of Visual Studio for the currently open files, and for the whole solution after a rebuild (but not when you build an already built solution, just with a rebuild or a fresh build). Similarly, they'll show up in the build output of `dotnet build`. In Visual Studio you'll also see squiggly lines in the code editor as it is usual for any code issues.
+Output of the analyzers will show up as entries of various levels (i.e. Errors, Warnings, Messages) in the Error List window of Visual Studio for the currently open files, and for the whole solution after a rebuild (but not when you build an already built solution, just with a rebuild or a fresh build). Similarly, they'll show up in the build output of `dotnet build`. In Visual Studio you'll also see squiggly lines in the code editor as it is usual for any code issues. For a lot of issues you'll be able to use automatic code fixes, or suppress them if they're wrong in the given context from the Quick Actions menu (Ctrl+. by default).
 
 Note that if you have the [Microsoft Code Analysis Visual Studio extension](https://docs.microsoft.com/en-us/visualstudio/code-quality/install-fxcop-analyzers#vsix) installed then it'll clash with the analyzer packages and you'll see warnings of the like of "An instance of analyzer Microsoft.NetCore.CSharp.Analyzers.Runtime.CSharpDoNotRaiseReservedExceptionTypesAnalyzer cannot be created from..." To fix this, disable or uninstall the extension.
+
 
 ## Contributing and support
 
