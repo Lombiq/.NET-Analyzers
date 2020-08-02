@@ -17,6 +17,7 @@
     <Rule Id="CA1716" Action="None" />
     <Rule Id="CA1721" Action="None" />
     <Rule Id="CA1724" Action="None" />
+    <Rule Id="CA1812" Action="None" />
     <Rule Id="CA2007" Action="None" />
     <Rule Id="CA2225" Action="None" />
   </Rules>
@@ -87,8 +88,8 @@
   </Rules>
   <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
     <Rule Id="SA0001" Action="None" />
-    <Rule Id="SA1101" Action="None" />
     <Rule Id="SA1009" Action="None" />
+    <Rule Id="SA1101" Action="None" />
     <Rule Id="SA1111" Action="None" />
     <Rule Id="SA1118" Action="None" />
     <Rule Id="SA1124" Action="None" />
