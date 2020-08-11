@@ -3,7 +3,7 @@
     "documentationRules": {
       "documentInterfaces": true,
       "documentExposedElements": false,
-      "documentInternalElements": false,
+      "documentInternalElements": false
     }
   }
 }
