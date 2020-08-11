@@ -1,0 +1,9 @@
+{
+  "settings": {
+    "documentationRules": {
+      "documentInterfaces": true,
+      "documentExposedElements": false,
+      "documentInternalElements": false,
+    }
+  }
+}
