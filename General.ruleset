@@ -139,7 +139,6 @@
     <Rule Id="S3626" Action="None" />
     <Rule Id="S3693" Action="Warning" />
     <Rule Id="S3717" Action="Warning" />
-    <Rule Id="S3776" Action="Warning" />
     <Rule Id="S3872" Action="Warning" />
     <Rule Id="S3880" Action="Warning" />
     <Rule Id="S3898" Action="Warning" />
