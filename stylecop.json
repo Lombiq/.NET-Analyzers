@@ -1,5 +1,12 @@
 {
   "settings": {
+    "orderingRules": {
+      "elementOrder": [
+        "accessibility",
+        "constant",
+        "readonly"
+      ]
+    },
     "documentationRules": {
       "documentInterfaces": true,
       "documentExposedElements": false,
