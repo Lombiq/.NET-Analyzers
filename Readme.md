@@ -17,10 +17,10 @@
 
 ### How to add analyzers to project repository
 
-1. Add to `.gitmodules` file:
+1. Add to `.gitmodules` file (we use the *tools* subfolder for the submodule's folder here but feel free to use something else):
    ```
    [submodule "Lombiq.Analyzers"]
-       path = Lombiq.Analyzers
+       path = tools/Lombiq.Analyzers
        url = https://github.com/Lombiq/.NET-Analyzers.git
        branch = dev
    ```
@@ -28,7 +28,7 @@
 1. Create a `Directory.Build.props` file in the folder where the solution `.sln` file is located (mostly the repository root) with the following content (if you've put the submodule in to a different folder then change the path):
    ```xml
    <Project>
-     <Import Project="Lombiq.Analyzers/Build.props"/>
+     <Import Project="tools/Lombiq.Analyzers/Build.props"/>
    </Project>
    ```
 
