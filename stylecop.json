@@ -2,7 +2,6 @@
   "settings": {
     "orderingRules": {
       "elementOrder": [
-        "accessibility",
         "constant",
         "readonly"
       ]
