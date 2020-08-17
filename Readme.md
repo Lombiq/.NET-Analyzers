@@ -32,7 +32,6 @@
    </Project>
    ```
 
-
 ### How to disable analyzers for particular projects
 
 Place a `Directory.Build.props` file into the project's folder (or folder with set of projects) with the following contents:
@@ -47,17 +46,13 @@ Place a `Directory.Build.props` file into the project's folder (or folder with s
 
 This will completely disable code analysis.
 
-
 ### How to disable analyzers during `dotnet build`
 
-By default `dotnet build` command runs analyzers and produces code analysis warnings if there are some.
-But it makes the build slower.
-Pass `-p:RunCodeAnalysis=false` parameter to disable analyzers during build, like:
+By default the `dotnet build` command runs analyzers and produces code analysis warnings if there are any but it makes the build slower. Pass the `-p:RunCodeAnalysis=false` parameter to disable analyzers during build, like:
 
 ```ps
 dotnet build ./SomeSolution.sln -c Debug --no-incremental -p:RunCodeAnalysis=false
 ```
-
 
 ### Using the analyzers during development
 
