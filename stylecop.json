@@ -1,0 +1,15 @@
+{
+  "settings": {
+    "orderingRules": {
+      "elementOrder": [
+        "constant",
+        "readonly"
+      ]
+    },
+    "documentationRules": {
+      "documentInterfaces": true,
+      "documentExposedElements": false,
+      "documentInternalElements": false
+    }
+  }
+}
