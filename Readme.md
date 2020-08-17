@@ -48,6 +48,17 @@ Place a `Directory.Build.props` file into the project's folder (or folder with s
 This will completely disable code analysis.
 
 
+### How to disable analyzers during `dotnet build`
+
+By default `dotnet build` command runs analyzers and produces code analysis warnings if there are some.
+But it makes the build slower.
+Pass `-p:RunCodeAnalysis=false` parameter to disable analyzers during build, like:
+
+```ps
+dotnet build ./SomeSolution.sln -c Debug --no-incremental -p:RunCodeAnalysis=false
+```
+
+
 ### Using the analyzers during development
 
 Output of the analyzers will show up as entries of various levels (i.e. Errors, Warnings, Messages) in the Error List window of Visual Studio for the currently open files. You'll also see squiggly lines in the code editor as it is usual for any code issues. For a lot of issues you'll be able to use automatic code fixes, or suppress them if they're wrong in the given context from the Quick Actions menu (Ctrl+. by default).
