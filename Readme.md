@@ -11,6 +11,7 @@
 
 ### Analyzer packages used
 
+- [AsyncFixer](https://www.nuget.org/packages/AsyncFixer)
 - [Microsoft.CodeAnalysis.FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers/)
 - [StyleCop.Analyzers](https://www.nuget.org/packages/StyleCop.Analyzers/)
 - [SonarAnalyzer.CSharp](https://www.nuget.org/packages/SonarAnalyzer.CSharp/)
