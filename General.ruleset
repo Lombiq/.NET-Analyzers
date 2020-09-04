@@ -86,6 +86,16 @@
     <Rule Id="CA1309" Action="Warning" />
     <Rule Id="CA1810" Action="None" />
   </Rules>
+  <Rules AnalyzerId="Microsoft.VisualStudio.Threading.Analyzers" RuleNamespace="Microsoft.VisualStudio.Threading.Analyzers">
+    <Rule Id="VSTHRD113" Action="Warning" />
+    <Rule Id="VSTHRD200" Action="None" />
+  </Rules>
+  <Rules AnalyzerId="Microsoft.VisualStudio.Threading.Analyzers.CSharp" RuleNamespace="Microsoft.VisualStudio.Threading.Analyzers.CSharp">
+    <Rule Id="VSTHRD102" Action="Warning" />
+    <Rule Id="VSTHRD104" Action="Warning" />
+    <Rule Id="VSTHRD109" Action="Warning" />
+    <Rule Id="VSTHRD112" Action="Warning" />
+  </Rules>
   <Rules AnalyzerId="SonarAnalyzer.CSharp" RuleNamespace="SonarAnalyzer.CSharp">
     <Rule Id="S100" Action="Warning" />
     <Rule Id="S103" Action="Warning" />
