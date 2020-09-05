@@ -91,6 +91,7 @@
     <Rule Id="VSTHRD200" Action="None" />
   </Rules>
   <Rules AnalyzerId="Microsoft.VisualStudio.Threading.Analyzers.CSharp" RuleNamespace="Microsoft.VisualStudio.Threading.Analyzers.CSharp">
+    <Rule Id="VSTHRD002" Action="None" />
     <Rule Id="VSTHRD102" Action="Warning" />
     <Rule Id="VSTHRD104" Action="Warning" />
     <Rule Id="VSTHRD109" Action="Warning" />
