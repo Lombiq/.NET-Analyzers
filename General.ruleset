@@ -160,7 +160,7 @@
     <Rule Id="S3937" Action="Warning" />
     <Rule Id="S3962" Action="Warning" />
     <Rule Id="S4002" Action="Warning" />
-    <Rule Id="S4004" Action="Warning" />
+    <Rule Id="S4004" Action="None" /> <!-- Same as CA2227 -->
     <Rule Id="S4025" Action="Warning" />
     <Rule Id="S4041" Action="Warning" />
     <Rule Id="S4047" Action="Warning" />
