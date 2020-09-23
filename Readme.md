@@ -57,6 +57,15 @@ By default the `dotnet build` command runs analyzers and produces code analysis 
 dotnet build ./SomeSolution.sln -c Debug --no-incremental -p:RunCodeAnalysis=false
 ```
 
+### Practices on suppressing a rule for a given piece of code
+
+Analyzers are not perfect so they can give false positives, and there can always be justified exceptions to every rule, so suppressing analyzer warnings is fine if done in moderation (if you have to do it a lot for a given rule then the rule is not suitable for your coding style). When doing so adhere to the following:
+
+- Always suppress a warning in the smallest scope possible.
+- Use the `#pragma` suppress for specific lines of code.
+- Only use the `SuppressMessage` attribute on a member (or even a whole project) if the suppress absolutely must cover the whole member or if it's for a method argument.
+- Always add a justification.
+
 ### Using the analyzers during development
 
 Output of the analyzers will show up as entries of various levels (i.e. Errors, Warnings, Messages) in the Error List window of Visual Studio for the currently open files. You'll also see squiggly lines in the code editor as it is usual for any code issues. For a lot of issues you'll be able to use automatic code fixes, or suppress them if they're wrong in the given context from the Quick Actions menu (Ctrl+. by default).
