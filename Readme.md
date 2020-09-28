@@ -15,12 +15,13 @@
 - [DotNetAnalyzers.DocumentationAnalyzers](https://www.nuget.org/packages/DotNetAnalyzers.DocumentationAnalyzers/)
 - [Microsoft.CodeAnalysis.FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers/)
 - [Microsoft.VisualStudio.Threading.Analyzers](https://www.nuget.org/packages/microsoft.visualstudio.threading.analyzers)
+- [SecurityCodeScan](https://www.nuget.org/packages/SecurityCodeScan/)
 - [StyleCop.Analyzers](https://www.nuget.org/packages/StyleCop.Analyzers/)
 - [SonarAnalyzer.CSharp](https://www.nuget.org/packages/SonarAnalyzer.CSharp/)
 
 ### How to add analyzers to project repository
 
-1. Add to `.gitmodules` file (we use the *tools* subfolder for the submodule's folder here but feel free to use something else):
+1. Add to *.gitmodules* file (we use the *tools* subfolder for the submodule's folder here but feel free to use something else):
    ```
    [submodule "Lombiq.Analyzers"]
        path = tools/Lombiq.Analyzers
@@ -28,16 +29,16 @@
        branch = dev
    ```
    *`path` can target anything but we suggest either the folder where the solution `.sln` file is located (mostly the repository root) or a "tools" subfolder therein.*
-1. Create a `Directory.Build.props` file in the folder where the solution `.sln` file is located (mostly the repository root) with the following content (if you've put the submodule in to a different folder then change the path):
+2. Create a *Directory.Build.props* file in the folder where the solution *.sln* file is located (mostly the repository root) with the following content (if you've put the submodule in to a different folder then change the path):
    ```xml
    <Project>
      <Import Project="tools/Lombiq.Analyzers/Build.props"/>
    </Project>
    ```
 
-### How to disable analyzers for particular projects
+### How to disable all analyzers for particular projects
 
-Place a `Directory.Build.props` file into the project's folder (or folder with set of projects) with the following contents:
+Place a *Directory.Build.props* file into the project's folder (or folder with set of projects) with the following contents:
 
 ```xml
 <Project>
@@ -57,11 +58,45 @@ By default the `dotnet build` command runs analyzers and produces code analysis 
 dotnet build ./SomeSolution.sln -c Debug --no-incremental -p:RunCodeAnalysis=false
 ```
 
+### How to override analyzer configuration globally
+
+If not all the configuration in this project is suitable for your solution then you can also override them globally. This way, the default configuration will be merged with your custom configuration and you can override any number of rules conveniently at one place for all projects in your solution.
+
+1. Create your own ruleset file, similar to this project's *General.ruleset* file, and add any rule configurations there that you want to override. Also, include this project's *General.ruleset* file as a child, allowing its rules to be available by default. So you'll have something like this (rules included only as examples):
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <RuleSet Name="General C# rules" ToolsVersion="16.0">
+      <Include Path="tools\Lombiq.Analyzers\General.ruleset" Action="Default" />
+      <Rules AnalyzerId="SecurityCodeScan" RuleNamespace="SecurityCodeScan">
+        <Rule Id="SCS0005" Action="None" />
+      </Rules>
+      <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+        <Rule Id="SA1312" Action="Warning" />
+      </Rules>
+    </RuleSet>
+    ```
+2. In the `Directory.Build.props` file of your solution add a reference to your own ruleset file, overriding the default:
+    ```xml
+    <PropertyGroup>
+      <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)My.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+    ```
+3. Now every rule you defined in *My.ruleset* will take precedence over the default ones. For everything else the default ones will be applied.
+
+### Practices on suppressing a rule for a given piece of code
+
+Analyzers are not perfect so they can give false positives, and there can always be justified exceptions to every rule, so suppressing analyzer warnings is fine if done in moderation (if you have to do it a lot for a given rule then the rule is not suitable for your coding style). When doing so adhere to the following:
+
+- Always suppress a warning in the smallest scope possible.
+- Use the `#pragma` suppress for specific lines of code.
+- Only use the `SuppressMessage` attribute on a member (or even a whole project) if the suppress absolutely must cover the whole member or if it's for a method argument.
+- Always add a justification.
+
 ### Using the analyzers during development
 
 Output of the analyzers will show up as entries of various levels (i.e. Errors, Warnings, Messages) in the Error List window of Visual Studio for the currently open files. You'll also see squiggly lines in the code editor as it is usual for any code issues. For a lot of issues you'll be able to use automatic code fixes, or suppress them if they're wrong in the given context from the Quick Actions menu (Ctrl+. by default).
 
-The `Build.props` file disables analyzers during Visual Studio build, not to slow down development; you can enable them by setting `RunAnalyzersDuringBuild` to `true`. After this, they'll show for the whole solution after a rebuild (but not when you build an already built solution, just with a rebuild or a fresh build).
+The *Build.props* file disables analyzers during Visual Studio build, not to slow down development; you can enable them by setting `RunAnalyzersDuringBuild` to `true`. After this, they'll show for the whole solution after a rebuild (but not when you build an already built solution, just with a rebuild or a fresh build).
 
 Similarly, they'll show up in the build output of `dotnet build` (regardless of `RunAnalyzersDuringBuild`). 
 
