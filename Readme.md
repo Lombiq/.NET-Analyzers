@@ -19,7 +19,7 @@
 - [StyleCop.Analyzers](https://www.nuget.org/packages/StyleCop.Analyzers/)
 - [SonarAnalyzer.CSharp](https://www.nuget.org/packages/SonarAnalyzer.CSharp/)
 
-### How to add analyzers to project repository
+### How to add the analyzers to you project repository
 
 1. Add to *.gitmodules* file (we use the *tools* subfolder for the submodule's folder here but feel free to use something else):
    ```
@@ -35,6 +35,8 @@
      <Import Project="tools/Lombiq.Analyzers/Build.props"/>
    </Project>
    ```
+
+Note that the analyzers support both .NET Core and .NET Framework projects. However, to get full support you'll need to use the new SDK-style csproj format (this is also possible with .NET Framework). Most possibly you can automatically convert your projects with the [try-convert utility](https://github.com/dotnet/try-convert).
 
 ### How to disable all analyzers for particular projects
 
