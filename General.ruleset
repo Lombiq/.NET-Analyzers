@@ -124,8 +124,6 @@
     <Rule Id="S1301" Action="Warning" />
     <Rule Id="S131" Action="Warning" />
     <Rule Id="S134" Action="Warning" />
-    <Rule Id="S138" Action="Warning" />
-    <Rule Id="S1541" Action="Warning" />
     <Rule Id="S1696" Action="Warning" />
     <Rule Id="S1698" Action="Warning" />
     <Rule Id="S1858" Action="Warning" />
