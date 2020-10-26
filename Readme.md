@@ -104,6 +104,8 @@ Similarly, they'll show up in the build output of `dotnet build` (regardless of 
 
 Note that if you have the [Microsoft Code Analysis Visual Studio extension](https://docs.microsoft.com/en-us/visualstudio/code-quality/install-fxcop-analyzers#vsix) installed then it'll clash with the analyzer packages and you'll see warnings in Visual Studio of the like of "An instance of analyzer Microsoft.NetCore.CSharp.Analyzers.Runtime.CSharpDoNotRaiseReservedExceptionTypesAnalyzer cannot be created from..." To fix this, disable or uninstall the extension.
 
+When working on reducing cognitive complexity to pass the [S3776 rule](https://rules.sonarsource.com/csharp/RSPEC-3776) you can make use of the [CognitiveComplexity plugin for JetBrains Rider](https://plugins.jetbrains.com/plugin/12024-cognitivecomplexity) or the [ReSharper plugin of the same name](https://plugins.jetbrains.com/plugin/12391-cognitivecomplexity) for Visual Studio. It annotates the individual contributors to the cognitive complexity score so you can quickly identify trouble spots with the least effort. The scoring algorithm is not 100% identical to the one used in Sonar but it's similar enough to greatly speed up the task of refactoring complex methods.
+
 
 ## Contributing and support
 
