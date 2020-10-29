@@ -175,6 +175,7 @@
     <Rule Id="S4226" Action="Warning" />
     <Rule Id="S4261" Action="Warning" />
     <Rule Id="S4432" Action="Warning" />
+    <Rule Id="S4487" Action="Warning" />
     <Rule Id="S4564" Action="Warning" />
     <Rule Id="S881" Action="Warning" />
   </Rules>
