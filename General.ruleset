@@ -1,11 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RuleSet Name="General C# rules" ToolsVersion="16.0">
+  <Rules AnalyzerId="DocumentationAnalyzers" RuleNamespace="DocumentationAnalyzers">
+    <Rule Id="DOC100" Action="Warning" />
+    <Rule Id="DOC101" Action="Warning" />
+    <Rule Id="DOC102" Action="Warning" />
+    <Rule Id="DOC103" Action="Warning" />
+    <Rule Id="DOC104" Action="Warning" />
+    <Rule Id="DOC105" Action="Warning" />
+    <Rule Id="DOC106" Action="Warning" />
+    <Rule Id="DOC107" Action="Warning" />
+    <Rule Id="DOC108" Action="Warning" />
+    <Rule Id="DOC200" Action="Warning" />
+    <Rule Id="DOC201" Action="Warning" />
+    <Rule Id="DOC202" Action="Warning" />
+    <Rule Id="DOC203" Action="Warning" />
+    <Rule Id="DOC204" Action="Warning" />
+  </Rules>
   <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp" RuleNamespace="Microsoft.CodeAnalysis.CSharp">
     <Rule Id="CS1573" Action="None" />
     <Rule Id="CS1591" Action="None" />
   </Rules>
   <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp.Features" RuleNamespace="Microsoft.CodeAnalysis.CSharp.Features">
     <Rule Id="IDE0005" Action="Warning" />
+    <Rule Id="IDE0051" Action="Warning" />
+    <Rule Id="IDE0052" Action="Warning" />
+    <Rule Id="IDE0064" Action="Warning" />
   </Rules>
   <Rules AnalyzerId="Microsoft.CodeQuality.Analyzers" RuleNamespace="Microsoft.CodeQuality.Analyzers">
     <Rule Id="CA1008" Action="Warning" />
@@ -136,6 +155,7 @@
     <Rule Id="S2342" Action="Warning" />
     <Rule Id="S2357" Action="Warning" />
     <Rule Id="S2387" Action="Warning" />
+    <Rule Id="S2437" Action="Warning" />
     <Rule Id="S2701" Action="Warning" />
     <Rule Id="S2760" Action="Warning" />
     <Rule Id="S2952" Action="Warning" />
@@ -164,6 +184,7 @@
     <Rule Id="S3906" Action="Warning" />
     <Rule Id="S3908" Action="Warning" />
     <Rule Id="S3937" Action="Warning" />
+    <Rule Id="S3949" Action="Warning" />
     <Rule Id="S3962" Action="Warning" />
     <Rule Id="S4002" Action="Warning" />
     <Rule Id="S4025" Action="Warning" />
@@ -175,6 +196,7 @@
     <Rule Id="S4226" Action="Warning" />
     <Rule Id="S4261" Action="Warning" />
     <Rule Id="S4432" Action="Warning" />
+    <Rule Id="S4487" Action="Warning" />
     <Rule Id="S4564" Action="Warning" />
     <Rule Id="S881" Action="Warning" />
   </Rules>
