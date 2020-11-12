@@ -102,7 +102,13 @@ Output of the analyzers will show up as entries of various levels (i.e. Errors, 
 
 The *Build.props* file disables analyzers during Visual Studio build, not to slow down development; you can enable them by setting `RunAnalyzersDuringBuild` to `true`. After this, they'll show for the whole solution after a rebuild (but not when you build an already built solution, just with a rebuild or a fresh build). Similarly, they'll show up in the build output of `dotnet build` (regardless of `RunAnalyzersDuringBuild`). Note though, that this will only happen if it's a fresh, clean build; otherwise if you're building an already built solution use the `--no-incremental` switch to make analyzer warnings appear.
 
-If you want code style analysis configured in *.editorconfig* (i.e. IDE* rules, this is not applicable to the others) to be checked during build then you'll need to use the .NET 5 SDK or later [and configure `EnforceCodeStyleInBuild`](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#code-style-analysis). This is not enabled in this project globally, not to slow down Visual Studio builds. However, you can enable it during `dotnet build` by using a switch like following: `dotnet build MyApp.sln /p:TreatWarningsAsErrors=true /p:EnforceCodeStyleInBuild=true`. Note that code style anaylsis is experiemental in the .NET 5 SDK and [may change in later versions](https://github.com/dotnet/roslyn/issues/49044).
+If you want code style analysis configured in *.editorconfig* (i.e. IDE* rules, this is not applicable to the others) to be checked during build then you'll need to use the .NET 5 SDK or later [and configure `EnforceCodeStyleInBuild`](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#code-style-analysis). This is not enabled in this project globally, not to slow down Visual Studio builds. However, you can enable it during `dotnet build` by using a switch like following:
+
+```ps
+dotnet build MyApp.sln /p:TreatWarningsAsErrors=true /p:EnforceCodeStyleInBuild=true /p:RunAnalyzersDuringBuild=true`
+```
+
+Note that code style anaylsis is experimental in the .NET 5 SDK and [may change in later versions](https://github.com/dotnet/roslyn/issues/49044).
 
 Note that if you have the [Microsoft Code Analysis Visual Studio extension](https://docs.microsoft.com/en-us/visualstudio/code-quality/install-fxcop-analyzers#vsix) installed then it'll clash with the analyzer packages and you'll see warnings in Visual Studio of the like of "An instance of analyzer Microsoft.NetCore.CSharp.Analyzers.Runtime.CSharpDoNotRaiseReservedExceptionTypesAnalyzer cannot be created from..." To fix this, disable or uninstall the extension.
 
