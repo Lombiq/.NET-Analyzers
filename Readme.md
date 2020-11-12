@@ -19,6 +19,8 @@
 - [StyleCop.Analyzers](https://www.nuget.org/packages/StyleCop.Analyzers/)
 - [SonarAnalyzer.CSharp](https://www.nuget.org/packages/SonarAnalyzer.CSharp/)
 
+Furthermore, the project also include an *.editorconfig* file with additional configuration for compatible editors.
+
 ### How to add the analyzers to you project repository
 
 1. Add to *.gitmodules* file (we use the *tools* subfolder for the submodule's folder here but feel free to use something else):
@@ -98,9 +100,9 @@ Analyzers are not perfect so they can give false positives, and there can always
 
 Output of the analyzers will show up as entries of various levels (i.e. Errors, Warnings, Messages) in the Error List window of Visual Studio for the currently open files. You'll also see squiggly lines in the code editor as it is usual for any code issues. For a lot of issues you'll be able to use automatic code fixes, or suppress them if they're wrong in the given context from the Quick Actions menu (Ctrl+. by default).
 
-The *Build.props* file disables analyzers during Visual Studio build, not to slow down development; you can enable them by setting `RunAnalyzersDuringBuild` to `true`. After this, they'll show for the whole solution after a rebuild (but not when you build an already built solution, just with a rebuild or a fresh build).
+The *Build.props* file disables analyzers during Visual Studio build, not to slow down development; you can enable them by setting `RunAnalyzersDuringBuild` to `true`. After this, they'll show for the whole solution after a rebuild (but not when you build an already built solution, just with a rebuild or a fresh build). Similarly, they'll show up in the build output of `dotnet build` (regardless of `RunAnalyzersDuringBuild`). Note though, that this will only happen if it's a fresh, clean build; otherwise if you're building an already built solution use the `--no-incremental` switch to make analyzer warnings appear.
 
-Similarly, they'll show up in the build output of `dotnet build` (regardless of `RunAnalyzersDuringBuild`). 
+If you want code style analysis configured in *.editorconfig* (i.e. IDE* rules, this is not applicable to the others) to be checked during build then you'll need to use the .NET 5 SDK or later [and configure `EnforceCodeStyleInBuild`](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#code-style-analysis). This is not enabled in this project globally, not to slow down Visual Studio builds. However, you can enable it during `dotnet build` by using a switch like following: `dotnet build MyApp.sln /p:TreatWarningsAsErrors=true /p:EnforceCodeStyleInBuild=true`. Note that code style anaylsis is experiemental in the .NET 5 SDK and [may change in later versions](https://github.com/dotnet/roslyn/issues/49044).
 
 Note that if you have the [Microsoft Code Analysis Visual Studio extension](https://docs.microsoft.com/en-us/visualstudio/code-quality/install-fxcop-analyzers#vsix) installed then it'll clash with the analyzer packages and you'll see warnings in Visual Studio of the like of "An instance of analyzer Microsoft.NetCore.CSharp.Analyzers.Runtime.CSharpDoNotRaiseReservedExceptionTypesAnalyzer cannot be created from..." To fix this, disable or uninstall the extension.
 

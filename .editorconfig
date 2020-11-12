@@ -74,6 +74,16 @@ dotnet_style_readonly_field = true:suggestion
 # Parameter preferences
 dotnet_code_quality_unused_parameters = non_pubic:suggestion
 
+#### C# Style Rules ####
+
+#IDE* rules are managed here.
+
+# Default severity for analyzer diagnostics with category 'Style' (escalated to build warnings)
+dotnet_analyzer_diagnostic.category-Style.severity = warning
+
+# IDE0011: Add braces to 'if' statement.
+dotnet_diagnostic.IDE0011.severity = none
+
 #### C# Coding Conventions ####
 
 # var preferences
