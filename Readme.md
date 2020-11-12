@@ -40,6 +40,61 @@ Furthermore, the project also include an *.editorconfig* file with additional co
 
 Note that the analyzers support both .NET Core and .NET Framework projects. However, to get full support you'll need to use the new SDK-style csproj format (this is also possible with .NET Framework). Most possibly you can automatically convert your projects with the [try-convert utility](https://github.com/dotnet/try-convert).
 
+### Using the analyzers during development
+
+#### Working with analyzers in Visual Studio or another IDE
+
+Output of the analyzers will show up as entries of various levels (i.e. Errors, Warnings, Messages) in the Error List window of Visual Studio for the currently open files. You'll also see squiggly lines in the code editor as it is usual for any code issues. For a lot of issues you'll be able to use automatic code fixes, or suppress them if they're wrong in the given context from the Quick Actions menu (Ctrl+. by default).
+
+The *Build.props* file disables analyzers during Visual Studio build, not to slow down development; you can enable them by setting `RunAnalyzersDuringBuild` to `true`. After this, they'll show for the whole solution after a rebuild (but not when you build an already built solution, just with a rebuild or a fresh build).
+
+Note that if you have the [Microsoft Code Analysis Visual Studio extension](https://docs.microsoft.com/en-us/visualstudio/code-quality/install-fxcop-analyzers#vsix) installed then it'll clash with the analyzer packages and you'll see warnings in Visual Studio of the like of "An instance of analyzer Microsoft.NetCore.CSharp.Analyzers.Runtime.CSharpDoNotRaiseReservedExceptionTypesAnalyzer cannot be created from..." To fix this, disable or uninstall the extension.
+
+When working on reducing cognitive complexity to pass the [S3776 rule](https://rules.sonarsource.com/csharp/RSPEC-3776) you can make use of the [CognitiveComplexity plugin for JetBrains Rider](https://plugins.jetbrains.com/plugin/12024-cognitivecomplexity) or the [ReSharper plugin of the same name](https://plugins.jetbrains.com/plugin/12391-cognitivecomplexity) for Visual Studio. It annotates the individual contributors to the cognitive complexity score so you can quickly identify trouble spots with the least effort. The scoring algorithm is not 100% identical to the one used in Sonar but it's similar enough to greatly speed up the task of refactoring complex methods.
+
+#### Practices on suppressing a rule for a given piece of code
+
+Analyzers are not perfect so they can give false positives, and there can always be justified exceptions to every rule, so suppressing analyzer warnings is fine if done in moderation (if you have to do it a lot for a given rule then the rule is not suitable for your coding style). When doing so adhere to the following:
+
+- Always suppress a warning in the smallest scope possible.
+- Use the `#pragma` suppress for specific lines of code.
+- Only use the `SuppressMessage` attribute on a member (or even a whole project) if the suppress absolutely must cover the whole member or if it's for a method argument.
+- Always add a justification.
+
+### Using the analyzers during command line builds
+
+The following notes are useful if you're building not from within and IDE but from the command line, like in a CI environment.
+
+#### Showing analyzer warnings during `dotnet build`
+
+Analyzer warnings will show up in the build output of `dotnet build` regardless of the `RunAnalyzersDuringBuild` config in *Build.props*. Note though, that this will only happen if it's a fresh, clean build; otherwise if you're building an already built solution use the `--no-incremental` switch to make analyzer warnings appear:
+
+```ps
+dotnet build MySolution.sln --no-incremental
+```
+
+If you want analyzer violations to fail the build (recommended) then also use `TreatWarningsAsErrors`:
+
+```ps
+dotnet build MySolution.sln --no-incremental /p:TreatWarningsAsErrors=true
+```
+
+#### .NET 5 code style analysis
+
+If you want code style analysis configured in *.editorconfig* (i.e. IDE* rules, this is not applicable to the others) to be checked during build too (it's already checked during editing) then you'll need to use the .NET 5 SDK or later [and configure `EnforceCodeStyleInBuild`](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#code-style-analysis). This is not enabled in this project globally, not to slow down Visual Studio builds. However, you can enable it during `dotnet build` by using two switches like following:
+
+```ps
+dotnet build MySolution.sln --no-incremental /p:EnforceCodeStyleInBuild=true /p:RunAnalyzersDuringBuild=true
+```
+
+Our recommendation is to use it together with `TreatWarningsAsErrors`:
+
+```ps
+dotnet build MySolution.sln --no-incremental /p:TreatWarningsAsErrors=true /p:EnforceCodeStyleInBuild=true /p:RunAnalyzersDuringBuild=true
+```
+
+Note that code style analysis is experimental in the .NET 5 SDK and [may change in later versions](https://github.com/dotnet/roslyn/issues/49044).
+
 ### How to disable all analyzers for particular projects
 
 Place a *Directory.Build.props* file into the project's folder (or folder with set of projects) with the following contents:
@@ -59,7 +114,7 @@ This will completely disable code analysis.
 By default the `dotnet build` command runs analyzers and produces code analysis warnings if there are any but it makes the build slower. Pass the `-p:RunCodeAnalysis=false` parameter to disable analyzers during build, like:
 
 ```ps
-dotnet build ./SomeSolution.sln -c Debug --no-incremental -p:RunCodeAnalysis=false
+dotnet build MySolution.sln -p:RunCodeAnalysis=false
 ```
 
 ### How to override analyzer configuration globally
@@ -86,33 +141,6 @@ If not all the configuration in this project is suitable for your solution then 
     </PropertyGroup>
     ```
 3. Now every rule you defined in *My.ruleset* will take precedence over the default ones. For everything else the default ones will be applied.
-
-### Practices on suppressing a rule for a given piece of code
-
-Analyzers are not perfect so they can give false positives, and there can always be justified exceptions to every rule, so suppressing analyzer warnings is fine if done in moderation (if you have to do it a lot for a given rule then the rule is not suitable for your coding style). When doing so adhere to the following:
-
-- Always suppress a warning in the smallest scope possible.
-- Use the `#pragma` suppress for specific lines of code.
-- Only use the `SuppressMessage` attribute on a member (or even a whole project) if the suppress absolutely must cover the whole member or if it's for a method argument.
-- Always add a justification.
-
-### Using the analyzers during development
-
-Output of the analyzers will show up as entries of various levels (i.e. Errors, Warnings, Messages) in the Error List window of Visual Studio for the currently open files. You'll also see squiggly lines in the code editor as it is usual for any code issues. For a lot of issues you'll be able to use automatic code fixes, or suppress them if they're wrong in the given context from the Quick Actions menu (Ctrl+. by default).
-
-The *Build.props* file disables analyzers during Visual Studio build, not to slow down development; you can enable them by setting `RunAnalyzersDuringBuild` to `true`. After this, they'll show for the whole solution after a rebuild (but not when you build an already built solution, just with a rebuild or a fresh build). Similarly, they'll show up in the build output of `dotnet build` (regardless of `RunAnalyzersDuringBuild`). Note though, that this will only happen if it's a fresh, clean build; otherwise if you're building an already built solution use the `--no-incremental` switch to make analyzer warnings appear.
-
-If you want code style analysis configured in *.editorconfig* (i.e. IDE* rules, this is not applicable to the others) to be checked during build then you'll need to use the .NET 5 SDK or later [and configure `EnforceCodeStyleInBuild`](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#code-style-analysis). This is not enabled in this project globally, not to slow down Visual Studio builds. However, you can enable it during `dotnet build` by using a switch like following:
-
-```ps
-dotnet build MyApp.sln /p:TreatWarningsAsErrors=true /p:EnforceCodeStyleInBuild=true /p:RunAnalyzersDuringBuild=true`
-```
-
-Note that code style anaylsis is experimental in the .NET 5 SDK and [may change in later versions](https://github.com/dotnet/roslyn/issues/49044).
-
-Note that if you have the [Microsoft Code Analysis Visual Studio extension](https://docs.microsoft.com/en-us/visualstudio/code-quality/install-fxcop-analyzers#vsix) installed then it'll clash with the analyzer packages and you'll see warnings in Visual Studio of the like of "An instance of analyzer Microsoft.NetCore.CSharp.Analyzers.Runtime.CSharpDoNotRaiseReservedExceptionTypesAnalyzer cannot be created from..." To fix this, disable or uninstall the extension.
-
-When working on reducing cognitive complexity to pass the [S3776 rule](https://rules.sonarsource.com/csharp/RSPEC-3776) you can make use of the [CognitiveComplexity plugin for JetBrains Rider](https://plugins.jetbrains.com/plugin/12024-cognitivecomplexity) or the [ReSharper plugin of the same name](https://plugins.jetbrains.com/plugin/12391-cognitivecomplexity) for Visual Studio. It annotates the individual contributors to the cognitive complexity score so you can quickly identify trouble spots with the least effort. The scoring algorithm is not 100% identical to the one used in Sonar but it's similar enough to greatly speed up the task of refactoring complex methods.
 
 
 ## Contributing and support
