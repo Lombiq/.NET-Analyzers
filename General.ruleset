@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <RuleSet Name="General C# rules" ToolsVersion="16.0">
   <Rules AnalyzerId="DocumentationAnalyzers" RuleNamespace="DocumentationAnalyzers">
     <Rule Id="DOC100" Action="Warning" />
@@ -19,12 +19,6 @@
   <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp" RuleNamespace="Microsoft.CodeAnalysis.CSharp">
     <Rule Id="CS1573" Action="None" />
     <Rule Id="CS1591" Action="None" />
-  </Rules>
-  <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp.Features" RuleNamespace="Microsoft.CodeAnalysis.CSharp.Features">
-    <Rule Id="IDE0005" Action="Warning" />
-    <Rule Id="IDE0051" Action="Warning" />
-    <Rule Id="IDE0052" Action="Warning" />
-    <Rule Id="IDE0064" Action="Warning" />
   </Rules>
   <Rules AnalyzerId="Microsoft.CodeQuality.Analyzers" RuleNamespace="Microsoft.CodeQuality.Analyzers">
     <Rule Id="CA1008" Action="Warning" />
