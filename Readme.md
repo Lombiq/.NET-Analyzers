@@ -19,7 +19,7 @@
 - [StyleCop.Analyzers](https://www.nuget.org/packages/StyleCop.Analyzers/)
 - [SonarAnalyzer.CSharp](https://www.nuget.org/packages/SonarAnalyzer.CSharp/)
 
-Furthermore, the project also include an *.editorconfig* file with additional configuration for compatible editors.
+Furthermore, the project also includes an *.editorconfig* file with additional configuration for compatible editors.
 
 ### How to add the analyzers to you project repository
 
@@ -44,7 +44,7 @@ Note that the analyzers support both .NET Core and .NET Framework projects. Howe
 
 #### Working with analyzers in Visual Studio or another IDE
 
-Output of the analyzers will show up as entries of various levels (i.e. Errors, Warnings, Messages) in the Error List window of Visual Studio for the currently open files. You'll also see squiggly lines in the code editor as it is usual for any code issues. For a lot of issues you'll be able to use automatic code fixes, or suppress them if they're wrong in the given context from the Quick Actions menu (Ctrl+. by default).
+Output of the analyzers will show up as entries of various levels (i.e. Errors, Warnings, Messages) in the Error List window of Visual Studio for the currently open files. You'll also see squiggly lines in the code editor as it is usual for any code issues. For a lot of issues you'll be able to use automatic code fixes, or suppress them if they're wrong in the given context from the Quick Actions menu (<kbd>Ctrl</kbd> + <kbd>.</kbd> by default).
 
 The *Build.props* file disables analyzers during Visual Studio build, not to slow down development; you can enable them by setting `RunAnalyzersDuringBuild` to `true`. After this, they'll show for the whole solution after a rebuild (but not when you build an already built solution, just with a rebuild or a fresh build).
 
