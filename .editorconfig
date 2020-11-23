@@ -88,6 +88,8 @@ dotnet_analyzer_diagnostic.category-Style.severity = warning
 # The "when-multiline:warning" config is not actually for cases when the if body is in another line so we have to turn
 # this off completely, see: https://github.com/dotnet/roslyn/issues/40912.
 dotnet_diagnostic.IDE0011.severity = none
+# IDE0072: Populate switch" is buggy, see: https://github.com/Lombiq/.NET-Analyzers/issues/8
+dotnet_diagnostic.IDE0072.severity = none
 
 # 'var' preferences
 dotnet_diagnostic.IDE0007.severity = warning
