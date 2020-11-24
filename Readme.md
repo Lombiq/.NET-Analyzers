@@ -143,6 +143,11 @@ If not all the configuration in this project is suitable for your solution then 
 3. Now every rule you defined in *My.ruleset* will take precedence over the default ones. For everything else the default ones will be applied.
 
 
+## Upgrading to a new version of the .NET SDK
+
+When a new version of the .NET SDK comes out then you need to change the `LangVersion` and `AnalysisLevel` elements in the *Build.props* file to opt in to new language features and analyzers.
+
+
 ## Contributing and support
 
 Bug reports, feature requests, comments, questions, code contributions, and love letters are warmly welcome, please do so via GitHub issues and pull requests. Please adhere to our [open-source guidelines](https://lombiq.com/open-source-guidelines) while doing so.
