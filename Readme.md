@@ -87,10 +87,10 @@ If you want code style analysis configured in *.editorconfig* (i.e. IDE* rules, 
 dotnet build MySolution.sln --no-incremental /p:EnforceCodeStyleInBuild=true /p:RunAnalyzersDuringBuild=true
 ```
 
-Our recommendation is to use it together with `TreatWarningsAsErrors`:
+Our recommendation is to use it together with `TreatWarningsAsErrors` but do note that for code style analysis warnings you also have to specify `-warnaserror` (this is not needed for the other analyzers):
 
 ```ps
-dotnet build MySolution.sln --no-incremental /p:TreatWarningsAsErrors=true /p:EnforceCodeStyleInBuild=true /p:RunAnalyzersDuringBuild=true
+dotnet build MySolution.sln --no-incremental -warnaserror /p:TreatWarningsAsErrors=true /p:EnforceCodeStyleInBuild=true /p:RunAnalyzersDuringBuild=true
 ```
 
 Note that code style analysis is experimental in the .NET 5 SDK and [may change in later versions](https://github.com/dotnet/roslyn/issues/49044).
