@@ -4,6 +4,8 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <!-- Don't run analyzers during Visual Studio build, not to slow down development. They still run during dotnet build. -->
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+    <!-- Useful to set here since the language version affects which analyzers to use and how to configure them. -->
+    <LangVersion>9.0</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
