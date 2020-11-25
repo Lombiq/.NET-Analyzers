@@ -88,6 +88,16 @@ dotnet_analyzer_diagnostic.category-Style.severity = warning
 # The "when-multiline:warning" config is not actually for cases when the if body is in another line so we have to turn
 # this off completely, see: https://github.com/dotnet/roslyn/issues/40912.
 dotnet_diagnostic.IDE0011.severity = none
+# IDE0050: Convert to tuple
+# Quite dangerous as we most frequently use anonymous types to interface with other APIs (like generating routes) and
+# those can fail on this silently in runtime while building correctly.
+dotnet_diagnostic.IDE0050.severity = none
+# IDE0072: Populate switch
+# Also signals on switches with discards, by design: https://github.com/dotnet/roslyn/issues/48876.
+dotnet_diagnostic.IDE0072.severity = none
+# IDE0079 Remove unnecessary suppression
+# While this is in the Style category it needs to be explicitly set for some reason.
+dotnet_diagnostic.IDE0079.severity = warning
 
 # 'var' preferences
 dotnet_diagnostic.IDE0007.severity = warning

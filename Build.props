@@ -4,6 +4,11 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <!-- Don't run analyzers during Visual Studio build, not to slow down development. They still run during dotnet build. -->
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+    <!-- Useful to set here since the language version affects which analyzers to use and how to configure them. -->
+    <LangVersion>9.0</LangVersion>
+    <!-- Setting the analysis level explicitly lets us opt in to new analyzers with SDK upgrades. See:
+    https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#latest-updates -->
+    <AnalysisLevel>5.0</AnalysisLevel>
   </PropertyGroup>
 
   <ItemGroup>
