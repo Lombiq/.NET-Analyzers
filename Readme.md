@@ -93,6 +93,12 @@ Our recommendation is to use it together with `TreatWarningsAsErrors` but do not
 dotnet build MySolution.sln --no-incremental -warnaserror /p:TreatWarningsAsErrors=true /p:EnforceCodeStyleInBuild=true /p:RunAnalyzersDuringBuild=true
 ```
 
+Or if you only want to see the errors and nothing more:
+
+```ps
+dotnet build MySolution.sln --no-incremental -warnaserror /p:TreatWarningsAsErrors=true /p:EnforceCodeStyleInBuild=true /p:RunAnalyzersDuringBuild=true -nologo -consoleLoggerParameters:NoSummary -verbosity:quiet
+```
+
 Note that code style analysis is experimental in the .NET 5 SDK and [may change in later versions](https://github.com/dotnet/roslyn/issues/49044).
 
 ### How to disable all analyzers for particular projects
