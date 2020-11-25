@@ -93,7 +93,7 @@ Our recommendation is to use it together with `TreatWarningsAsErrors` but do not
 dotnet build MySolution.sln --no-incremental -warnaserror /p:TreatWarningsAsErrors=true /p:EnforceCodeStyleInBuild=true /p:RunAnalyzersDuringBuild=true
 ```
 
-Or if you only want to see the errors and nothing more:
+Or if you only want to see the errors and not the full build output (including e.g. NuGet restores, build messages):
 
 ```ps
 dotnet build MySolution.sln --no-incremental -warnaserror /p:TreatWarningsAsErrors=true /p:EnforceCodeStyleInBuild=true /p:RunAnalyzersDuringBuild=true -nologo -consoleLoggerParameters:NoSummary -verbosity:quiet
