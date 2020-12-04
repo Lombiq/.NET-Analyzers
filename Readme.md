@@ -24,7 +24,7 @@ We added and configured analyzers which are widely used and complement each othe
 
 Furthermore, the project also includes an *.editorconfig* file with additional configuration for compatible editors.
 
-### How to add the analyzers to you project repository
+### How to add the analyzers to your project repository
 
 1. Add to *.gitmodules* file (we use the *tools* subfolder for the submodule's folder here but feel free to use something else):
    ```
