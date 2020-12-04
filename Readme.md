@@ -11,6 +11,9 @@
 
 ### Analyzer packages used
 
+We added and configured analyzers which are widely used and complement each other.
+
+- [.NET code style analysis](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#code-style-analysis)
 - [AsyncFixer](https://www.nuget.org/packages/AsyncFixer)
 - [DotNetAnalyzers.DocumentationAnalyzers](https://www.nuget.org/packages/DotNetAnalyzers.DocumentationAnalyzers/)
 - [Microsoft.CodeAnalysis.FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers/)
