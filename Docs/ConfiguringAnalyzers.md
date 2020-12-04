@@ -24,10 +24,10 @@ dotnet_analyzer_diagnostic.category-Style.severity = none
 
 ## How to disable analyzers during `dotnet build`
 
-By default the `dotnet build` command runs analyzers and produces code analysis warnings if there are any but it makes the build slower. Pass the `-p:RunCodeAnalysis=false` parameter to disable analyzers during build, like:
+By default the `dotnet build` command runs analyzers and produces code analysis warnings if there are any but it makes the build slower. Pass the `/p:RunCodeAnalysis=false` parameter to disable analyzers during build, like:
 
 ```ps
-dotnet build MySolution.sln -p:RunCodeAnalysis=false
+dotnet build MySolution.sln /p:RunCodeAnalysis=false
 ```
 
 
