@@ -21,7 +21,7 @@ dotnet build MySolution.sln --no-incremental /p:TreatWarningsAsErrors=true
 ```
 
 
-## .NET 5 code style analysis
+## .NET code style analysis
 
 If you want code style analysis configured in *.editorconfig* (i.e. IDE* rules, this is not applicable to the others) to be checked during build too (it's already checked during editing) then you'll need to use the .NET 5 SDK or later [and configure `EnforceCodeStyleInBuild`](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#code-style-analysis). This is not enabled in this project globally, not to slow down Visual Studio builds. However, you can enable it during `dotnet build` by using two switches like following:
 
