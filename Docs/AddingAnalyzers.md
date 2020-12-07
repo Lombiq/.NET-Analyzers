@@ -33,6 +33,6 @@ What to do if you're not starting a green-field project but want to add analyzer
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
     ```
-3. While this project can be used with .NET Framework, .NET Core and >=.NET 5 projects alike, it needs all projects to use the new SDK-style csproj format. You [can convert projects manually](https://docs.microsoft.com/en-us/dotnet/core/porting/#per-project-steps) or automatically with the [try-convert](https://github.com/dotnet/try-convert) utility. You'll also need to manually remove any leftover `packages.config` files and adjust `NuGet.config` files. 
+3. While this project can be used with .NET Framework, .NET Core and .NET 5 or later projects alike, it needs all projects to use the new SDK-style csproj format. You [can convert projects manually](https://docs.microsoft.com/en-us/dotnet/core/porting/#per-project-steps) or automatically with the [try-convert](https://github.com/dotnet/try-convert) utility. You'll also need to manually remove any leftover `packages.config` files and adjust `NuGet.config` files. 
 4. Now you can add this project to yours as explained above.
 5. Introduce analyzers gradually unless it's a small project and you can fix every analyzer violation at once. To do this, only enable a handful of analyzers first (or enable them just for a couple of projects in a given solution), fix the violations, get used to them, then enable more later. See [the docs on configuring analyzers](ConfiguringAnalyzers.md) for how to do disable certain analyzers.
