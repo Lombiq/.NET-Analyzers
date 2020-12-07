@@ -18,6 +18,7 @@
   </Rules>
   <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
     <Rule Id="CA1051" Action="Hidden" />
+    <Rule Id="CA2234" Action="Hidden" />
   </Rules>
   <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp" RuleNamespace="Microsoft.CodeAnalysis.CSharp">
     <Rule Id="CS1573" Action="None" />
@@ -33,6 +34,7 @@
     <Rule Id="CA1824" Action="Warning" />
     <Rule Id="CA1825" Action="Warning" />
     <Rule Id="CA2016" Action="Warning" />
+    <Rule Id="CA2234" Action="Hidden" />
     <Rule Id="CA3076" Action="Warning" />
     <Rule Id="CA3077" Action="Warning" />
   </Rules>
