@@ -15,7 +15,7 @@ We added and configured analyzers which are widely used and complement each othe
 - [.NET code quality analysis](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#code-quality-analysis)
 - [AsyncFixer](https://www.nuget.org/packages/AsyncFixer)
 - [DotNetAnalyzers.DocumentationAnalyzers](https://www.nuget.org/packages/DotNetAnalyzers.DocumentationAnalyzers/)
-- [Microsoft.CodeAnalysis.FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers/)
+- [Microsoft.CodeAnalysis.NetAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.NetAnalyzers)
 - [Microsoft.VisualStudio.Threading.Analyzers](https://www.nuget.org/packages/microsoft.visualstudio.threading.analyzers)
 - [SecurityCodeScan](https://www.nuget.org/packages/SecurityCodeScan/)
 - [StyleCop.Analyzers](https://www.nuget.org/packages/StyleCop.Analyzers/)

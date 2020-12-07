@@ -9,6 +9,9 @@
     <!-- Setting the analysis level explicitly lets us opt in to new analyzers with SDK upgrades. See:
     https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#latest-updates -->
     <AnalysisLevel>5.0</AnalysisLevel>
+    <!-- This is for Microsoft.CodeAnalysis.NetAnalyzers. This way, we have control over it unlike when getting it
+    via the .NET SDK. See: https://docs.microsoft.com/en-us/visualstudio/code-quality/migrate-from-fxcop-analyzers-to-net-analyzers -->
+    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,9 +23,9 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.0">
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="5.0.1">
       <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="16.8.55" />
     <PackageReference Include="SecurityCodeScan" Version="3.5.3">
