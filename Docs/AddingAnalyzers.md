@@ -19,6 +19,14 @@
    </Project>
    ```
 
+This will use the analyzer configuration suitable for Orchard Core projects. If you want to use the this in a non-Orchard .NET app then switch over to the general configuration by adding the following to the *Directory.Build.props* file:
+
+```xml
+<PropertyGroup>
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)General.ruleset</CodeAnalysisRuleSet>
+</PropertyGroup>
+```
+
 Note that the analyzers support both .NET Core and .NET Framework projects. However, to get full support you'll need to use the new SDK-style csproj format (this is also possible with .NET Framework). Most possibly you can automatically convert your projects with the [try-convert utility](https://github.com/dotnet/try-convert).
 
 
