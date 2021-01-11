@@ -18,6 +18,10 @@
      <Import Project="tools/Lombiq.Analyzers/Build.props"/>
    </Project>
    ```
+3. Since the project's *.editorconfig* file will be copied into your solution's root you may want to gitignore it:
+    ```
+    /.editorconfig
+    ```
 
 This will use the analyzer configuration suitable for Orchard Core projects. If you want to use the this in a non-Orchard .NET app then switch over to the general configuration by adding the following to the *Directory.Build.props* file:
 
