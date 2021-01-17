@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RuleSet Name="General C# rules" ToolsVersion="16.0">
+  <Rules AnalyzerId="AsyncFixer" RuleNamespace="AsyncFixer">
+    <Rule Id="AsyncFixer01" Action="None" />
+  </Rules>
   <Rules AnalyzerId="DocumentationAnalyzers" RuleNamespace="DocumentationAnalyzers">
     <Rule Id="DOC100" Action="Warning" />
     <Rule Id="DOC101" Action="Warning" />
