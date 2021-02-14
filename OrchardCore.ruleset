@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="Orchard-Core C# rules" ToolsVersion="16.0">
-  <Include Path="general.ruleset" Action="Default" />
+<RuleSet Name="Orchard Core C# rules" ToolsVersion="16.0">
+  <Include Path="General.ruleset" Action="Default" />
   <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
     <Rule Id="CA1710" Action="Hidden" />
     <Rule Id="CA1711" Action="Hidden" />
