@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="Orchard 1 C# rules" ToolsVersion="16.0">
+  <Include Path="OrchardCore.ruleset" Action="Default" />
+</RuleSet>
