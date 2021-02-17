@@ -14,10 +14,8 @@
     <!-- This is for Microsoft.CodeAnalysis.NetAnalyzers. This way, we have control over it unlike when getting it
     via the .NET SDK. See: https://docs.microsoft.com/en-us/visualstudio/code-quality/migrate-from-fxcop-analyzers-to-net-analyzers -->
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
-    <!--
-			Turn off the generation of $(IntermediateOutputPath)$(MSBuildProjectName).GeneratedMSBuildEditorConfig.editorconfig files.
-			see: https://github.com/dotnet/roslyn/blob/ff854c695779990b9b269029a8615782a59ec530/src/Compilers/Core/MSBuildTask/Microsoft.Managed.Core.targets#L104
-		-->
+    <!-- Turn off the generation of $(IntermediateOutputPath)$(MSBuildProjectName).GeneratedMSBuildEditorConfig.editorconfig files. See:
+    https://github.com/dotnet/roslyn/blob/ff854c695779990b9b269029a8615782a59ec530/src/Compilers/Core/MSBuildTask/Microsoft.Managed.Core.targets#L104 -->
     <GenerateMSBuildEditorConfigFile>false</GenerateMSBuildEditorConfigFile>
   </PropertyGroup>
 
