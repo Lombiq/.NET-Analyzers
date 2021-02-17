@@ -1,9 +1,11 @@
 <Project>
   <PropertyGroup>
-    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)OrchardCore.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)Orchard1.ruleset</CodeAnalysisRuleSet>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <!-- Don't run analyzers during Visual Studio build, not to slow down development. They still run during dotnet build. -->
-    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+    <!-- For .NET Fx, we need RunAnalyzersDuringBuild to be true for errors to appear in a command line build, see:
+    https://docs.microsoft.com/en-us/visualstudio/code-quality/disable-code-analysis?view=vs-2019#net-framework-projects -->
+    <!--<RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>-->
     <!-- Useful to set here since the language version affects which analyzers to use and how to configure them. -->
     <LangVersion>9.0</LangVersion>
     <!-- Setting the analysis level explicitly lets us opt in to new analyzers with SDK upgrades. See:
@@ -12,6 +14,11 @@
     <!-- This is for Microsoft.CodeAnalysis.NetAnalyzers. This way, we have control over it unlike when getting it
     via the .NET SDK. See: https://docs.microsoft.com/en-us/visualstudio/code-quality/migrate-from-fxcop-analyzers-to-net-analyzers -->
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+    <!--
+			Turn off the generation of $(IntermediateOutputPath)$(MSBuildProjectName).GeneratedMSBuildEditorConfig.editorconfig files.
+			see: https://github.com/dotnet/roslyn/blob/ff854c695779990b9b269029a8615782a59ec530/src/Compilers/Core/MSBuildTask/Microsoft.Managed.Core.targets#L104
+		-->
+    <GenerateMSBuildEditorConfigFile>false</GenerateMSBuildEditorConfigFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -40,7 +47,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
-  
+
   <ItemGroup>
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" />
   </ItemGroup>
@@ -51,7 +58,7 @@
     </ItemGroup>
   </Target>
 
-  <Target Name="Copy editorconfig" AfterTargets="AfterResolveReferences" Condition="'$(SolutionDir)' != '*Undefined*'">
-    <Copy SourceFiles="$(MSBuildThisFileDirectory).editorconfig" DestinationFolder="$(SolutionDir)" SkipUnchangedFiles="true" />
+  <Target Name="Copy editorconfig" AfterTargets="AfterResolveReferences">
+    <Copy SourceFiles="$(MSBuildThisFileDirectory).editorconfig" DestinationFolder="$(MSBuildProjectDirectory)" SkipUnchangedFiles="true" />
   </Target>
 </Project>
