@@ -6,8 +6,6 @@
     <!-- For .NET Fx, we need RunAnalyzersDuringBuild to be true for errors to appear in a command line build, see:
     https://docs.microsoft.com/en-us/visualstudio/code-quality/disable-code-analysis?view=vs-2019#net-framework-projects -->
     <!--<RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>-->
-    <!-- Useful to set here since the language version affects which analyzers to use and how to configure them. -->
-    <LangVersion>9.0</LangVersion>
     <!-- Setting the analysis level explicitly lets us opt in to new analyzers with SDK upgrades. See:
     https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#latest-updates -->
     <AnalysisLevel>5.0</AnalysisLevel>
