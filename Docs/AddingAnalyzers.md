@@ -44,6 +44,8 @@ This will use the analyzer configuration suitable for Orchard Core projects. If 
     ```
     .editorconfig
     ```
+    
+This will use the analyzer configuration suitable for Orchard 1 projects. If you want to use the this in a non-Orchard .NET Framework app then use the *General.ruleset* file as described above.
 
 
 ## Introducing analyzers to an existing project
