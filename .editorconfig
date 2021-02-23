@@ -92,6 +92,9 @@ dotnet_diagnostic.IDE0011.severity = none
 # Quite dangerous as we most frequently use anonymous types to interface with other APIs (like generating routes) and
 # those can fail on this silently in runtime while building correctly.
 dotnet_diagnostic.IDE0050.severity = none
+# IDE0052: Private member can be removed as the value assigned to it is never used.
+# We use S4487 for that.
+dotnet_diagnostic.IDE0052.severity = none
 # IDE0072: Populate switch
 # Also signals on switches with discards, by design: https://github.com/dotnet/roslyn/issues/48876.
 dotnet_diagnostic.IDE0072.severity = none
