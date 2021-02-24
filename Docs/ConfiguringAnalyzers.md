@@ -58,6 +58,8 @@ If not all the configuration in this project is suitable for your solution then 
     ```
 3. Now every rule you defined in *My.ruleset* will take precedence over the default ones. For everything else the default ones will be applied.
 
+Note that if you add your ruleset file to the solution you'll get GUI support for it in Visual Studio and you'll be able to configure rules without manually editing the XML.
+
 ### Overriding *.editorconfig* rules
 
 You can't as easily do the same as with ruleset files with *.editorconfig* rules. [It's not possible to define explicit inheritance between *.editorconfig* files](https://github.com/editorconfig/editorconfig/issues/236) so [the only option is to use the folder hierarchy](https://stackoverflow.com/a/58556556/220230): The *Build.props* file of this project copies the default *.editorconfig* file into the solution root. If you put your projects below that in the folder hierarchy and use your own *.editorconfig* there then the latter will take precedence and you can override the default rules.

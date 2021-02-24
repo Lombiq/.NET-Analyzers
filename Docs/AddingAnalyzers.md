@@ -2,7 +2,7 @@
 
 
 
-## How to add the analyzers to your project repository
+## How to add the analyzers to your whole repository of SDK-style projects
 
 1. Add to *.gitmodules* file (we use the *tools* subfolder for the submodule's folder here but feel free to use something else):
    ```
@@ -12,10 +12,10 @@
        branch = dev
    ```
    *`path` can target anything but we suggest either the folder where the solution `.sln` file is located (mostly the repository root) or a "tools" subfolder therein.*
-2. Create a *Directory.Build.props* file in the folder where the solution *.sln* file is located (mostly the repository root) with the following content (if you've put the submodule in to a different folder then change the path):
+2. Create a *Directory.Build.props* file in the folder where the solution *.sln* file is located (mostly the repository root) with the following content (if you've put the submodule into a different folder then change the path):
    ```xml
    <Project>
-     <Import Project="tools/Lombiq.Analyzers/Build.props"/>
+     <Import Project="tools/Lombiq.Analyzers/Build.props" />
    </Project>
    ```
 3. Since the project's *.editorconfig* file will be copied into your solution's root you may want to gitignore it:
@@ -31,6 +31,22 @@ This will use the analyzer configuration suitable for Orchard Core projects. If 
 </PropertyGroup>
 ```
 
+## How to add the analyzers to individual non-SDK-style .NET Framework projects (not solutions)
+
+1. Same as above - add the .NET-Analyzers repository as a submodule to your repository.
+2. Create a *Directory.Build.props* file in every project folder you want to target, next to the *.csproj* file with the following content (import the *`NetFx.Build.props`* file instead of *Build.props*, adjust the relative path as suitable):
+   ```xml
+   <Project>
+     <Import Project="../../../tools/Lombiq.Analyzers/NetFx.Build.props" />
+   </Project>
+   ```
+3. The *NetFx.Build.props* will copy this project's *.editorconfig* file into every project folder that you've created a *Directory.Build.props* in, so you might want to gitignore those:
+    ```
+    .editorconfig
+    ```
+    
+This will use the analyzer configuration suitable for Orchard 1 projects. If you want to use this in a non-Orchard .NET Framework app then use the *General.ruleset* file as described above.
+
 
 ## Introducing analyzers to an existing project
 
@@ -43,7 +59,11 @@ What to do if you're not starting a green-field project but want to add analyzer
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
     ```
-3. While this project can be used with .NET Framework, .NET Core and .NET 5 or later projects alike, it needs all projects to use the new SDK-style csproj format. You [can convert projects manually](https://docs.microsoft.com/en-us/dotnet/core/porting/#per-project-steps) or automatically with the [try-convert](https://github.com/dotnet/try-convert) utility. You'll also need to manually remove any leftover `packages.config` files and adjust `NuGet.config` files. 
+3. .NET compatibility:
+    - .NET Core and .NET 5 or later projects can use this without anything special.
+    - .NET Framework projects:
+      - Projects using the new SDK-style csproj format don't need anything special. You [can convert projects manually](https://docs.microsoft.com/en-us/dotnet/core/porting/#per-project-steps) from the non-SDK-style csproj format or automatically with the [try-convert](https://github.com/dotnet/try-convert) utility. You'll also need to manually remove any leftover *packages.config* files and adjust *NuGet.config* files.
+      - Projects using the legacy, non-SDK-style csproj format should use *NetFx.Build.props* as described above, but the including project needs to use `PackageReference`s. You can convert your *packages.config*-based project to `PackageReference`s using [this walkthrough](https://docs.microsoft.com/en-us/nuget/consume-packages/migrate-packages-config-to-package-reference).  
 4. Now you can add this project to yours as explained above.
 5. Introduce analyzers gradually unless it's a small project and you can fix every analyzer violation at once. To do this, only enable a handful of analyzers first (or enable them just for a couple of projects in a given solution), fix the violations, get used to them, then enable more later. See [the docs on configuring analyzers](ConfiguringAnalyzers.md) for how to do disable certain analyzers of the default configuration and thus activating analyzers in your code base gradually. We recommend enabling analyzers and fixing violations in at least three stages:
     1. All the simpler rules, i.e. all rules except the ones in the next steps (that means, if you're working with the default configuration, to disable the rules mentioned in the next steps). These are quite straightforward to fix, to an extent can be done even automatically. It's the best if you group warnings by code in the Error List and fix them one by one, committing to the repository after completing each. It's better to batch this work in a way that you fix a particular type of warning for all projects of a solution at once, as opposed to fixing multiple type of warnings for just selected projects. This is because it's more efficient to just repeat the same kind of fix for all projects (can sometimes even be done automatically) in one go instead of revisiting it in multiple iterations. For tips on how to make fixing violations easier see [this page](UsingAnalyzersDuringDevelopment.md).
