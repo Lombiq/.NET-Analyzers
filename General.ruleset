@@ -243,9 +243,6 @@
     <Rule Id="VSTHRD109" Action="Warning" />
     <Rule Id="VSTHRD112" Action="Warning" />
   </Rules>
-  <Rules AnalyzerId="SecurityCodeScan" RuleNamespace="SecurityCodeScan">
-    <Rule Id="SCS0005" Action="None" />
-  </Rules>
   <Rules AnalyzerId="SonarAnalyzer.CSharp" RuleNamespace="SonarAnalyzer.CSharp">
     <Rule Id="S100" Action="Warning" />
     <Rule Id="S103" Action="Warning" />

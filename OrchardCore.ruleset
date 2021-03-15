@@ -18,4 +18,7 @@
     <Rule Id="CA5391" Action="Hidden" />
     <Rule Id="CA5395" Action="Hidden" />
   </Rules>
+  <Rules AnalyzerId="SecurityCodeScan.VS2019" RuleNamespace="SecurityCodeScan.VS2019">
+    <Rule Id="SCS0012" Action="None" />
+  </Rules>
 </RuleSet>
