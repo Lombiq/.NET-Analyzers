@@ -3,7 +3,7 @@
 
 
 
-The following notes are useful if you're building not from within and IDE but from the command line, like in a CI environment.
+The following notes are useful if you're building not from within and IDE but from the command line, like in a CI environment. **Note** the instructions for non-SDK-style .NET Framework projects at the bottom; those projects can't use `dotnet build`!
 
 
 ## Showing analyzer warnings during `dotnet build`
@@ -42,3 +42,12 @@ dotnet build MySolution.sln --no-incremental -warnaserror /p:TreatWarningsAsErro
 ```
 
 Note that code style analysis is experimental in the .NET 5 SDK and [may change in later versions](https://github.com/dotnet/roslyn/issues/49044).
+
+
+## Non-SDK-style .NET Framework projects
+
+Non-SDK-style .NET Framework projects can't use `dotnet build` for analyzer warnings to show during build, not just in Visual Studio, because it won't resolve `<PackageReference>` elements (see [this issue](https://github.com/dotnet/msbuild/issues/5250)). You'll need to use the following command to achieve what's elaborated above for `dotnet build` (change the MSBuild path to a suitable one):
+
+```ps
+& "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" MySolution.sln /p:TreatWarningsAsErrors=true /p:EnforceCodeStyleInBuild=true /p:RunAnalyzersDuringBuild=true /t:Rebuild /restore
+```

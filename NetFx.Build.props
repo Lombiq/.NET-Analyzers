@@ -1,7 +1,9 @@
 <Project>
   <PropertyGroup>
     <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)Orchard1.ruleset</CodeAnalysisRuleSet>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	<!-- Simply <GenerateDocumentationFile>true</GenerateDocumentationFile> can't be used because that's for SDK 
+	projects only, see: https://stackoverflow.com/a/47118584/220230. -->
+    <DocumentationFile>$(OutputPath)\$(MSBuildProjectName).xml</DocumentationFile>
     <!-- Don't run analyzers during Visual Studio build, not to slow down development. They still run during dotnet build. -->
     <!-- For .NET Fx, we need RunAnalyzersDuringBuild to be true for errors to appear in a command line build, see:
     https://docs.microsoft.com/en-us/visualstudio/code-quality/disable-code-analysis?view=vs-2019#net-framework-projects -->
@@ -17,32 +19,7 @@
     <GenerateMSBuildEditorConfigFile>false</GenerateMSBuildEditorConfigFile>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="AsyncFixer" Version="1.5.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="DotNetAnalyzers.DocumentationAnalyzers" Version="1.0.0-beta.59">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="5.0.3">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="16.8.55" />
-    <PackageReference Include="SecurityCodeScan" Version="3.5.3">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.16.0.25740">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.321">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-  </ItemGroup>
+  <Import Project="$(MSBuildThisFileDirectory)Packages.props" />
 
   <ItemGroup>
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" />
