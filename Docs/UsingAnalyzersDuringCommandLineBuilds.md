@@ -49,5 +49,5 @@ Note that code style analysis is experimental in the .NET 5 SDK and [may change 
 Non-SDK-style .NET Framework projects can't use `dotnet build` for analyzer warnings to show during build, not just in Visual Studio, because it won't resolve `<PackageReference>` elements (see [this issue](https://github.com/dotnet/msbuild/issues/5250)). You'll need to use the following command to achieve what's elaborated above for `dotnet build` (change the MSBuild path to a suitable one):
 
 ```ps
-& "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" MySolution.sln /p:TreatWarningsAsErrors=true /p:EnforceCodeStyleInBuild=true /p:RunAnalyzersDuringBuild=true /t:Rebuild
+& "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" MySolution.sln /p:TreatWarningsAsErrors=true /p:EnforceCodeStyleInBuild=true /p:RunAnalyzersDuringBuild=true /t:Rebuild /restore
 ```
