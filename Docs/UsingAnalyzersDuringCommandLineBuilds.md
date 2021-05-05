@@ -23,22 +23,22 @@ dotnet build MySolution.sln --no-incremental /p:TreatWarningsAsErrors=true
 
 ## .NET code style analysis
 
-If you want code style analysis configured in *.editorconfig* (i.e. IDE\* rules, this is not applicable to the others) to be checked during build too (it's already checked during editing) then you'll need to use the .NET 5 SDK or later [and configure `EnforceCodeStyleInBuild`](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#code-style-analysis). This is not enabled in this project globally, not to slow down Visual Studio builds. However, you can enable it during `dotnet build` by using two switches like following:
+If you want code style analysis configured in *.editorconfig* (i.e. IDE\* rules, this is not applicable to the others) to be checked during build too (it's already checked during editing) then you'll need to run the build with `RunAnalyzersDuringBuild=true`. **Don't** enable `EnforceCodeStyleInBuild` as explained in [the docs](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#code-style-analysis) since that'll always use the analyzers from the .NET SDK, not the explicitly referenced packages, and will cause violations not to show (see [this comment](https://github.com/dotnet/roslyn/issues/50785#issuecomment-768606882)).
 
 ```ps
-dotnet build MySolution.sln --no-incremental /p:EnforceCodeStyleInBuild=true /p:RunAnalyzersDuringBuild=true
+dotnet build MySolution.sln --no-incremental /p:RunAnalyzersDuringBuild=true
 ```
 
 Our recommendation is to use it together with `TreatWarningsAsErrors` but do note that for code style analysis warnings you also have to specify `-warnaserror` (this is not needed for the other analyzers):
 
 ```ps
-dotnet build MySolution.sln --no-incremental -warnaserror /p:TreatWarningsAsErrors=true /p:EnforceCodeStyleInBuild=true /p:RunAnalyzersDuringBuild=true
+dotnet build MySolution.sln --no-incremental -warnaserror /p:TreatWarningsAsErrors=true /p:RunAnalyzersDuringBuild=true
 ```
 
 Or if you only want to see the errors and not the full build output (including e.g. NuGet restores, build messages):
 
 ```ps
-dotnet build MySolution.sln --no-incremental -warnaserror /p:TreatWarningsAsErrors=true /p:EnforceCodeStyleInBuild=true /p:RunAnalyzersDuringBuild=true -nologo -consoleLoggerParameters:NoSummary -verbosity:quiet
+dotnet build MySolution.sln --no-incremental -warnaserror /p:TreatWarningsAsErrors=true /p:RunAnalyzersDuringBuild=true -nologo -consoleLoggerParameters:NoSummary -verbosity:quiet
 ```
 
 Note that code style analysis is experimental in the .NET 5 SDK and [may change in later versions](https://github.com/dotnet/roslyn/issues/49044).
@@ -49,5 +49,5 @@ Note that code style analysis is experimental in the .NET 5 SDK and [may change 
 Non-SDK-style .NET Framework projects can't use `dotnet build` for analyzer warnings to show during build, not just in Visual Studio, because it won't resolve `<PackageReference>` elements (see [this issue](https://github.com/dotnet/msbuild/issues/5250)). You'll need to use the following command to achieve what's elaborated above for `dotnet build` (change the MSBuild path to a suitable one):
 
 ```ps
-& "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" MySolution.sln /p:TreatWarningsAsErrors=true /p:EnforceCodeStyleInBuild=true /p:RunAnalyzersDuringBuild=true /t:Rebuild /restore
+& "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" MySolution.sln /p:TreatWarningsAsErrors=true /p:RunAnalyzersDuringBuild=true /t:Rebuild /restore
 ```
