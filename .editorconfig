@@ -13,7 +13,7 @@
 # Basics
 
 charset = utf-8
-guidelines = 120
+guidelines = 120 1px dotted 80ff0000, 150 1px solid 80ff0000
 
 # Indentation and spacing
 indent_size = 4
