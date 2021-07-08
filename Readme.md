@@ -37,6 +37,13 @@ Furthermore, the project also includes an *.editorconfig* file with additional c
 When a new version of the .NET SDK comes out then you need to change the `LangVersion` and `AnalysisLevel` elements in the *Build.props* file to opt in to new language features and analyzers. This does not concern non-SDK-style .NET Framework projects.
 
 
+## Visual Studio development
+
+The following VS extensions fit nicely into an analyzer-aided developer workflow:
+- [Rewrap](https://marketplace.visualstudio.com/items?itemName=stkb.Rewrap-18980) helps you wrap comment text at a character limit you can change in the settings. We recommend this to be set to 120.
+- [Editor Guidelines](https://marketplace.visualstudio.com/items?itemName=PaulHarrington.EditorGuidelines) displays the column guidelines defined in our editor config.
+
+
 ## Contributing and support
 
 Bug reports, feature requests, comments, questions, code contributions, and love letters are warmly welcome, please do so via GitHub issues and pull requests. Please adhere to our [open-source guidelines](https://lombiq.com/open-source-guidelines) while doing so.
