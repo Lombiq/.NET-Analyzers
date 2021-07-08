@@ -17,7 +17,7 @@ We added and configured analyzers which are widely used and complement each othe
 - [DotNetAnalyzers.DocumentationAnalyzers](https://www.nuget.org/packages/DotNetAnalyzers.DocumentationAnalyzers/)
 - [Microsoft.CodeAnalysis.NetAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.NetAnalyzers)
 - [Microsoft.VisualStudio.Threading.Analyzers](https://www.nuget.org/packages/microsoft.visualstudio.threading.analyzers)
-- [SecurityCodeScan](https://www.nuget.org/packages/SecurityCodeScan/)
+- [SecurityCodeScan.VS2019](https://www.nuget.org/packages/SecurityCodeScan.VS2019/)
 - [StyleCop.Analyzers](https://www.nuget.org/packages/StyleCop.Analyzers/)
 - [SonarAnalyzer.CSharp](https://www.nuget.org/packages/SonarAnalyzer.CSharp/)
 
