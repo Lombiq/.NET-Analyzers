@@ -65,3 +65,7 @@ Note that if you add your ruleset file to the solution you'll get GUI support fo
 You can't as easily do the same as with ruleset files with *.editorconfig* rules. [It's not possible to define explicit inheritance between *.editorconfig* files](https://github.com/editorconfig/editorconfig/issues/236) so [the only option is to use the folder hierarchy](https://stackoverflow.com/a/58556556/220230): The *Build.props* file of this project copies the default *.editorconfig* file into the solution root. If you put your projects below that in the folder hierarchy and use your own *.editorconfig* there then the latter will take precedence and you can override the default rules.
 
 While eventually all analyzer rules in the .NET ecosystem will live in *.editorconfig* this is not the case yet. However, you can override *.editorconfig* rules from a ruleset file: You can open the ruleset file in Visual Studio and under the `Microsoft.CodeAnalysis.CSharp.Features` section you'll also be able to configure each IDE\* rule.
+
+### Overriding *stylecop.json* and *SonarLint.xml* configuration
+
+The project includes further configuration for `StyleCop.Analyzers` and `SonarAnalyzer.CSharp` in their own formats. These files are referenced as `<AdditionalFiles>` elements in the *props* files corresponding to .NET Core or later and .NET Framework. From your own *Directory.Build.props* file you need to recreate the contents of the original *props* file but reference your custom configuration file instead.
