@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" />
+	<AdditionalFiles Include="$(MSBuildThisFileDirectory)SonarLint.xml" Link="SonarLint.xml" />
   </ItemGroup>
   
   <Target Name="DisableAnalyzers" BeforeTargets="CoreCompile" Condition="'$(RunCodeAnalysis)' == 'false'">
