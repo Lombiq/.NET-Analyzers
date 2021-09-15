@@ -99,8 +99,9 @@ dotnet_diagnostic.IDE0052.severity = none
 # Also signals on switches with discards, by design: https://github.com/dotnet/roslyn/issues/48876.
 dotnet_diagnostic.IDE0072.severity = none
 # IDE0079 Remove unnecessary suppression
-# While this is in the Style category it needs to be explicitly set for some reason.
+# While these are is in the Style category they need to be explicitly set for some reason.
 dotnet_diagnostic.IDE0079.severity = warning
+dotnet_diagnostic.IDE0022.severity = warning
 
 # 'var' preferences
 dotnet_diagnostic.IDE0007.severity = warning
