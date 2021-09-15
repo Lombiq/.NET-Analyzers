@@ -4,13 +4,18 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <!-- Don't run analyzers during Visual Studio build, not to slow down development. They still run during dotnet build. -->
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+    <!-- Needed for project targeting versions earlier than .NET 5. Only works with .NET Core and later projects, see: 
+    https://docs.microsoft.com/en-us/dotnet/core/project-sdk/overview.
+    Note that this is not needed if the Microsoft.CodeAnalysis.NetAnalyzers NuGet package is installed. -->
+    <!-- <EnableNETAnalyzers>true</EnableNETAnalyzers> -->
     <!-- Useful to set here since the language version affects which analyzers to use and how to configure them. -->
     <LangVersion>9.0</LangVersion>
     <!-- Setting the analysis level explicitly lets us opt in to new analyzers with SDK upgrades. See:
     https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#latest-updates -->
     <AnalysisLevel>5.0</AnalysisLevel>
     <!-- This is for Microsoft.CodeAnalysis.NetAnalyzers. This way, we have control over it unlike when getting it
-    via the .NET SDK. See: https://docs.microsoft.com/en-us/visualstudio/code-quality/migrate-from-fxcop-analyzers-to-net-analyzers -->
+    via the .NET SDK. See: https://docs.microsoft.com/en-us/visualstudio/code-quality/migrate-from-fxcop-analyzers-to-net-analyzers
+    .NET code style analysis is not working with .NET 5 though, see: https://github.com/dotnet/roslyn/issues/33558#issuecomment-867346974. -->
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
   </PropertyGroup>
 
