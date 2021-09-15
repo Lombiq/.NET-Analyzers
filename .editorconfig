@@ -98,8 +98,11 @@ dotnet_diagnostic.IDE0052.severity = none
 # IDE0072: Populate switch
 # Also signals on switches with discards, by design: https://github.com/dotnet/roslyn/issues/48876.
 dotnet_diagnostic.IDE0072.severity = none
-# IDE0079 Remove unnecessary suppression
+# "Namespace 'Foo' does not match folder structure, expected 'Foo'"
+dotnet_diagnostic.IDE0130.severity = none
+
 # While these are is in the Style category they need to be explicitly set for some reason.
+# IDE0079 Remove unnecessary suppression
 dotnet_diagnostic.IDE0079.severity = warning
 dotnet_diagnostic.IDE0022.severity = warning
 
