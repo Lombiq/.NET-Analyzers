@@ -82,7 +82,7 @@ dotnet_code_quality_unused_parameters = non_pubic:suggestion
 # during build, see: https://github.com/dotnet/roslyn/issues/44201.
 
 # Default severity for analyzer diagnostics with category 'Style' (escalated to build warnings)
-dotnet_analyzer_diagnostic.category-Style.severity = warning
+dotnet_analyzer_diagnostics.category-Style.severity = warning
 
 # IDE0011: Add braces to 'if' statement.
 # The "when-multiline:warning" config is not actually for cases when the if body is in another line so we have to turn
