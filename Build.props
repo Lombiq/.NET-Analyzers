@@ -4,6 +4,9 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <!-- Don't run analyzers during Visual Studio build, not to slow down development. They still run during dotnet build. -->
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+    <!-- Needed for project targeting versions earlier than .NET 5. Only works with .NET Core and later projects, see: 
+    https://docs.microsoft.com/en-us/dotnet/core/project-sdk/overview. -->
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <!-- Useful to set here since the language version affects which analyzers to use and how to configure them. -->
     <LangVersion>9.0</LangVersion>
     <!-- Setting the analysis level explicitly lets us opt in to new analyzers with SDK upgrades. See:
