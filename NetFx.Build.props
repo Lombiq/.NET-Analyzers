@@ -23,7 +23,7 @@
     <GenerateMSBuildEditorConfigFile>false</GenerateMSBuildEditorConfigFile>
   </PropertyGroup>
 
-  <Import Project="$(MSBuildThisFileDirectory)Packages.props" />
+  <Import Project="$(MSBuildThisFileDirectory)CommonPackages.props" />
 
   <ItemGroup>
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" />
