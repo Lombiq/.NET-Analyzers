@@ -101,7 +101,7 @@ dotnet_diagnostic.IDE0072.severity = none
 # "Namespace 'Foo' does not match folder structure, expected 'Foo'"
 dotnet_diagnostic.IDE0130.severity = none
 
-# While these are is in the Style category they need to be explicitly set for some reason.
+# While these are in the Style category, they need to be explicitly set for some reason.
 # IDE0079 Remove unnecessary suppression
 dotnet_diagnostic.IDE0079.severity = warning
 dotnet_diagnostic.IDE0022.severity = warning
