@@ -4,7 +4,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <!-- Don't run analyzers during Visual Studio build, not to slow down development. They still run during dotnet build. -->
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
-    <!-- Needed for project targeting versions earlier than .NET 5. Only works with .NET Core and later projects, see: 
+    <!-- Needed for project targeting versions earlier than .NET 5. Only works with .NET Core and later projects, see:
     https://docs.microsoft.com/en-us/dotnet/core/project-sdk/overview.
     Note that this is not needed if the Microsoft.CodeAnalysis.NetAnalyzers NuGet package is installed. -->
     <!-- <EnableNETAnalyzers>true</EnableNETAnalyzers> -->
@@ -17,20 +17,23 @@
     via the .NET SDK. See: https://docs.microsoft.com/en-us/visualstudio/code-quality/migrate-from-fxcop-analyzers-to-net-analyzers
     .NET code style analysis is not working with .NET 5 though, see: https://github.com/dotnet/roslyn/issues/33558#issuecomment-867346974. -->
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+    <!-- This prevents unnecessary warnings so the analyzer versions will depend on the repository and not what is
+    installed by the user. see: https://github.com/dotnet/docs/issues/23232. -->
+    <_SkipUpgradeNetAnalyzersNuGetWarning>true</_SkipUpgradeNetAnalyzersNuGetWarning>
   </PropertyGroup>
 
   <Import Project="$(MSBuildThisFileDirectory)CommonPackages.props" />
-  
+
   <!-- Packages only for .NET Core and later. -->
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.Compilers" Version="3.11.0" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" />
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)SonarLint.xml" Link="SonarLint.xml" />
   </ItemGroup>
-  
+
   <Target Name="DisableAnalyzers" BeforeTargets="CoreCompile" Condition="'$(RunCodeAnalysis)' == 'false'">
     <ItemGroup>
       <Analyzer Remove="@(Analyzer)" />
