@@ -2,6 +2,9 @@
 
 
 
+This page is about configuring analyzers for at least a whole project. On suppressing just single analyzer violations see the ["Using the analyzers during development" page](UsingAnalyzersDuringDevelopment.md).
+
+
 ## How to disable all analyzers for particular projects
 
 Place a *Directory.Build.props* file into the project's folder (or folder with set of projects) with the following contents:
@@ -59,6 +62,26 @@ If not all the configuration in this project is suitable for your solution then 
 3. Now every rule you defined in *My.ruleset* will take precedence over the default ones. For everything else the default ones will be applied.
 
 Note that if you add your ruleset file to the solution you'll get GUI support for it in Visual Studio and you'll be able to configure rules without manually editing the XML.
+
+You can similarly add such `ruleset` files to subfolders, to just override rules for projects in that folder.
+
+### Suppressing analyzers from code for a whole project
+
+You can suppress specific analyzer rules for a whole project from code as well. Add a *GlobalSuppressions.cs* file to your project, add `SuppressMessage` attributes to it like below:
+
+```csharp
+// This file is used by Code Analysis to maintain SuppressMessage attributes that are applied to this project.
+// Project-level suppressions either have no target or are given a specific target and scoped to a namespace, type,
+// member, etc.
+
+using System.Diagnostics.CodeAnalysis;
+
+[assembly: SuppressMessage(
+    "Minor Code Smell",
+    "S1199:Nested code blocks should not be used",
+    Justification = "UI tests commonly have small inner blocks for managing one-off elements like dropdowns.",
+    Scope = "module")]
+```
 
 ### Overriding *.editorconfig* rules
 

@@ -13,7 +13,7 @@
 
 ## Practices on suppressing a rule for a given piece of code
 
-Analyzers are not perfect so they can give false positives, and there can always be justified exceptions to every rule, so suppressing analyzer warnings is fine if done in moderation (if you have to do it a lot for a given rule then the rule is not suitable for your coding style). When doing so adhere to the following:
+Analyzers are not perfect so they can give false positives, and there can always be justified exceptions to every rule, so suppressing analyzer warnings (as e.g. Visual Studio offers it, with and `SuppressMessage` attribute or with `#pragma warning disable`) is fine if done in moderation (if you have to do it a lot for a given rule then the rule is not suitable for your coding style). When doing so adhere to the following:
 
 - Always suppress a warning in the smallest scope possible.
 - Use the `#pragma` suppress for specific lines of code.
