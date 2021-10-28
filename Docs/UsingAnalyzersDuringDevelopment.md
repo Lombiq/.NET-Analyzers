@@ -19,3 +19,33 @@ Analyzers are not perfect so they can give false positives, and there can always
 - Use the `#pragma` suppress for specific lines of code.
 - Only use the `SuppressMessage` attribute on a member (or even a whole project) if the suppress absolutely must cover the whole member or if it's for a method argument.
 - Always add a justification.
+
+Example where the `SuppressMessage` attribute is suitable (note how the suppression affects the whole type, and a justification is provided):
+
+```c#
+[SuppressMessage(
+    "Design",
+    "CA1008:Enums should have zero value",
+    Justification = "Since members correspond to specific numbers, we can't have a zero value.")]
+public enum Numbers
+{
+    One = 1,
+    Two = 2,
+    Three = 3,
+}
+```
+
+Example where the `#pragma` suppress is suitable (note how the suppression only affects the class declaration and a justifications is provided):
+
+```c#
+    // The extension method should follow the naming of the original class.
+#pragma warning disable S101 // Types should be named in PascalCase
+    public static class RNGCryptoServiceProviderExtensions
+#pragma warning restore S101 // Types should be named in PascalCase
+    {
+        public static int Next(this RNGCryptoServiceProvider rng, int minValue, int maxValue)
+        {
+            // ...
+        }
+    }
+```
