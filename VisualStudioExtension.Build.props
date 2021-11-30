@@ -1,42 +1,7 @@
 <Project>
   <PropertyGroup>
     <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)VisualStudioExtension.ruleset</CodeAnalysisRuleSet>
-	<!-- Simply <GenerateDocumentationFile>true</GenerateDocumentationFile> can't be used because that's for SDK 
-	projects only, see: https://stackoverflow.com/a/47118584/220230. -->
-    <DocumentationDir>$(OutputPath)</DocumentationDir>
-    <!-- Sometimes OutputPath (as well as BaseOutputPath and OutDir) can be empty even though this is supposedly fixed:
-    https://github.com/dotnet/sdk/issues/738. -->
-    <DocumentationDir Condition="'$(DocumentationDir)' == ''">bin</DocumentationDir>
-    <DocumentationFile>$(DocumentationDir)\$(MSBuildProjectName).xml</DocumentationFile>
-    <!-- Don't run analyzers during Visual Studio build, not to slow down development. They still run during dotnet build. -->
-    <!-- For .NET Fx, we need RunAnalyzersDuringBuild to be true for errors to appear in a command line build, see:
-    https://docs.microsoft.com/en-us/visualstudio/code-quality/disable-code-analysis?view=vs-2019#net-framework-projects -->
-    <!--<RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>-->
-    <!-- Setting the analysis level explicitly lets us opt in to new analyzers with SDK upgrades. See:
-    https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#latest-updates -->
-    <AnalysisLevel>5.0</AnalysisLevel>
-    <!-- This is for Microsoft.CodeAnalysis.NetAnalyzers. This way, we have control over it unlike when getting it
-    via the .NET SDK. See: https://docs.microsoft.com/en-us/visualstudio/code-quality/migrate-from-fxcop-analyzers-to-net-analyzers -->
-    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
-    <!-- Turn off the generation of $(IntermediateOutputPath)$(MSBuildProjectName).GeneratedMSBuildEditorConfig.editorconfig files. See:
-    https://github.com/dotnet/roslyn/blob/ff854c695779990b9b269029a8615782a59ec530/src/Compilers/Core/MSBuildTask/Microsoft.Managed.Core.targets#L104 -->
-    <GenerateMSBuildEditorConfigFile>false</GenerateMSBuildEditorConfigFile>
   </PropertyGroup>
 
-  <Import Project="$(MSBuildThisFileDirectory)CommonPackages.props" />
-
-  <ItemGroup>
-    <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" />
-    <AdditionalFiles Include="$(MSBuildThisFileDirectory)SonarLint.xml" Link="SonarLint.xml" />
-  </ItemGroup>
-  
-  <Target Name="DisableAnalyzers" BeforeTargets="CoreCompile" Condition="'$(RunCodeAnalysis)' == 'false'">
-    <ItemGroup>
-      <Analyzer Remove="@(Analyzer)" />
-    </ItemGroup>
-  </Target>
-
-  <Target Name="Copy editorconfig" AfterTargets="AfterResolveReferences">
-    <Copy SourceFiles="$(MSBuildThisFileDirectory).editorconfig" DestinationFolder="$(MSBuildProjectDirectory)" SkipUnchangedFiles="true" />
-  </Target>
+  <Import Project="$(MSBuildThisFileDirectory)Common.Build.props" />
 </Project>
