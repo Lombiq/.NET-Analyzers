@@ -1,7 +1,6 @@
 <Project>
   <PropertyGroup>
-    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)Orchard1.ruleset</CodeAnalysisRuleSet>
-	<CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)VisualStudioExtension.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)VisualStudioExtension.ruleset</CodeAnalysisRuleSet>
 	<!-- Simply <GenerateDocumentationFile>true</GenerateDocumentationFile> can't be used because that's for SDK 
 	projects only, see: https://stackoverflow.com/a/47118584/220230. -->
     <DocumentationDir>$(OutputPath)</DocumentationDir>
