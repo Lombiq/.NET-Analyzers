@@ -242,7 +242,7 @@
   </Rules>
   <Rules AnalyzerId="Microsoft.VisualStudio.Threading.Analyzers" RuleNamespace="Microsoft.VisualStudio.Threading.Analyzers">
     <Rule Id="VSTHRD113" Action="Warning" />
-    <Rule Id="VSTHRD200" Action="Warning" />
+    <Rule Id="VSTHRD200" Action="None" />
   </Rules>
   <Rules AnalyzerId="Microsoft.VisualStudio.Threading.Analyzers.CSharp" RuleNamespace="Microsoft.VisualStudio.Threading.Analyzers.CSharp">
     <Rule Id="VSTHRD002" Action="None" />
