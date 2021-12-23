@@ -31,6 +31,20 @@ This will use the analyzer configuration suitable for Orchard Core projects. If 
 </PropertyGroup>
 ```
 
+For at least Visual Studio and JetBrains Rider you don't need any further setup for IDE support. For [OmniSharp-integrated editors](http://www.omnisharp.net/#integrations) like Visual Studio Code you'll also need to add an _omnisharp.json_ file to the root of the solution:
+
+```json
+{
+    "RoslynExtensionsOptions": {
+        "enableAnalyzersSupport": true
+    },
+    "FormattingOptions": {
+        "enableEditorConfigSupport": true
+    }
+}
+```
+
+
 ## How to add the analyzers to individual non-SDK-style .NET Framework projects (not solutions)
 
 1. Same as above - add the .NET-Analyzers repository as a submodule to your repository.
