@@ -41,7 +41,9 @@ Furthermore, the project also includes an *.editorconfig* file with additional c
 
 ## Upgrading to a new version of the .NET SDK
 
-When a new version of the .NET SDK comes out then you need to change the `LangVersion` and `AnalysisLevel` elements in the *Build.props* file to opt in to new language features and analyzers. This does not concern non-SDK-style .NET Framework projects.
+When a new version of the .NET SDK comes out then to the following:
+- Change the `LangVersion` and `AnalysisLevel` elements in the *Build.props* file to opt in to new language features and analyzers. This does not concern non-SDK-style .NET Framework projects.
+- Wait for all analyzers to support the new SDK (primarily the new language features). Then update all packages to latest.
 
 
 ## Visual Studio development
