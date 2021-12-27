@@ -35,6 +35,7 @@
     <Rule Id="MA0047" Action="None" />
     <Rule Id="MA0048" Action="None" />
     <Rule Id="MA0049" Action="None" />
+    <Rule Id="MA0051" Action="None" />
     <Rule Id="MA0056" Action="None" />
     <Rule Id="MA0057" Action="None" />
     <Rule Id="MA0058" Action="None" />
