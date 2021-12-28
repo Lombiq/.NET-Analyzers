@@ -21,6 +21,7 @@
     <Rule Id="MA0002" Action="None" />
     <Rule Id="MA0004" Action="None" />
     <Rule Id="MA0005" Action="None" />
+    <Rule Id="MA0006" Action="None" />
     <Rule Id="MA0011" Action="None" />
     <Rule Id="MA0012" Action="None" />
     <Rule Id="MA0013" Action="None" />
