@@ -9,9 +9,7 @@
     <DocumentationDir Condition="'$(DocumentationDir)' == ''">bin</DocumentationDir>
     <DocumentationFile>$(DocumentationDir)\$(MSBuildProjectName).xml</DocumentationFile>
     <!-- Don't run analyzers during Visual Studio build, not to slow down development. They still run during dotnet build. -->
-    <!-- For .NET Fx, we need RunAnalyzersDuringBuild to be true for errors to appear in a command line build, see:
-    https://docs.microsoft.com/en-us/visualstudio/code-quality/disable-code-analysis?view=vs-2019#net-framework-projects -->
-    <!--<RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>-->
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
     <!-- Setting the analysis level explicitly lets us opt in to new analyzers with SDK upgrades. See:
     https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#latest-updates -->
     <AnalysisLevel>5.0</AnalysisLevel>
