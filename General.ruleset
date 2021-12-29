@@ -33,7 +33,7 @@
     <Rule Id="MA0027" Action="None" />
     <Rule Id="MA0028" Action="None" />
     <Rule Id="MA0029" Action="None" />
-    <Rule Id="MA0031" Action="Warning" />
+    <Rule Id="MA0031" Action="None" />
     <Rule Id="MA0036" Action="None" />
     <Rule Id="MA0037" Action="None" />
     <Rule Id="MA0038" Action="None" />
