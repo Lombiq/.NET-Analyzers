@@ -39,23 +39,22 @@ Furthermore, the project also includes an *.editorconfig* file with additional c
 - [Using the analyzers during command line builds](Docs/UsingAnalyzersDuringCommandLineBuilds.md)
 - [Configuring analyzers](Docs/ConfiguringAnalyzers.md)
 
-
-## Upgrading to a new version of the .NET SDK
-
-When a new version of the .NET SDK comes out then to the following:
-- Change the `LangVersion` and `AnalysisLevel` elements in the *Build.props* file to opt in to new language features and analyzers. This does not concern non-SDK-style .NET Framework projects.
-- Wait for all analyzers to support the new SDK (primarily the new language features). Then update all packages to latest.
-
-
-## Visual Studio development
-
-The following VS extensions fit nicely into an analyzer-aided developer workflow:
-- [Rewrap](https://marketplace.visualstudio.com/items?itemName=stkb.Rewrap-18980) helps you wrap comment text at a character limit you can change in the settings. We recommend this to be set to 120.
-- [Editor Guidelines](https://marketplace.visualstudio.com/items?itemName=PaulHarrington.EditorGuidelines) displays the column guidelines defined in our editor config.
-
-
 ## Contributing and support
 
 Bug reports, feature requests, comments, questions, code contributions, and love letters are warmly welcome, please do so via GitHub issues and pull requests. Please adhere to our [open-source guidelines](https://lombiq.com/open-source-guidelines) while doing so.
 
 This project is developed by [Lombiq Technologies](https://lombiq.com/). Commercial-grade support is available through Lombiq.
+
+### Upgrading to a new version of the .NET SDK
+When a new version of the .NET SDK comes out then to the following:
+- Change the `LangVersion` and `AnalysisLevel` elements in the *Build.props* file to opt in to new language features and analyzers. This does not concern non-SDK-style .NET Framework projects.
+- Wait for all analyzers to support the new SDK (primarily the new language features). Then update all packages to latest.
+
+### Adding a new analyzer
+When adding a new analyzer package, do the following:
+
+- Check if the project is actively developed with issues addressed quickly.
+- Check if it has any significant impact on build or editing performance.
+- Go through all rules in the package and decide one by one whether we need them.
+    - Check for rules that are already covered by some other analyzer and disable duplicates.
+    - All rules that we need should be surfaced as Warnings. This allows to only break the build on analyzer violations when we need it, i.e. during CI builds but not during development.
