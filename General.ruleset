@@ -62,6 +62,7 @@
     <Rule Id="MA0071" Action="Warning" />
     <Rule Id="MA0072" Action="None" />
     <Rule Id="MA0073" Action="None" />
+    <Rule Id="MA0074" Action="None" />
     <Rule Id="MA0075" Action="Warning" />
     <Rule Id="MA0076" Action="Warning" />
     <Rule Id="MA0078" Action="Warning" />
