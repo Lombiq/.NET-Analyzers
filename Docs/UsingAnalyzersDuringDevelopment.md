@@ -13,6 +13,8 @@
 
 ## Practices on suppressing a rule for a given piece of code
 
+This section is about suppressing analyzers for just certain lines of code or at most a class. On configuring analyzers for a wider scope, see [Configuring analyzers](ConfiguringAnalyzers.md)
+
 Analyzers are not perfect so they can give false positives, and there can always be justified exceptions to every rule, so suppressing analyzer warnings (as e.g. Visual Studio offers it, with and `SuppressMessage` attribute or with `#pragma warning disable`) is fine if done in moderation (if you have to do it a lot for a given rule then the rule is not suitable for your coding style). When doing so adhere to the following:
 
 - Always suppress a warning in the smallest scope possible.
@@ -49,3 +51,5 @@ Example where the `#pragma` suppress is suitable (note how the suppression only 
         }
     }
 ```
+
+For further details see the [official docs](https://docs.microsoft.com/en-us/visualstudio/code-quality/in-source-suppression-overview).

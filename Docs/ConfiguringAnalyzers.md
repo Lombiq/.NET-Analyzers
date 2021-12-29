@@ -2,7 +2,8 @@
 
 
 
-This page is about configuring analyzers for at least a whole project. On suppressing just single analyzer violations see the ["Using the analyzers during development" page](UsingAnalyzersDuringDevelopment.md).
+This page is about configuring analyzers for at least a whole folder or project. On suppressing just single analyzer violations see the ["Using the analyzers during development" page](UsingAnalyzersDuringDevelopment.md). For further details see the [official docs](https://docs.microsoft.com/en-us/visualstudio/code-quality/use-roslyn-analyzers).
+
 
 
 ## How to disable all analyzers for particular projects
@@ -85,7 +86,15 @@ using System.Diagnostics.CodeAnalysis;
 
 ### Overriding *.editorconfig* rules
 
-You can't as easily do the same as with ruleset files with *.editorconfig* rules. [It's not possible to define explicit inheritance between *.editorconfig* files](https://github.com/editorconfig/editorconfig/issues/236) so [the only option is to use the folder hierarchy](https://stackoverflow.com/a/58556556/220230): The *Build.props* file of this project copies the default *.editorconfig* file into the solution root. If you put your projects below that in the folder hierarchy and use your own *.editorconfig* there then the latter will take precedence and you can override the default rules.
+You can't as easily do the same as with ruleset files with *.editorconfig* rules. [It's not possible to define explicit inheritance between *.editorconfig* files](https://github.com/editorconfig/editorconfig/issues/236) so [the only option is to use the folder hierarchy](https://stackoverflow.com/a/58556556/220230): The *Build.props* file of this project copies the default *.editorconfig* file into the solution root. If you put your projects below that in the folder hierarchy and use your own *.editorconfig* there then the latter will take precedence and you can override the default rules. E.g. you can override certain analyzer rules for a whole folder (even a folder within a project) like this:
+
+```editor-config
+# C# files
+[*.cs]
+
+# MA0016: Prefer return collection abstraction instead of implementation
+dotnet_diagnostic.MA0016.severity = none
+```
 
 While eventually all analyzer rules in the .NET ecosystem will live in *.editorconfig* this is not the case yet. However, you can override *.editorconfig* rules from a ruleset file: You can open the ruleset file in Visual Studio and under the `Microsoft.CodeAnalysis.CSharp.Features` section you'll also be able to configure each IDE\* rule.
 
