@@ -58,3 +58,4 @@ When adding a new analyzer package, do the following:
 - Go through all rules in the package and decide one by one whether we need them.
     - Check for rules that are already covered by some other analyzer and disable duplicates.
     - All rules that we need should be surfaced as Warnings. This allows to only break the build on analyzer violations when we need it, i.e. during CI builds but not during development.
+- Test it on multiple significant solutions. Using the [Hastlayer SDK](https://github.com/Lombiq/Hastlayer-SDK) is a good example as it's a large C# solution.
