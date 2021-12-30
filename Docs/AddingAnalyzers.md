@@ -27,7 +27,7 @@ This will use the analyzer configuration suitable for Orchard Core projects. If 
 
 ```xml
 <PropertyGroup>
-    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)General.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)tools/Lombiq.Analyzers/General.ruleset</CodeAnalysisRuleSet>
 </PropertyGroup>
 ```
 
