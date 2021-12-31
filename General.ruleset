@@ -50,7 +50,6 @@
     <Rule Id="MA0051" Action="None" />
     <Rule Id="MA0052" Action="None" />
     <Rule Id="MA0053" Action="None" />
-    <Rule Id="MA0055" Action="None" />
     <Rule Id="MA0056" Action="None" />
     <Rule Id="MA0057" Action="None" />
     <Rule Id="MA0058" Action="None" />
