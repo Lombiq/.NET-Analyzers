@@ -9,7 +9,7 @@
     Note that this is not needed if the Microsoft.CodeAnalysis.NetAnalyzers NuGet package is installed. -->
     <!-- <EnableNETAnalyzers>true</EnableNETAnalyzers> -->
     <!-- Useful to set here since the language version affects which analyzers to use and how to configure them. -->
-    <LangVersion>10.0</LangVersion>
+    <LangVersion>9.0</LangVersion>
     <!-- Setting the analysis level explicitly lets us opt in to new analyzers with SDK upgrades. See:
     https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#latest-updates -->
     <AnalysisLevel>5.0</AnalysisLevel>
@@ -26,7 +26,7 @@
 
   <!-- Packages only for .NET Core and later. -->
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.Compilers" Version="4.0.1" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Compilers" Version="3.11.0" />
   </ItemGroup>
 
   <ItemGroup>
