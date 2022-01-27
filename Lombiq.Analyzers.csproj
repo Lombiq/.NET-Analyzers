@@ -4,5 +4,23 @@
     <TargetFramework>net6.0</TargetFramework>
     <DefaultItemExcludes>$(DefaultItemExcludes);.git*;</DefaultItemExcludes>
   </PropertyGroup>
+
+  <PropertyGroup>
+    <Title></Title>
+    <Authors>Lombiq Technologies</Authors>
+    <Copyright>Copyright © 2020, Lombiq Technologies Ltd.</Copyright>
+    <Description>.NET code analyzers and code convention settings for Lombiq (https://lombiq.com) projects, predominantly for Orchard Core (https://www.orchardcore.net/) apps but also any .NET apps. See the project website for detailed documentation.</Description>
+    <PackageIcon>NuGetIcon.png</PackageIcon>
+    <PackageTags>OrchardCore;Lombiq;AspNetCore;CodeAnalysis;DotNetAnalyzers;Analyzer;Analyzers;Diagnostic;Roslyn;Refactoring;AsyncFixer;Meziantou.Analyzer;StyleCop</PackageTags>
+    <RepositoryUrl>https://github.com/Lombiq/.NET-Analyzers</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Lombiq/.NET-Analyzers</PackageProjectUrl>
+    <PackageLicenseFile>Licence.md</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Licence.md" Pack="true" PackagePath="" />
+    <None Include="Readme.md" />
+    <None Include="NuGetIcon.png" Pack="true" PackagePath="" />
+  </ItemGroup>
   
 </Project>
