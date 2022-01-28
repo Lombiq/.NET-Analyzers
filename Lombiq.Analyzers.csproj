@@ -15,6 +15,7 @@
     <RepositoryUrl>https://github.com/Lombiq/.NET-Analyzers</RepositoryUrl>
     <PackageProjectUrl>https://github.com/Lombiq/.NET-Analyzers</PackageProjectUrl>
     <PackageLicenseFile>Licence.md</PackageLicenseFile>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,6 +23,7 @@
     <None Include="Readme.md" />
     <None Include="NuGetIcon.png" Pack="true" PackagePath="" />
     <None Include="build\**" Pack="true" PackagePath="build\" />
+    <None Include=".editorconfig" Pack="true" PackagePath="" />
     <None Include="*.props" Pack="true" PackagePath="" />
     <None Include="*.ruleset" Pack="true" PackagePath="" />
     <None Include="*.xml" Pack="true" PackagePath="" />
