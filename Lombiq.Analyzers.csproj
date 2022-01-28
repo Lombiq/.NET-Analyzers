@@ -22,6 +22,10 @@
     <None Include="Readme.md" />
     <None Include="NuGetIcon.png" Pack="true" PackagePath="" />
     <None Include="build\**" Pack="True" PackagePath="build\" />
+    <None Include="*.props" Pack="true" PackagePath="" />
+    <None Include="*.ruleset" Pack="true" PackagePath="" />
+    <None Include="*.xml" Pack="true" PackagePath="" />
+    <None Include="*.json" Pack="true" PackagePath="" />
   </ItemGroup>
   
 </Project>
