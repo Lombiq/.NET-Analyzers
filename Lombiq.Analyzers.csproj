@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Title></Title>
+    <Title>Lombiq .NET Analyzers</Title>
     <Authors>Lombiq Technologies</Authors>
     <Copyright>Copyright © 2020, Lombiq Technologies Ltd.</Copyright>
     <Description>.NET code analyzers and code convention settings for Lombiq (https://lombiq.com) projects, predominantly for Orchard Core (https://www.orchardcore.net/) apps but also any .NET apps. See the project website for detailed documentation.</Description>
