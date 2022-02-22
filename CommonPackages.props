@@ -28,6 +28,9 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.0.64" />
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="SecurityCodeScan.VS2019" Version="5.2.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
@@ -38,6 +41,7 @@
     </PackageReference>
     <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.321">
       <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
     </PackageReference>
   </ItemGroup>
 </Project>

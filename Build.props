@@ -26,7 +26,10 @@
 
   <!-- Packages only for .NET Core and later. -->
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.Compilers" Version="3.11.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Compilers" Version="3.11.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
