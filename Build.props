@@ -34,7 +34,8 @@
     from
     C:\Users\Administrator\.nuget\packages\microsoft.codeanalysis.csharp.codestyle\4.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.CodeStyle.dll
     : Could not load file or assembly 'Microsoft.CodeAnalysis, Version=4.1.0.0, Culture=neutral,
-    PublicKeyToken=31bf3856ad364e35'. The system cannot find the file specified.-->
+    PublicKeyToken=31bf3856ad364e35'. The system cannot find the file specified."
+    Corresponding issue of ours:https://github.com/Lombiq/.NET-Analyzers/issues/44.-->
     <PackageReference Include="Microsoft.Net.Compilers.Toolset" Version="4.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
