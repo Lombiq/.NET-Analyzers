@@ -3,7 +3,7 @@
     <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)OrchardCore.ruleset</CodeAnalysisRuleSet>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <!-- Don't run analyzers during Visual Studio build, not to slow down development. They still run during dotnet build. -->
-    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
     <!-- Needed for project targeting versions earlier than .NET 5. Only works with .NET Core and later projects, see:
     https://docs.microsoft.com/en-us/dotnet/core/project-sdk/overview.
     Note that this is not needed if the Microsoft.CodeAnalysis.NetAnalyzers NuGet package is installed. -->
@@ -28,15 +28,14 @@
 
   <!-- Packages only for .NET Core and later. -->
   <ItemGroup>
-    <!-- Necessary to prevent errrors of the following kind on certain machines: "Adding
-    Microsoft.CodeAnalysis.Compilers and Microsoft.Net.Compilers directly as packages to prevent errors of the sort of
-    "error CS8032: An instance of analyzer
-    Microsoft.CodeAnalysis.CSharp.ConvertTypeOfToNameOf.CSharpConvertTypeOfToNameOfDiagnosticAnalyzer cannot be created
+    <!-- Workaround for https://github.com/dotnet/sdk/issues/23972. Though the errors we see, only in CI, are of this
+    kind: "CSC : error CS8032: An instance of analyzer
+    Microsoft.CodeAnalysis.CSharp.UsePatternCombinators.CSharpUsePatternCombinatorsDiagnosticAnalyzer cannot be created
     from
-    C:\Users\MyUser\.nuget\packages\microsoft.codeanalysis.csharp.codestyle\3.10.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.CodeStyle.dll
-    : Could not load file or assembly 'Microsoft.CodeAnalysis, Version=3.10.0.0, Culture=neutral,
-    PublicKeyToken=31bf3856ad364e35'. The system cannot find the file specified..". -->
-    <PackageReference Include="Microsoft.CodeAnalysis.Compilers" Version="4.1.0">
+    C:\Users\Administrator\.nuget\packages\microsoft.codeanalysis.csharp.codestyle\4.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.CodeStyle.dll
+    : Could not load file or assembly 'Microsoft.CodeAnalysis, Version=4.1.0.0, Culture=neutral,
+    PublicKeyToken=31bf3856ad364e35'. The system cannot find the file specified.-->
+    <PackageReference Include="Microsoft.CodeAnalysis" Version="4.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
     </PackageReference>
