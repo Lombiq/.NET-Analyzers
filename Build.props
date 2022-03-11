@@ -3,7 +3,7 @@
     <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)OrchardCore.ruleset</CodeAnalysisRuleSet>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <!-- Don't run analyzers during Visual Studio build, not to slow down development. They still run during dotnet build. -->
-    <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
     <!-- Needed for project targeting versions earlier than .NET 5. Only works with .NET Core and later projects, see:
     https://docs.microsoft.com/en-us/dotnet/core/project-sdk/overview.
     Note that this is not needed if the Microsoft.CodeAnalysis.NetAnalyzers NuGet package is installed. -->
