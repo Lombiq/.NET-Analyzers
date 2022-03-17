@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="Orchard Core C# rules" ToolsVersion="16.0">
-  <Include Path="General.ruleset" Action="Default" />
+<RuleSet Name="Orchard Core C# rules" ToolsVersion="17.0">
+  <Include Path="general.ruleset" Action="Default" />
   <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
     <Rule Id="CA1710" Action="Hidden" />
     <Rule Id="CA1711" Action="Hidden" />
@@ -11,14 +11,11 @@
     <Rule Id="CA1812" Action="Hidden" />
   </Rules>
   <Rules AnalyzerId="Microsoft.CodeAnalysis.NetAnalyzers" RuleNamespace="Microsoft.CodeAnalysis.NetAnalyzers">
-    <Rule Id="CA1002" Action="None" />
     <Rule Id="CA1062" Action="Hidden" />
     <Rule Id="CA1724" Action="Hidden" />
+    <Rule Id="CA1848" Action="None" />
     <Rule Id="CA2007" Action="Hidden" />
     <Rule Id="CA5391" Action="Hidden" />
     <Rule Id="CA5395" Action="Hidden" />
-  </Rules>
-  <Rules AnalyzerId="SecurityCodeScan.VS2019" RuleNamespace="SecurityCodeScan.VS2019">
-    <Rule Id="SCS0012" Action="None" />
   </Rules>
 </RuleSet>
