@@ -342,7 +342,6 @@
     <Rule Id="S1858" Action="Warning" />
     <Rule Id="S2148" Action="Warning" />
     <Rule Id="S2197" Action="Warning" />
-    <Rule Id="S2228" Action="Warning" />
     <Rule Id="S2278" Action="Warning" />
     <Rule Id="S2302" Action="Warning" />
     <Rule Id="S2330" Action="Warning" />
