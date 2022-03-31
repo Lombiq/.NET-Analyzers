@@ -24,7 +24,7 @@
   <Import Project="$(MSBuildThisFileDirectory)CommonPackages.props" />
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis" Version="4.1.0">
+    <PackageReference Include="Microsoft.CodeAnalysis.Compilers" Version="4.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
     </PackageReference>
