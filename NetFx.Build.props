@@ -1,33 +1,53 @@
 <Project>
   <PropertyGroup>
     <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)Orchard1.ruleset</CodeAnalysisRuleSet>
-	<!-- Simply <GenerateDocumentationFile>true</GenerateDocumentationFile> can't be used because that's for SDK 
-	projects only, see: https://stackoverflow.com/a/47118584/220230. -->
+    <!-- Simply <GenerateDocumentationFile>true</GenerateDocumentationFile> can't be used because that's for SDK
+         projects only, see: https://stackoverflow.com/a/47118584/220230. -->
     <DocumentationDir>$(OutputPath)</DocumentationDir>
     <!-- Sometimes OutputPath (as well as BaseOutputPath and OutDir) can be empty even though this is supposedly fixed:
-    https://github.com/dotnet/sdk/issues/738. -->
+         https://github.com/dotnet/sdk/issues/738. -->
     <DocumentationDir Condition="'$(DocumentationDir)' == ''">bin</DocumentationDir>
-    <DocumentationFile>$(DocumentationDir)\$(MSBuildProjectName).xml</DocumentationFile>
-    <!-- Don't run analyzers during Visual Studio build, not to slow down development. They still run during dotnet build. -->
+    <DocumentationFile>$(DocumentationDir)/$(MSBuildProjectName).xml</DocumentationFile>
+    <!-- Don't run analyzers during Visual Studio build to avoid local slowdown. They still run during dotnet build. -->
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
     <!-- Setting the analysis level explicitly lets us opt in to new analyzers with SDK upgrades. See:
-    https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#latest-updates -->
+         https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#latest-updates -->
     <AnalysisLevel>5.0</AnalysisLevel>
-    <!-- This is for Microsoft.CodeAnalysis.NetAnalyzers. This way, we have control over it unlike when getting it
-    via the .NET SDK. See: https://docs.microsoft.com/en-us/visualstudio/code-quality/migrate-from-fxcop-analyzers-to-net-analyzers -->
+    <!-- This is for Microsoft.CodeAnalysis.NetAnalyzers. This way, we have control over it unlike when getting it via
+         the .NET SDK. See:
+         https://docs.microsoft.com/en-us/visualstudio/code-quality/migrate-from-fxcop-analyzers-to-net-analyzers -->
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
-    <!-- Turn off the generation of $(IntermediateOutputPath)$(MSBuildProjectName).GeneratedMSBuildEditorConfig.editorconfig files. See:
-    https://github.com/dotnet/roslyn/blob/ff854c695779990b9b269029a8615782a59ec530/src/Compilers/Core/MSBuildTask/Microsoft.Managed.Core.targets#L104 -->
+    <!-- Turn off the generation of
+         $(IntermediateOutputPath)$(MSBuildProjectName).GeneratedMSBuildEditorConfig.editorconfig files. See:
+         https://github.com/dotnet/roslyn/blob/ff854c695779990b9b269029a8615782a59ec530/src/Compilers/Core/MSBuildTask/Microsoft.Managed.Core.targets#L104
+         -->
     <GenerateMSBuildEditorConfigFile>false</GenerateMSBuildEditorConfigFile>
   </PropertyGroup>
 
   <Import Project="$(MSBuildThisFileDirectory)CommonPackages.props" />
 
   <ItemGroup>
+    <!-- Fixing the <"error CS8032: An instance of analyzer Microsoft.CodeAnalysis.[...]Analyzer cannot be created from
+         [...]\.nuget\packages\microsoft.codeanalysis.csharp.codestyle\4.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.CodeStyle.dll:
+         Could not load file or assembly 'Microsoft.CodeAnalysis, Version=4.1.0.0, Culture=neutral,
+         PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.."> by
+         adding "Microsoft.CodeAnalysis" AND "Microsoft.Net.Compilers" manually; see:
+         https://docs.microsoft.com/en-us/answers/questions/244179/microsoftcodeanalysis-problem.html-->
+    <PackageReference Include="Microsoft.CodeAnalysis.Compilers" Version="4.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Net.Compilers" Version="4.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" />
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)SonarLint.xml" Link="SonarLint.xml" />
   </ItemGroup>
-  
+
   <Target Name="DisableAnalyzers" BeforeTargets="CoreCompile" Condition="'$(RunCodeAnalysis)' == 'false'">
     <ItemGroup>
       <Analyzer Remove="@(Analyzer)" />
