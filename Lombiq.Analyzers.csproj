@@ -14,12 +14,12 @@
     <PackageTags>OrchardCore;Lombiq;AspNetCore;CodeAnalysis;DotNetAnalyzers;Analyzer;Analyzers;Diagnostic;Roslyn;Refactoring;AsyncFixer;Meziantou.Analyzer;StyleCop</PackageTags>
     <RepositoryUrl>https://github.com/Lombiq/.NET-Analyzers</RepositoryUrl>
     <PackageProjectUrl>https://github.com/Lombiq/.NET-Analyzers</PackageProjectUrl>
-    <PackageLicenseFile>Licence.md</PackageLicenseFile>
+    <PackageLicenseFile>License.md</PackageLicenseFile>
     <NoDefaultExcludes>true</NoDefaultExcludes>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Licence.md" Pack="true" PackagePath="" />
+    <None Include="License.md" Pack="true" PackagePath="" />
     <None Include="Readme.md" />
     <None Include="NuGetIcon.png" Pack="true" PackagePath="" />
     <None Include="build\**" Pack="true" PackagePath="build\" />
