@@ -55,7 +55,7 @@ You can also add the package to all projects in a folder at once from a *Directo
 ## How to add the analyzers to individual non-SDK-style .NET Framework projects (not solutions)
 
 1. Same as above - add the .NET-Analyzers repository as a submodule to your repository.
-2. Create a *Directory.Build.props* file in every project folder you want to target, next to the *.csproj* file with the following content (import the *`NetFx.Build.props`* file instead of *Build.props*, adjust the relative path as suitable):
+2. Create a *Directory.Build.props* file in every project folder you want to target, next to the *.csproj* file with the following content (import the *NetFx.Build.props* file instead of *Build.props*, adjust the relative path as suitable):
    ```xml
    <Project>
      <Import Project="../../../tools/Lombiq.Analyzers/NetFx.Build.props" />
