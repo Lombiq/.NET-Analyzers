@@ -24,6 +24,12 @@ trim_trailing_whitespace = true
 # New line preferences
 end_of_line = crlf
 insert_final_newline = true
+dotnet_style_operator_placement_when_wrapping = beginning_of_line
+tab_width = 4
+dotnet_style_coalesce_expression = true:warning
+dotnet_style_null_propagation = true:warning
+dotnet_style_prefer_is_null_check_over_reference_equality_method = true:warning
+dotnet_style_prefer_auto_properties = true:warning
 
 # C# files
 [*.cs]
@@ -159,7 +165,7 @@ csharp_style_unused_value_assignment_preference = discard_variable:suggestion
 csharp_style_unused_value_expression_statement_preference = discard_variable:none
 
 # 'using' directive preferences
-csharp_using_directive_placement = outside_namespace
+csharp_using_directive_placement = outside_namespace:silent
 
 #### C# Formatting Rules ####
 
@@ -259,6 +265,7 @@ dotnet_diagnostic.CA1810.severity = none
 
 # Don't apply "CA1822: Mark members as static" to the public API
 dotnet_code_quality.ca1822.api_surface = private, internal
+csharp_prefer_braces = true:silent
 
 # Various config files
 [*.{config,csproj,json,props,targets}]
