@@ -27,7 +27,7 @@ This will use the analyzer configuration suitable for Orchard Core projects. If 
 
 ```xml
 <PropertyGroup>
-    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)tools/Lombiq.Analyzers/General.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)tools/Lombiq.Analyzers/general.ruleset</CodeAnalysisRuleSet>
 </PropertyGroup>
 ```
 
@@ -66,7 +66,7 @@ You can also add the package to all projects in a folder at once from a *Directo
     .editorconfig
     ```
     
-This will use the analyzer configuration suitable for Orchard 1 projects. If you want to use this in a non-Orchard .NET Framework app then use the *General.ruleset* file as described above.
+This will use the analyzer configuration suitable for Orchard 1 projects. If you want to use this in a non-Orchard .NET Framework app then use the *general.ruleset* file as described above.
 
 
 ## Introducing analyzers to an existing project
