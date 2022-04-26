@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RuleSet Name="Visual Studio Extension rules" ToolsVersion="17.0">
-  <Include Path="General.ruleset" Action="Default" />
+  <Include Path="general.ruleset" Action="Default" />
   <Rules AnalyzerId="Microsoft.VisualStudio.Threading.Analyzers.CSharp" RuleNamespace="Microsoft.VisualStudio.Threading.Analyzers.CSharp">
     <Rule Id="VSTHRD002" Action="Warning" />
   </Rules>
