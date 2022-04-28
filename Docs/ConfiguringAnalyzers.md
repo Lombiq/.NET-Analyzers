@@ -60,7 +60,7 @@ If not all the configuration in this project is suitable for your solution then 
       <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)my.ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
     ```
-3. Now every rule you defined in *my.ruleset* will take precedence over the default ones. For everything else the default ones will be applied.
+3. Now every rule you've defined in *my.ruleset* will take precedence over the default ones. For everything else, the default ones will be applied.
 
 Note that if you add your ruleset file to the solution you'll get GUI support for it in Visual Studio and you'll be able to configure rules without manually editing the XML.
 
