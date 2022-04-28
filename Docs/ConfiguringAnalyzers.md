@@ -54,7 +54,7 @@ If not all the configuration in this project is suitable for your solution then 
       </Rules>
     </RuleSet>
     ```
-2. In the `Directory.Build.props` file of your solution add a reference to your own ruleset file, overriding the default:
+2. In the *Directory.Build.props* file of your solution add a reference to your own ruleset file, overriding the default:
     ```xml
     <PropertyGroup>
       <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)my.ruleset</CodeAnalysisRuleSet>
