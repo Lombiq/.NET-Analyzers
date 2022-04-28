@@ -41,7 +41,7 @@ If not all the configuration in this project is suitable for your solution then 
 
 ### Overriding analyzer configuration from a ruleset file
 
-1. Create your own ruleset file, similar to this project's *general.ruleset* file. Make sure the file name is all lower-case, becuase if you edit it in Visual Studio it will be converted any way and that could cause problems in Unix-like systems. Add any rule configurations there that you want to override. Also, include this project's *general.ruleset* file as a child, allowing its rules to be available by default. So you'll have something like this (rules included only as examples):
+1. Create your own ruleset file, similar to this project's *general.ruleset* file. Make sure the file name is all lower-case, because if you edit it in Visual Studio it will be converted anyway and that could cause problems on Unix-like systems. Add any rule configurations there that you want to override. Also, include this project's *general.ruleset* file as a child, allowing its rules to be available by default. In the end you should have something like this (the included rules only serve as an example):
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <RuleSet Name="General C# rules" ToolsVersion="16.0">
