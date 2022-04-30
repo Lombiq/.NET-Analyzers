@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)Orchard1.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)orchard1.ruleset</CodeAnalysisRuleSet>
     <!-- Simply <GenerateDocumentationFile>true</GenerateDocumentationFile> can't be used because that's for SDK
          projects only, see: https://stackoverflow.com/a/47118584/220230. -->
     <DocumentationDir>$(OutputPath)</DocumentationDir>
@@ -32,7 +32,7 @@
          Could not load file or assembly 'Microsoft.CodeAnalysis, Version=4.1.0.0, Culture=neutral,
          PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.."> by
          adding "Microsoft.CodeAnalysis" AND "Microsoft.Net.Compilers" manually; see:
-         https://docs.microsoft.com/en-us/answers/questions/244179/microsoftcodeanalysis-problem.html-->
+         https://docs.microsoft.com/en-us/answers/questions/244179/microsoftcodeanalysis-problem.html -->
     <PackageReference Include="Microsoft.CodeAnalysis.Compilers" Version="4.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>

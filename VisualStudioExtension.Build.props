@@ -1,6 +1,6 @@
 <Project>
   <Import Project="$(MSBuildThisFileDirectory)NetFx.Build.props" />
   <PropertyGroup>
-    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)VisualStudioExtension.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)visualstudioextension.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 </Project>

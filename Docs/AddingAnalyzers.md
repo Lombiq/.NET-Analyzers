@@ -27,7 +27,7 @@ This will use the analyzer configuration suitable for Orchard Core projects. If 
 
 ```xml
 <PropertyGroup>
-    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)tools/Lombiq.Analyzers/General.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)tools/Lombiq.Analyzers/general.ruleset</CodeAnalysisRuleSet>
 </PropertyGroup>
 ```
 
@@ -49,13 +49,13 @@ For at least Visual Studio and JetBrains Rider you don't need any further setup 
 
 The recommended approach for SDK-style projects is adding .NET Analyzers as a submodule as explained above due to the increased control you have over configuration. However, if you aren't using Git or prefer NuGet, you can also use the [NuGet package](https://www.nuget.org/packages/Lombiq.Analyzers/) to install it for just one project. Once you add the package to your project, all analyzers will be applied.
 
-You can also add the package to all projects in a folder at once from a *Directory.Build.props* file (much like we do in [*CommonPackages.props*](../CommonPackages.props).
+You can also add the package to all projects in a folder at once from a *Directory.Build.props* file (much like we do in [*CommonPackages.props*](../CommonPackages.props)).
 
 
 ## How to add the analyzers to individual non-SDK-style .NET Framework projects (not solutions)
 
 1. Same as above - add the .NET-Analyzers repository as a submodule to your repository.
-2. Create a *Directory.Build.props* file in every project folder you want to target, next to the *.csproj* file with the following content (import the *`NetFx.Build.props`* file instead of *Build.props*, adjust the relative path as suitable):
+2. Create a *Directory.Build.props* file in every project folder you want to target, next to the *.csproj* file with the following content (import the *NetFx.Build.props* file instead of *Build.props*, adjust the relative path as suitable):
    ```xml
    <Project>
      <Import Project="../../../tools/Lombiq.Analyzers/NetFx.Build.props" />
@@ -66,7 +66,7 @@ You can also add the package to all projects in a folder at once from a *Directo
     .editorconfig
     ```
     
-This will use the analyzer configuration suitable for Orchard 1 projects. If you want to use this in a non-Orchard .NET Framework app then use the *General.ruleset* file as described above.
+This will use the analyzer configuration suitable for Orchard 1 projects. If you want to use this in a non-Orchard .NET Framework app then use the *general.ruleset* file as described above.
 
 
 ## Introducing analyzers to an existing project
