@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Lombiq.Analyzers.Tests.Failure;
+namespace Lombiq.Analyzers.Tests;
 
 public class AnalyzerViolationTests
 {

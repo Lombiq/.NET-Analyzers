@@ -11,7 +11,7 @@
       <Link>AnalyzerViolations.cs</Link>
     </Compile>
   </ItemGroup>
-
+  
   <ItemGroup>
     <PackageReference Include="Lombiq.Analyzers" Version="2.1.0-alpha.0" />
   </ItemGroup>
