@@ -24,7 +24,7 @@
 
   <!-- Don't run analyzers during Visual Studio build, not to slow down development. They still run during dotnet build.
        By making this conditional, you can still set the variable to true even when using the NuGet package. -->
-  <PropertyGroup Condition="'$(RunAnalyzersDuringBuild.ToLower())' != 'true'">
+  <PropertyGroup Condition="'$(RunAnalyzersDuringBuild)' != 'true'">
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
   </PropertyGroup>
 
