@@ -2,8 +2,6 @@
   <PropertyGroup>
     <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)orchardcore.ruleset</CodeAnalysisRuleSet>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <!-- Don't run analyzers during Visual Studio build, not to slow down development. They still run during dotnet build. -->
-    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
     <!-- Needed for project targeting versions earlier than .NET 5. Only works with .NET Core and later projects, see:
     https://docs.microsoft.com/en-us/dotnet/core/project-sdk/overview.
     Note that this is not needed if the Microsoft.CodeAnalysis.NetAnalyzers NuGet package is installed. -->
@@ -22,6 +20,12 @@
     <!-- This prevents unnecessary warnings so the analyzer versions will depend on the repository and not what is
     installed by the user. see: https://github.com/dotnet/docs/issues/23232. -->
     <_SkipUpgradeNetAnalyzersNuGetWarning>true</_SkipUpgradeNetAnalyzersNuGetWarning>
+  </PropertyGroup>
+
+  <!-- Don't run analyzers during Visual Studio build, not to slow down development. They still run during dotnet build.
+       By making this conditional, you can still set the variable to true even when using the NuGet package. -->
+  <PropertyGroup Condition="'$(RunAnalyzersDuringBuild.ToLower())' != 'true'">
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
   </PropertyGroup>
 
   <Import Project="$(MSBuildThisFileDirectory)CommonPackages.props" />
