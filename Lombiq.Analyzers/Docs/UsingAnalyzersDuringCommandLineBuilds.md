@@ -41,6 +41,12 @@ Or if you only want to see the errors and not the full build output (including e
 dotnet build MySolution.sln --no-incremental -warnaserror /p:TreatWarningsAsErrors=true /p:RunAnalyzersDuringBuild=true -nologo -consoleLoggerParameters:NoSummary -verbosity:quiet
 ```
 
+If you are using the NuGet package you have to call it with MsBuild instead:
+
+```ps
+dotnet msbuild {solutionPath}.sln -t:Clean,Build -v:quiet -p:RunAnalyzersDuringBuild=true -p:TreatWarningsAsErrors=true -warnAsError
+```
+
 Note that code style analysis is experimental in the .NET 5 SDK and [may change in later versions](https://github.com/dotnet/roslyn/issues/49044).
 
 

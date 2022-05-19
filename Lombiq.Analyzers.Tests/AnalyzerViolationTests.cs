@@ -37,19 +37,18 @@ public class AnalyzerViolationTests
             .ShouldBe(exceptionCodes);
     }
 
+    // Runs dotnet msbuild {solutionPath}.sln -t:Clean,Build -v:quiet -p:RunAnalyzersDuringBuild=true -p:TreatWarningsAsErrors=true -warnAsError
     // See https://github.com/Lombiq/.NET-Analyzers/blob/dev/Docs/UsingAnalyzersDuringCommandLineBuilds.md#net-code-style-analysis
     private static Task ExecuteStaticCodeAnalysisAsync(string solutionPath) =>
         CliProgram.DotNet.ExecuteAsync(
             CancellationToken.None,
-            "build",
+            "msbuild",
             Path.Combine("..", "..", "..", "..", "TestSolutions", solutionPath),
-            "--no-incremental",
-            "-warnaserror",
-            "/p:TreatWarningsAsErrors=true",
-            "/p:RunAnalyzersDuringBuild=true",
-            "-nologo",
-            "-consoleLoggerParameters:NoSummary",
-            "-verbosity:quiet");
+            "-t:Clean,Build",
+            "-v:quiet",
+            "-p:RunAnalyzersDuringBuild=true",
+            "-p:TreatWarningsAsErrors=true",
+            "-warnAsError");
 
     public static IEnumerable<object[]> Data()
     {
