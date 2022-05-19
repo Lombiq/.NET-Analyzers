@@ -3,6 +3,7 @@
     <!-- You can enable analyzers for every build by adding this property. It works when you import Lombiq.Analyzers
          from a NuGet package too.
     <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild> -->
+
     <!-- This property prevents the Directory.Build.props in the repository root. -->
     <SkipRootBuildProps>true</SkipRootBuildProps>
   </PropertyGroup>
