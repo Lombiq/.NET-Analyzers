@@ -29,7 +29,7 @@
   <ItemGroup>
     <!-- Note: This is fixed as of SDK version 6.0.202. If you need to build the solution on a system with an older SDK
          version, please uncomment the PackageReferences below. Leave this commented out unless you are certain you need
-         it, becuase it is a risky workaround as it makes us use the compiler from NuGet instead of the SDK, which is
+         it, because it is a risky workaround as it makes us use the compiler from NuGet instead of the SDK, which is
          unexpected and discouraged according to Microsoft.Net.Compilers.Toolset's Readme too.
          Fixing the <"error CS8032: An instance of analyzer Microsoft.CodeAnalysis.[...]Analyzer cannot be created from
          [...]\.nuget\packages\microsoft.codeanalysis.csharp.codestyle\4.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.CodeStyle.dll:
