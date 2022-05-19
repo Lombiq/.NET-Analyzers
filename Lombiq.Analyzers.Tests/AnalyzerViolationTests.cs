@@ -41,12 +41,14 @@ public class AnalyzerViolationTests
     // See https://github.com/Lombiq/.NET-Analyzers/blob/dev/Docs/UsingAnalyzersDuringCommandLineBuilds.md#net-code-style-analysis
     private static async Task ExecuteStaticCodeAnalysisAsync(string solutionPath)
     {
-        await CliProgram.DotNet.ExecuteAsync(CancellationToken.None, "restore");
+        var relativeSolutionPath = Path.Combine("..", "..", "..", "..", "TestSolutions", solutionPath);
+
+        await CliProgram.DotNet.ExecuteAsync(CancellationToken.None, "restore", relativeSolutionPath);
 
         await CliProgram.DotNet.ExecuteAsync(
             CancellationToken.None,
             "msbuild",
-            Path.Combine("..", "..", "..", "..", "TestSolutions", solutionPath),
+            relativeSolutionPath,
             "-t:Clean,Build",
             "-v:quiet",
             "-p:RunAnalyzersDuringBuild=true",
