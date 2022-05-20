@@ -14,4 +14,11 @@
     <PackageReference Include="Lombiq.Analyzers" Version="2.1.0-alpha.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="@(AnalyzerPackage)" Version="%(Version)">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
 </Project>

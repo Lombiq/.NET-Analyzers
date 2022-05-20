@@ -2,42 +2,24 @@
   <!-- Common place to keep referenced packages, both for SDK-style and older projects. Not DRY-ing more config because
   everything else can be heavily build pipeline-dependent but these are safe to share. When adding a new package here
   always test with both kind of projects.  -->
+
   <ItemGroup>
-    <PackageReference Include="AsyncFixer" Version="1.6.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="DotNetAnalyzers.DocumentationAnalyzers" Version="1.0.0-beta.59">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Meziantou.Analyzer" Version="1.0.701">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.CodeStyle" Version="4.1.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.2.32">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="SecurityCodeScan.VS2019" Version="5.6.2">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.38.0.46746">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.406">
+    <AnalyzerPackage Include="AsyncFixer" Version="1.6.0"/>
+    <AnalyzerPackage Include="DotNetAnalyzers.DocumentationAnalyzers" Version="1.0.0-beta.59"/>
+    <AnalyzerPackage Include="Meziantou.Analyzer" Version="1.0.701"/>
+    <AnalyzerPackage Include="Microsoft.CodeAnalysis.CSharp.CodeStyle" Version="4.1.0"/>
+    <AnalyzerPackage Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0"/>
+    <AnalyzerPackage Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.2.32"/>
+    <AnalyzerPackage Include="SecurityCodeScan.VS2019" Version="5.6.2"/>
+    <AnalyzerPackage Include="SonarAnalyzer.CSharp" Version="8.38.0.46746"/>
+    <AnalyzerPackage Include="StyleCop.Analyzers" Version="1.2.0-beta.406"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="@(AnalyzerPackage)" Version="%(Version)" IncludeInPackage="true">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
     </PackageReference>
   </ItemGroup>
+
 </Project>
