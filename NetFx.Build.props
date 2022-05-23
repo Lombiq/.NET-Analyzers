@@ -31,8 +31,8 @@
          [...]\.nuget\packages\microsoft.codeanalysis.csharp.codestyle\4.2.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.CodeStyle.dll:
          Could not load file or assembly 'Microsoft.CodeAnalysis, Version=4.2.0.0, Culture=neutral,
          PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.."> by
-         "Microsoft.Net.Compilers" manually; see:
          https://docs.microsoft.com/en-us/answers/questions/244179/microsoftcodeanalysis-problem.html. -->
+         adding "Microsoft.CodeAnalysis" AND "Microsoft.Net.Compilers" manually; see:
     <PackageReference Include="Microsoft.CodeAnalysis" Version="4.2.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
