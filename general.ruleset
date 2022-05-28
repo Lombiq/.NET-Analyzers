@@ -118,7 +118,7 @@
     <Rule Id="CA1008" Action="Warning" />
     <Rule Id="CA1010" Action="Warning" />
     <Rule Id="CA1012" Action="Warning" />
-    <Rule Id="CA1014" Action="Hidden" />
+    <Rule Id="CA1014" Action="None" />
     <Rule Id="CA1016" Action="Warning" />
     <Rule Id="CA1018" Action="Warning" />
     <Rule Id="CA1024" Action="Warning" />
