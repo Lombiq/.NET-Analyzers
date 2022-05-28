@@ -2,6 +2,7 @@
 <RuleSet Name="Orchard Core C# rules" ToolsVersion="17.0">
   <Include Path="general.ruleset" Action="Default" />
   <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
+    <Rule Id="CA1014" Action="None" />
     <Rule Id="CA1710" Action="Hidden" />
     <Rule Id="CA1711" Action="Hidden" />
     <Rule Id="CA1716" Action="Hidden" />
