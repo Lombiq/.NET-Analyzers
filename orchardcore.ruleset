@@ -6,6 +6,9 @@
     <Rule Id="CA1711" Action="Hidden" />
     <Rule Id="CA1716" Action="Hidden" />
   </Rules>
+  <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp" RuleNamespace="Microsoft.CodeAnalysis.CSharp">
+    <Rule Id="CS1591" Action="None" />
+  </Rules>
   <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp.NetAnalyzers" RuleNamespace="Microsoft.CodeAnalysis.CSharp.NetAnalyzers">
     <Rule Id="CA1019" Action="Hidden" />
     <Rule Id="CA1812" Action="Hidden" />
