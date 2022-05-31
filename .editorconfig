@@ -128,6 +128,10 @@ dotnet_diagnostic.IDE0022.severity = warning
 dotnet_diagnostic.IDE0007.severity = warning
 dotnet_diagnostic.IDE0008.severity = none
 
+# We don't want to decorate every public member with XML comments, only public APIs - so turn CS1591 off.
+# CS1591 Missing XML Comment for publicly visible type or member
+dotnet_diagnostic.CS1591.severity = none
+
 #### C# Coding Conventions ####
 
 # 'var' preferences
