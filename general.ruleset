@@ -306,6 +306,7 @@
     <Rule Id="CA5403" Action="Warning" />
   </Rules>
   <Rules AnalyzerId="Microsoft.VisualStudio.Threading.Analyzers" RuleNamespace="Microsoft.VisualStudio.Threading.Analyzers">
+    <Rule Id="VSTHRD111" Action="None" />
     <Rule Id="VSTHRD113" Action="Warning" />
     <Rule Id="VSTHRD200" Action="None" />
   </Rules>
