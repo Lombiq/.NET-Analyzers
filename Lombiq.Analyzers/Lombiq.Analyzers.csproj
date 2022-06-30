@@ -30,8 +30,4 @@
     <None Include="*.json" Pack="true" PackagePath="" />
   </ItemGroup>
 
-  <!-- This is included so these packages are added as dependencies, otherwise they wouldn't be inlcuded in the 
-       projects that import this as NuGet package. -->
-  <Import Project="CommonPackages.props" />
-
 </Project>
