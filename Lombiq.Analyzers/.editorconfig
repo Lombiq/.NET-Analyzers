@@ -86,8 +86,21 @@ dotnet_code_quality_unused_parameters = non_pubic:suggestion
 # Note that currently both IDE* rules and csharp_style_* rules are necessary, because only IDE rules will be enforced
 # during build, see: https://github.com/dotnet/roslyn/issues/44201.
 
-# Default severity for analyzer diagnostics with category 'Style' (escalated to build warnings)
+# Default severity for analyzer diagnostics for all categories (escalated to build warnings). See
+# https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/categories for the list of categories.
+dotnet_analyzer_diagnostic.category-Design.severity = warning
+dotnet_analyzer_diagnostic.category-Documentation.severity = warning
+dotnet_analyzer_diagnostic.category-Globalization.severity = warning
+dotnet_analyzer_diagnostic.category-Interoperability.severity = warning
+dotnet_analyzer_diagnostic.category-Maintainability.severity = warning
+dotnet_analyzer_diagnostic.category-Naming.severity = warning
+dotnet_analyzer_diagnostic.category-Performance.severity = warning
+dotnet_analyzer_diagnostic.category-SingleFile.severity = warning
+dotnet_analyzer_diagnostic.category-Reliability.severity = warning
+dotnet_analyzer_diagnostic.category-Security.severity = warning
 dotnet_analyzer_diagnostic.category-Style.severity = warning
+dotnet_analyzer_diagnostic.category-Usage.severity = warning
+dotnet_analyzer_diagnostic.category-CodeQuality.severity = warning
 
 # IDE0011: Add braces to 'if' statement.
 # The "when-multiline:warning" config is not actually for cases when the if body is in another line so we have to turn
@@ -114,6 +127,10 @@ dotnet_diagnostic.IDE0022.severity = warning
 # 'var' preferences
 dotnet_diagnostic.IDE0007.severity = warning
 dotnet_diagnostic.IDE0008.severity = none
+
+# We don't want to decorate every public member with XML comments, only public APIs - so turn CS1591 off.
+# CS1591 Missing XML Comment for publicly visible type or member
+dotnet_diagnostic.CS1591.severity = none
 
 #### C# Coding Conventions ####
 
