@@ -24,6 +24,12 @@
     <GenerateMSBuildEditorConfigFile>false</GenerateMSBuildEditorConfigFile>
   </PropertyGroup>
 
+  <Target Name="BuildCommonPackages" BeforeTargets="BeforeBuild">
+    <XslTransformation XslInputPath="$(MSBuildThisFileDirectory)CommonPackages.xslt"
+                       XmlInputPaths="$(MSBuildThisFileDirectory)dependencies.xml"
+                       OutputPaths="$(MSBuildThisFileDirectory)CommonPackages.props"/>
+  </Target>
+  
   <Import Project="$(MSBuildThisFileDirectory)CommonPackages.props" />
 
   <ItemGroup>

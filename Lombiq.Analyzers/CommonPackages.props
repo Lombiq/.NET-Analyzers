@@ -1,25 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+            This file is generated on build. Please edit dependencies.xml instead and then build Lombiq.Analyzers 
+            project twice. It has to be twice, because a transformation can only run in Targets, but Import can't be in 
+            Targets so it will necessarily happen before the transformation can update this file.-->
 <Project>
-  <!-- Common place to keep referenced packages, both for SDK-style and older projects. Not DRY-ing more config because
-  everything else can be heavily build pipeline-dependent but these are safe to share. When adding a new package here
-  always test with both kind of projects.  -->
-
   <ItemGroup>
-    <AnalyzerPackage Include="AsyncFixer" Version="1.6.0"/>
-    <AnalyzerPackage Include="DotNetAnalyzers.DocumentationAnalyzers" Version="1.0.0-beta.59"/>
-    <AnalyzerPackage Include="Meziantou.Analyzer" Version="1.0.702"/>
-    <AnalyzerPackage Include="Microsoft.CodeAnalysis.CSharp.CodeStyle" Version="4.2.0"/>
-    <AnalyzerPackage Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0"/>
-    <AnalyzerPackage Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.2.32"/>
-    <AnalyzerPackage Include="SecurityCodeScan.VS2019" Version="5.6.2"/>
-    <AnalyzerPackage Include="SonarAnalyzer.CSharp" Version="8.39.0.47922"/>
-    <AnalyzerPackage Include="StyleCop.Analyzers" Version="1.2.0-beta.435"/>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="@(AnalyzerPackage)" Version="%(Version)" IncludeInPackage="true">
+    <PackageReference IncludeInPackage="true" Include="AsyncFixer" Version="1.6.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
+    </PackageReference>
+    <PackageReference IncludeInPackage="true" Include="DotNetAnalyzers.DocumentationAnalyzers" Version="1.0.0-beta.59">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
+    </PackageReference>
+    <PackageReference IncludeInPackage="true" Include="Meziantou.Analyzer" Version="1.0.702">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
+    </PackageReference>
+    <PackageReference IncludeInPackage="true" Include="Microsoft.CodeAnalysis.CSharp.CodeStyle" Version="4.2.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
+    </PackageReference>
+    <PackageReference IncludeInPackage="true" Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
+    </PackageReference>
+    <PackageReference IncludeInPackage="true" Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.2.32">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
+    </PackageReference>
+    <PackageReference IncludeInPackage="true" Include="SecurityCodeScan.VS2019" Version="5.6.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
+    </PackageReference>
+    <PackageReference IncludeInPackage="true" Include="SonarAnalyzer.CSharp" Version="8.39.0.47922">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
+    </PackageReference>
+    <PackageReference IncludeInPackage="true" Include="StyleCop.Analyzers" Version="1.2.0-beta.435">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-
 </Project>
