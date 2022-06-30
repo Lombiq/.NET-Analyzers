@@ -5,4 +5,4 @@ on:
 
 jobs:
   call-verify-workflow:
-    uses: Lombiq/GitHub-Actions/.github/workflows/verify.yml@dev
+    uses: Lombiq/GitHub-Actions/.github/workflows/verify.yml@issue/OSOE-110
