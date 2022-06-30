@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <DefaultItemExcludes>$(DefaultItemExcludes);.git*;</DefaultItemExcludes>
   </PropertyGroup>
 
@@ -29,5 +29,5 @@
     <None Include="*.xml" Pack="true" PackagePath="" />
     <None Include="*.json" Pack="true" PackagePath="" />
   </ItemGroup>
-  
+
 </Project>
