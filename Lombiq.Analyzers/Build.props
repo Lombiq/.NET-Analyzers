@@ -28,12 +28,6 @@
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
   </PropertyGroup>
 
-  <Target Name="BuildCommonPackages" BeforeTargets="BeforeBuild">
-    <XslTransformation XslInputPath="$(MSBuildThisFileDirectory)CommonPackages.xslt"
-                       XmlInputPaths="$(MSBuildThisFileDirectory)dependencies.xml"
-                       OutputPaths="$(MSBuildThisFileDirectory)CommonPackages.props"/>
-  </Target>
-  
   <Import Project="$(MSBuildThisFileDirectory)CommonPackages.props" />
 
   <ItemGroup>
@@ -76,4 +70,10 @@
   <Target Name="Copy editorconfig" AfterTargets="AfterResolveReferences" Condition="'$(SolutionDir)' != '*Undefined*'">
     <Copy SourceFiles="$(MSBuildThisFileDirectory).editorconfig" DestinationFolder="$(SolutionDir)" SkipUnchangedFiles="true" />
   </Target>
+
+  <PropertyGroup Condition="'$(NuGetBuild)' == 'true'">
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <MSBuildTreatWarningsAsErrors>true</MSBuildTreatWarningsAsErrors>
+    <CodeAnalysisTreatWarningsAsErrors>True</CodeAnalysisTreatWarningsAsErrors>
+  </PropertyGroup>
 </Project>
