@@ -6,7 +6,7 @@
         <title>Lombiq .NET Analyzers</title>
         <authors>Lombiq Technologies</authors>
         <license type="file">License.md</license>
-        <licenseUrl>https://github.com/Lombiq/.NET-Analyzers/blob/dev/License.md</licenseUrl>
+        <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
         <icon>NuGetIcon.png</icon>
         <projectUrl>https://github.com/Lombiq/.NET-Analyzers</projectUrl>
         <description>Lombiq .NET Analyzers: .NET code analyzers and code convention settings for Lombiq (https://lombiq.com) projects, predominantly for Orchard Core (https://www.orchardcore.net/) apps but also any .NET apps. See the project website for detailed documentation.</description>

@@ -1,10 +1,14 @@
 ﻿param($Version)
 
-$templateFileName = [System.IO.Path]::Combine($PWD, 'Lombiq.Analyzers', 'Lombiq.Analyzers.nuspec.template')
-$nuspec = [xml](Get-Content $templateFileName)
+$projectPath = Join-Path $PWD Lombiq.Analyzers
+function Open-Xml([string]$File) { [xml](Get-Content (Join-Path $projectPath $File)) }
+
+$nuspec = Open-Xml Lombiq.Analyzers.nuspec.template
 $group = $nuspec.package.metadata.dependencies.group
 
-foreach($dependency in ([xml](Get-Content "CommonPackages.props")).Project.ItemGroup.AnalyzerPackage)
+$nuspec.package.metadata.GetElementsByTagName('version')[0].InnerXml = $Version
+
+foreach($dependency in (Open-Xml CommonPackages.props).Project.ItemGroup.AnalyzerPackage)
 {
     $id = $dependency.Include
     if (-not $id) { continue }
@@ -16,4 +20,5 @@ foreach($dependency in ([xml](Get-Content "CommonPackages.props")).Project.ItemG
     $group.AppendChild($node)
 }
 
-$nuspec.Save([System.IO.Path]::Combine($PWD, 'Lombiq.Analyzers.nuspec'))
+$outputPath = Join-Path $projectPath Lombiq.Analyzers.nuspec
+$nuspec.Save($outputPath)
