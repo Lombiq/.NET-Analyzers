@@ -10,3 +10,4 @@ node_modules/
 .pnpm-debug.log
 /TestSolutions/Lombiq.Analyzers.*/.editorconfig
 /.editorconfig
+/Lombiq.Analyzers/Lombiq.Analyzers.nuspec

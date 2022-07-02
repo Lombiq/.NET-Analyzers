@@ -5,19 +5,12 @@
     <DefaultItemExcludes>$(DefaultItemExcludes);.git*;</DefaultItemExcludes>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <Title>Lombiq .NET Analyzers</Title>
-    <Authors>Lombiq Technologies</Authors>
-    <Copyright>Copyright © 2020, Lombiq Technologies Ltd.</Copyright>
-    <Description>Lombiq .NET Analyzers: .NET code analyzers and code convention settings for Lombiq (https://lombiq.com) projects, predominantly for Orchard Core (https://www.orchardcore.net/) apps but also any .NET apps. See the project website for detailed documentation.</Description>
-    <PackageIcon>NuGetIcon.png</PackageIcon>
-    <PackageTags>OrchardCore;Lombiq;AspNetCore;CodeAnalysis;DotNetAnalyzers;Analyzer;Analyzers;Diagnostic;Roslyn;Refactoring;AsyncFixer;Meziantou.Analyzer;StyleCop</PackageTags>
-    <RepositoryUrl>https://github.com/Lombiq/.NET-Analyzers</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/Lombiq/.NET-Analyzers</PackageProjectUrl>
-    <PackageLicenseFile>License.md</PackageLicenseFile>
-    <NoDefaultExcludes>true</NoDefaultExcludes>
-  </PropertyGroup>
-
+  <!-- This project is built with an externally generated .nuspec file so NuGet-related properties are not needed here.
+       The package properties can be updated in the Lombiq.Analyzers.nuspec.template file. The dependencies are created
+       from the CommonPackages.props file, although if needed further dependencies can be added to 
+       Lombiq.Analyzers.nuspec.template as well.
+       -->
+  
   <ItemGroup>
     <None Include="License.md" Pack="true" PackagePath="" />
     <None Include="Readme.md" />
