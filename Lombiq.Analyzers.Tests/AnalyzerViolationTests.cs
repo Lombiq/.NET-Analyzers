@@ -28,13 +28,29 @@ public class AnalyzerViolationTests
 
         var exceptionCodes = new[] { "IDE0021", "IDE0044", "S2933", "S4487" };
 
-        exception
-            .Message
-            .Split(new[] { '\n', '\r' }, StringSplitOptions.None)
-            .Where(line => line.Contains(" error "))
-            .Select(line => line.RegexReplace(@"^.* error ([^:]+):.*$", "$1"))
-            .OrderBy(line => line)
-            .ShouldBe(exceptionCodes);
+        SelectErrorCodes(exception).ShouldBe(exceptionCodes);
+    }
+
+    [Fact]
+    public async Task AnalzerShouldNotSpreadToDependentProjects()
+    {
+        var solutionRelativePath = "Lombiq.Analyzers.PackageReference";
+        var exception = (InvalidOperationException)await Should.ThrowAsync(
+            () => ExecuteStaticCodeAnalysisAsync(solutionRelativePath),
+            typeof(InvalidOperationException));
+
+        var violationCount = SelectErrorCodes(exception).Count();
+        violationCount.ShouldBeGreaterThan(0); // Just to be sure.
+
+        exception = (InvalidOperationException)await Should.ThrowAsync(
+            () => ExecuteStaticCodeAnalysisAsync(solutionRelativePath, "-p:ImportPackageAgain=true"),
+            typeof(InvalidOperationException));
+
+        // The solution contains two projects, both copy the same file. One project also has a ProjectReference to the
+        // other. The first run above will only emit warnings for the main project that references the NuGet package.
+        // The second run defines a symbol which enables a PackageReference in the other project too, so there will be
+        // twice as many warnings, one set for each copy of the same source file.
+        SelectErrorCodes(exception).Count().ShouldBe(2 * violationCount);
     }
 
     // Runs `dotnet build $SolutionFileName$ --no-incremental --nologo --warnaserror --consoleLoggerParameters:NoSummary
@@ -61,6 +77,14 @@ public class AnalyzerViolationTests
 
         return CliProgram.DotNet.ExecuteAsync(CancellationToken.None, arguments.ToArray());
     }
+
+    private static IEnumerable<string> SelectErrorCodes(Exception exception) =>
+        exception
+            .Message
+            .Split(new[] { '\n', '\r' }, StringSplitOptions.None)
+            .Where(line => line.Contains(" error "))
+            .Select(line => line.RegexReplace(@"^.* error ([^:]+):.*$", "$1"))
+            .OrderBy(line => line);
 
     public static IEnumerable<object[]> Data()
     {
