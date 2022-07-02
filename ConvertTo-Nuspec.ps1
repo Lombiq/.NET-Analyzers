@@ -4,7 +4,7 @@ $projectPath = Join-Path $PWD Lombiq.Analyzers
 function Open-Xml([string]$File) { [xml](Get-Content (Join-Path $projectPath $File)) }
 
 $nuspec = Open-Xml Lombiq.Analyzers.nuspec.template
-$group = $nuspec.package.metadata.dependencies.group
+$dependencies = $nuspec.package.metadata.dependencies
 
 $nuspec.package.metadata.GetElementsByTagName('version')[0].InnerXml = $Version
 
@@ -17,7 +17,7 @@ foreach($dependency in (Open-Xml CommonPackages.props).Project.ItemGroup.Analyze
     $node.SetAttribute('id', $id)
     $node.SetAttribute('version', $dependency.Version)
 
-    $group.AppendChild($node)
+    $dependencies.AppendChild($node)
 }
 
 $outputPath = Join-Path $projectPath Lombiq.Analyzers.nuspec
