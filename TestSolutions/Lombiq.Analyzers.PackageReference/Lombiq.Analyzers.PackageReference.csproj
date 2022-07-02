@@ -7,11 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\AnalyzerViolations.cs">
-      <Link>AnalyzerViolations.cs</Link>
-    </Compile>
-
-    <PackageReference Include="Lombiq.Analyzers" Version="2.1.1-osoe-110.1" PrivateAssets="all" />
+    <PackageReference Include="Lombiq.Analyzers" Version="2.1.1-osoe-110.7" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="IndirectPackageReference\**" />
+    <None Remove="IndirectPackageReference\**" />
+  </ItemGroup>
+
+  <Target Name="CopyFiles" BeforeTargets="PrepareForBuild">
+    <Copy SourceFiles="..\AnalyzerViolations.cs" DestinationFolder="$(MSBuildThisFileDirectory)" />
+  </Target>
 
 </Project>
