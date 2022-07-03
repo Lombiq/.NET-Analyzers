@@ -32,7 +32,7 @@ public class AnalyzerViolationTests
     }
 
     [Fact]
-    public async Task AnalzerShouldNotSpreadToDependentProjects()
+    public async Task AnalyzerShouldNotSpreadToDependentProjects()
     {
         var solutionRelativePath = "Lombiq.Analyzers.PackageReference";
         var exception = (InvalidOperationException)await Should.ThrowAsync(
