@@ -7,5 +7,15 @@
 Get-ChildItem Lombiq.Analyzers/obj -Recurse -Include Lombiq.Analyzers.dll | Remove-Item
 
 $release = Get-ChildItem Lombiq.Analyzers/bin/Release -Recurse -Include Lombiq.Analyzers.dll
+$releasePdb = $release.FullName -replace 'dll$','pdb'
 New-Item -Type Directory -Force lib
 Move-Item $release lib
+
+if (Test-Path $releasePdb)
+{
+    Move-Item $releasePdb lib
+}
+else
+{
+    Write-Warning "There is no $releasePdb file!"
+}
