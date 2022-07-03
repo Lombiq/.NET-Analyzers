@@ -28,7 +28,7 @@ public class AnalyzerViolationTests
 
         var exceptionCodes = new[] { "IDE0021", "IDE0044", "S2933", "S4487" };
 
-        SelectErrorCodes(exception).ShouldBe(exceptionCodes);
+        SelectErrorCodes(exception).ShouldBe(exceptionCodes, $"Exception message: {exception}");
     }
 
     [Fact]
@@ -50,7 +50,7 @@ public class AnalyzerViolationTests
         // other. The first run above will only emit warnings for the main project that references the NuGet package.
         // The second run defines a symbol which enables a PackageReference in the other project too, so there will be
         // twice as many warnings, one set for each copy of the same source file.
-        SelectErrorCodes(exception).Count().ShouldBe(2 * violationCount);
+        SelectErrorCodes(exception).Count().ShouldBe(2 * violationCount, $"Exception message: {exception}");
     }
 
     // Runs `dotnet build $SolutionFileName$ --no-incremental --nologo --warnaserror --consoleLoggerParameters:NoSummary
