@@ -6,7 +6,7 @@
         "constant",
         "readonly"
       ]
-    } ,
+    },
     "documentationRules": {
       "documentInterfaces": true,
       "documentExposedElements": false,
