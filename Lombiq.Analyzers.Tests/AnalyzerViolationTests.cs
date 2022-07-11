@@ -16,7 +16,6 @@ public class AnalyzerViolationTests
     [MemberData(nameof(Data))]
     public async Task AnalyzerViolationShouldBeReported(string solutionRelativePath)
     {
-        await CliProgram.DotNet.ExecuteAsync(CancellationToken.None, "restore", solutionRelativePath);
         var exception = (InvalidOperationException)await Should.ThrowAsync(
             () => ExecuteStaticCodeAnalysisAsync(solutionRelativePath),
             typeof(InvalidOperationException));
@@ -90,7 +89,7 @@ public class AnalyzerViolationTests
     public static IEnumerable<object[]> Data()
     {
         static object[] FromProjectName(string projectName) =>
-            new object[] { Path.Combine(projectName, projectName + ".csproj") };
+            new object[] { Path.Combine(projectName, projectName + ".sln") };
 
         yield return FromProjectName("Lombiq.Analyzers.PackageReference");
         yield return FromProjectName("Lombiq.Analyzers.ProjectReference");
