@@ -1,10 +1,9 @@
-using Lombiq.HelpfulLibraries.Cli;
+using Lombiq.HelpfulLibraries.Cli.Helpers;
 using Shouldly;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -53,29 +52,10 @@ public class AnalyzerViolationTests
         SelectErrorCodes(exception).Count().ShouldBe(2 * violationCount, $"Exception message: {exception}");
     }
 
-    // Runs `dotnet build $SolutionFileName$ --no-incremental --nologo --warnaserror --consoleLoggerParameters:NoSummary
-    // --verbosity:quiet -p:TreatWarningsAsErrors=true -p:RunAnalyzersDuringBuild=true` command. See
-    // https://github.com/Lombiq/.NET-Analyzers/blob/dev/Docs/UsingAnalyzersDuringCommandLineBuilds.md#net-code-style-analysis
-    // for more information.
     private static Task ExecuteStaticCodeAnalysisAsync(string solutionPath, params string[] additionalArguments)
     {
         var relativeSolutionPath = Path.Combine("..", "..", "..", "..", "TestSolutions", solutionPath);
-
-        var arguments = new List<object>
-        {
-            "build",
-            relativeSolutionPath,
-            "--no-incremental",
-            "--nologo",
-            "--warnaserror",
-            "--consoleLoggerParameters:NoSummary",
-            "--verbosity:quiet",
-            "-p:TreatWarningsAsErrors=true",
-            "-p:RunAnalyzersDuringBuild=true",
-        };
-        arguments.AddRange(additionalArguments);
-
-        return CliProgram.DotNet.ExecuteAsync(arguments, additionalExceptionText: null, CancellationToken.None);
+        return DotnetBuildHelper.ExecuteStaticCodeAnalysisAsync(relativeSolutionPath, additionalArguments);
     }
 
     private static IEnumerable<string> SelectErrorCodes(Exception exception) =>
