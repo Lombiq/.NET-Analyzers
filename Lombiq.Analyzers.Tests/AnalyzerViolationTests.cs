@@ -16,6 +16,7 @@ public class AnalyzerViolationTests
     [MemberData(nameof(Data))]
     public async Task AnalyzerViolationShouldBeReported(string solutionRelativePath)
     {
+        await CliProgram.DotNet.ExecuteAsync(CancellationToken.None, "restore", solutionRelativePath);
         var exception = (InvalidOperationException)await Should.ThrowAsync(
             () => ExecuteStaticCodeAnalysisAsync(solutionRelativePath),
             typeof(InvalidOperationException));
@@ -75,7 +76,7 @@ public class AnalyzerViolationTests
         };
         arguments.AddRange(additionalArguments);
 
-        return CliProgram.DotNet.ExecuteAsync(CancellationToken.None, arguments.ToArray());
+        return CliProgram.DotNet.ExecuteAsync(arguments, additionalExceptionText: null, CancellationToken.None);
     }
 
     private static IEnumerable<string> SelectErrorCodes(Exception exception) =>
