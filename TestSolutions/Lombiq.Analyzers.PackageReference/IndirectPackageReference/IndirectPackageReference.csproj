@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <Target Name="CopyFiles" BeforeTargets="PrepareForBuild">
-    <Copy SourceFiles="$(MSBuildThisFileDirectory)..\AnalyzerViolations.cs" DestinationFolder="$(MSBuildThisFileDirectory)" />
+    <Copy SourceFiles="..\..\AnalyzerViolations.cs" DestinationFolder="$(MSBuildThisFileDirectory)" />
   </Target>
 
 </Project>
