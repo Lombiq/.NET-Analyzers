@@ -1,9 +1,11 @@
+using Lombiq.HelpfulLibraries.Cli;
 using Lombiq.HelpfulLibraries.Cli.Helpers;
 using Shouldly;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -52,10 +54,12 @@ public class AnalyzerViolationTests
         SelectErrorCodes(exception).Count().ShouldBe(2 * violationCount, $"Exception message: {exception}");
     }
 
-    private static Task ExecuteStaticCodeAnalysisAsync(string solutionPath, params string[] additionalArguments)
+    private static async Task ExecuteStaticCodeAnalysisAsync(string solutionPath, params string[] additionalArguments)
     {
         var relativeSolutionPath = Path.Combine("..", "..", "..", "..", "TestSolutions", solutionPath);
-        return DotnetBuildHelper.ExecuteStaticCodeAnalysisAsync(relativeSolutionPath, additionalArguments);
+
+        await CliProgram.DotNet.ExecuteAsync(CancellationToken.None, "restore", relativeSolutionPath);
+        await DotnetBuildHelper.ExecuteStaticCodeAnalysisAsync(relativeSolutionPath, additionalArguments);
     }
 
     private static IEnumerable<string> SelectErrorCodes(Exception exception) =>
