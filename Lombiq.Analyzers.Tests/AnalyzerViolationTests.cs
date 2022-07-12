@@ -58,7 +58,11 @@ public class AnalyzerViolationTests
     {
         var relativeSolutionPath = Path.Combine("..", "..", "..", "..", "TestSolutions", solutionPath);
 
-        await CliProgram.DotNet.ExecuteAsync(CancellationToken.None, "restore", relativeSolutionPath);
+        if (relativeSolutionPath.Contains("Lombiq.Analyzers.PackageReference"))
+        {
+            await CliProgram.DotNet.ExecuteAsync(CancellationToken.None, "build", relativeSolutionPath);
+        }
+
         await DotnetBuildHelper.ExecuteStaticCodeAnalysisAsync(relativeSolutionPath, additionalArguments);
     }
 
