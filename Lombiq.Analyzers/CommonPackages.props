@@ -22,8 +22,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup Condition="'$(NuGetBuild)' == 'true'">
-    <PackageReference Include="@(AnalyzerPackage)" Version="%(Version)" />
-  </ItemGroup>
-
 </Project>
