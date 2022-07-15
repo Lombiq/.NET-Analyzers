@@ -23,7 +23,7 @@ dotnet build MySolution.sln --no-incremental /p:TreatWarningsAsErrors=true
 
 ## .NET code style analysis
 
-If you want code style analysis configured in *.editorconfig* (i.e. IDE\* rules, this is not applicable to the others) to be checked during build too (it's already checked during editing) then you'll need to run the build with `RunAnalyzersDuringBuild=true`. **Don't** enable `EnforceCodeStyleInBuild` as explained in [the docs](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#code-style-analysis) since that'll always use the analyzers from the .NET SDK, not the explicitly referenced packages, and will cause violations not to show (see [this comment](https://github.com/dotnet/roslyn/issues/50785#issuecomment-768606882)).
+If you want code style analysis configured in *.editorconfig* (i.e. IDE\* rules, this is not applicable to the others) to be checked during build too (it's already checked during editing) then you'll need to run the build with `RunAnalyzersDuringBuild=true`. **Don't** enable `EnforceCodeStyleInBuild` as explained in [the docs](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#code-style-analysis) because that always uses the analyzers from the .NET SDK, not the explicitly referenced packages, and violations won't show up (see [this comment](https://github.com/dotnet/roslyn/issues/50785#issuecomment-768606882)).
 
 ```ps
 dotnet build MySolution.sln --no-incremental /p:RunAnalyzersDuringBuild=true
