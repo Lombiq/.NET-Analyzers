@@ -59,16 +59,13 @@
   <ItemGroup>
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" />
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)SonarLint.xml" Link="SonarLint.xml" />
+    <EditorConfigFiles Include="$(MSBuildThisFileDirectory).editorconfig" />
   </ItemGroup>
 
   <Target Name="DisableAnalyzers" BeforeTargets="CoreCompile" Condition="'$(RunCodeAnalysis)' == 'false'">
     <ItemGroup>
       <Analyzer Remove="@(Analyzer)" />
     </ItemGroup>
-  </Target>
-
-  <Target Name="Copy editorconfig" AfterTargets="AfterResolveReferences" Condition="'$(SolutionDir)' != '*Undefined*'">
-    <Copy SourceFiles="$(MSBuildThisFileDirectory).editorconfig" DestinationFolder="$(SolutionDir)" SkipUnchangedFiles="true" />
   </Target>
 
   <PropertyGroup Condition="'$(NuGetBuild)' == 'true'">
