@@ -59,7 +59,9 @@
   <ItemGroup>
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" />
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)SonarLint.xml" Link="SonarLint.xml" />
-    <EditorConfigFiles Include="$(MSBuildThisFileDirectory).editorconfig" />
+    <EditorConfigFiles Condition="'$(NuGetBuild)' == 'true'"
+                       Include="$(MSBuildThisFileDirectory)lombiq.editorconfig"
+                       Link=".editorconfig"/>
   </ItemGroup>
 
   <Target Name="DisableAnalyzers" BeforeTargets="CoreCompile" Condition="'$(RunCodeAnalysis)' == 'false'">
@@ -73,4 +75,12 @@
     <MSBuildTreatWarningsAsErrors>true</MSBuildTreatWarningsAsErrors>
     <CodeAnalysisTreatWarningsAsErrors>True</CodeAnalysisTreatWarningsAsErrors>
   </PropertyGroup>
+
+  <Target Name="Copy editorconfig"
+          AfterTargets="AfterResolveReferences"
+          Condition="'$(SolutionDir)' != '*Undefined*' AND '$(NuGetBuild)' != 'true'">
+    <Copy SourceFiles="$(MSBuildThisFileDirectory)lombiq.editorconfig"
+          DestinationFiles="$(SolutionDir).editorconfig"
+          SkipUnchangedFiles="true" />
+  </Target>
 </Project>
