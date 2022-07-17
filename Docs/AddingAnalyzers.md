@@ -4,7 +4,7 @@
 
 1. Add to *.gitmodules* file (we use the *tools* subfolder for the submodule's folder here but feel free to use something else):
 
-   ```
+   ```gitmodules
    [submodule "Lombiq.Analyzers"]
        path = tools/Lombiq.Analyzers
        url = https://github.com/Lombiq/.NET-Analyzers.git
@@ -22,7 +22,7 @@
 
 3. Since the project's *.editorconfig* file will be copied into your solution's root you may want to gitignore it:
 
-    ```
+    ```gitignore
     /.editorconfig
     ```
 
@@ -66,7 +66,7 @@ You can also add the package to all projects in a folder at once from a *Directo
 
 3. The *NetFx.Build.props* will copy this project's *.editorconfig* file into every project folder that you've created a *Directory.Build.props* in, so you might want to gitignore those:
 
-    ```
+    ```gitignore
     .editorconfig
     ```
 

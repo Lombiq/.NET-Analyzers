@@ -16,7 +16,7 @@ Place a *Directory.Build.props* file into the project's folder (or folder with s
 
 This will completely disable code analysis packages. To also disable .NET SDK analysis override them from an *.editorconfig* file placed into the given project's folder. There you can disable any unwanted rules, like disabling .NET code style analysis completely:
 
-```
+```editorconfig
 [*.cs]
 dotnet_analyzer_diagnostic.category-Style.severity = none
 ```
