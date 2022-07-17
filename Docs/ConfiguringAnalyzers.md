@@ -1,10 +1,6 @@
 # Configuring analyzers
 
-
-
 This page is about configuring analyzers for at least a whole folder or project. On suppressing just single analyzer violations see the ["Using the analyzers during development" page](UsingAnalyzersDuringDevelopment.md). For further details see the [official docs](https://docs.microsoft.com/en-us/visualstudio/code-quality/use-roslyn-analyzers).
-
-
 
 ## How to disable all analyzers for particular projects
 
@@ -25,7 +21,6 @@ This will completely disable code analysis packages. To also disable .NET SDK an
 dotnet_analyzer_diagnostic.category-Style.severity = none
 ```
 
-
 ## How to disable analyzers during `dotnet build`
 
 By default the `dotnet build` command runs analyzers and produces code analysis warnings if there are any but it makes the build slower. Pass the `/p:RunCodeAnalysis=false` parameter to disable analyzers during build, like:
@@ -34,7 +29,6 @@ By default the `dotnet build` command runs analyzers and produces code analysis 
 dotnet build MySolution.sln /p:RunCodeAnalysis=false
 ```
 
-
 ## How to override analyzer configuration globally
 
 If not all the configuration in this project is suitable for your solution then you can also override them globally. This way, the default configuration will be merged with your custom configuration and you can override any number of rules conveniently at one place for all projects in your solution.
@@ -42,6 +36,7 @@ If not all the configuration in this project is suitable for your solution then 
 ### Overriding analyzer configuration from a ruleset file
 
 1. Create your own ruleset file, similar to this project's *general.ruleset* file. Make sure the file name is all lower-case, because if you edit it in Visual Studio it will be converted anyway and that could cause problems on Unix-like systems. Add any rule configurations there that you want to override. Also, include this project's *general.ruleset* file as a child, allowing its rules to be available by default. In the end you should have something like this (the included rules only serve as an example):
+
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <RuleSet Name="General C# rules" ToolsVersion="16.0">
@@ -54,12 +49,15 @@ If not all the configuration in this project is suitable for your solution then 
       </Rules>
     </RuleSet>
     ```
+
 2. In the *Directory.Build.props* file of your solution add a reference to your own ruleset file, overriding the default:
+
     ```xml
     <PropertyGroup>
       <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)my.ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
     ```
+
 3. Now every rule you've defined in *my.ruleset* will take precedence over the default ones. For everything else, the default ones will be applied.
 
 Note that if you add your ruleset file to the solution you'll get GUI support for it in Visual Studio and you'll be able to configure rules without manually editing the XML.

@@ -1,7 +1,5 @@
 # Using the analyzers during development
 
-
-
 ## Working with analyzers in Visual Studio or another IDE
 
 - Output of the analyzers will show up as entries of various levels (i.e. Errors, Warnings, Messages) in the Error List window of Visual Studio for the currently open files (the error codes will link to more info on the violations). You'll also see squiggly lines in the code editor as it is usual for any code issues.
@@ -12,7 +10,6 @@
 - The following VS extensions fit nicely into an analyzer-aided developer workflow:
   - [Rewrap](https://marketplace.visualstudio.com/items?itemName=stkb.Rewrap-18980) helps you wrap comment text at a character limit you can change in the settings. We recommend this to be set to 120.
   - [Editor Guidelines](https://marketplace.visualstudio.com/items?itemName=PaulHarrington.EditorGuidelines) displays the column guidelines defined in our editor config.
-
 
 ## Practices on suppressing a rule for a given piece of code
 

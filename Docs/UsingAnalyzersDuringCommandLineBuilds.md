@@ -1,10 +1,6 @@
 # Using the analyzers during command line builds
 
-
-
-
 The following notes are useful if you're building not from within and IDE but from the command line, like in a CI environment. **Note** the instructions for non-SDK-style .NET Framework projects at the bottom; those projects can't use `dotnet build`!
-
 
 ## Showing analyzer warnings during `dotnet build`
 
@@ -19,7 +15,6 @@ If you want analyzer violations to fail the build (recommended) then also use `T
 ```ps
 dotnet build MySolution.sln --no-incremental /p:TreatWarningsAsErrors=true
 ```
-
 
 ## .NET code style analysis
 
@@ -42,7 +37,6 @@ dotnet build MySolution.sln --no-incremental -warnaserror /p:TreatWarningsAsErro
 ```
 
 Note that code style analysis is experimental in the .NET 5 SDK and [may change in later versions](https://github.com/dotnet/roslyn/issues/49044).
-
 
 ## Non-SDK-style .NET Framework projects
 

@@ -1,9 +1,6 @@
 # Lombiq .NET Analyzers
 
-
-
 [![Lombiq.Analyzers NuGet](https://img.shields.io/nuget/v/Lombiq.Analyzers?label=Lombiq.Analyzers)](https://www.nuget.org/packages/Lombiq.Analyzers/)
-
 
 ## About
 
@@ -36,7 +33,6 @@ We added and configured analyzers which are widely used and complement each othe
 
 Furthermore, the project also includes an *.editorconfig* file with additional configuration for compatible editors.
 
-
 ## Guides
 
 - [Adding analyzers to your project](Docs/AddingAnalyzers.md)
@@ -51,17 +47,20 @@ Bug reports, feature requests, comments, questions, code contributions, and love
 This project is developed by [Lombiq Technologies](https://lombiq.com/). Commercial-grade support is available through Lombiq.
 
 ### Upgrading to a new version of the .NET SDK
+
 When a new version of the .NET SDK comes out then to the following:
+
 - Change the `LangVersion` and `AnalysisLevel` elements in the *Build.props* file to opt in to new language features and analyzers. This does not concern non-SDK-style .NET Framework projects.
 - Wait for all analyzers to support the new SDK (primarily the new language features). Then update all packages to latest.
 - Check if there are new [code analysis categories](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/categories) that we need to surface warnings for by default in the *.editorconfig* file.
 
 ### Adding a new analyzer
+
 When adding a new analyzer package, do the following:
 
 - Check if the project is actively developed with issues addressed quickly.
 - Check if it has any significant impact on build or editing performance.
 - Go through all rules in the package and decide one by one whether we need them.
-    - Check for rules that are already covered by some other analyzer and disable duplicates.
-    - All rules that we need should be surfaced as Warnings. This allows to only break the build on analyzer violations when we need it, i.e. during CI builds but not during development.
+  - Check for rules that are already covered by some other analyzer and disable duplicates.
+  - All rules that we need should be surfaced as Warnings. This allows to only break the build on analyzer violations when we need it, i.e. during CI builds but not during development.
 - Test it on multiple significant solutions. Using the [Hastlayer SDK](https://github.com/Lombiq/Hastlayer-SDK) is a good example as it's a large C# solution.

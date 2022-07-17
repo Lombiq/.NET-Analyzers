@@ -1,24 +1,27 @@
 # Adding analyzers to your project
 
-
-
 ## How to add the analyzers to your whole repository of SDK-style projects
 
 1. Add to *.gitmodules* file (we use the *tools* subfolder for the submodule's folder here but feel free to use something else):
+
    ```
    [submodule "Lombiq.Analyzers"]
        path = tools/Lombiq.Analyzers
        url = https://github.com/Lombiq/.NET-Analyzers.git
        branch = dev
    ```
+
    *`path` can target anything but we suggest either the folder where the solution `.sln` file is located (mostly the repository root) or a "tools" subfolder therein.*
 2. Create a *Directory.Build.props* file in the folder where the solution *.sln* file is located (mostly the repository root) with the following content (if you've put the submodule into a different folder then change the path):
+
    ```xml
    <Project>
      <Import Project="tools/Lombiq.Analyzers/Build.props" />
    </Project>
    ```
+
 3. Since the project's *.editorconfig* file will be copied into your solution's root you may want to gitignore it:
+
     ```
     /.editorconfig
     ```
@@ -31,7 +34,7 @@ This will use the analyzer configuration suitable for Orchard Core projects. If 
 </PropertyGroup>
 ```
 
-For at least Visual Studio and JetBrains Rider you don't need any further setup for IDE support. For [OmniSharp-integrated editors](http://www.omnisharp.net/#integrations) like Visual Studio Code you'll also need to add an _omnisharp.json_ file to the root of the solution:
+For at least Visual Studio and JetBrains Rider you don't need any further setup for IDE support. For [OmniSharp-integrated editors](http://www.omnisharp.net/#integrations) like Visual Studio Code you'll also need to add an *omnisharp.json* file to the root of the solution:
 
 ```json
 {
@@ -44,30 +47,30 @@ For at least Visual Studio and JetBrains Rider you don't need any further setup 
 }
 ```
 
-
 ## How to add the analyzers to SDK-style projects from NuGet
 
 The recommended approach for SDK-style projects is adding .NET Analyzers as a submodule as explained above due to the increased control you have over configuration. However, if you aren't using Git or prefer NuGet, you can also use the [NuGet package](https://www.nuget.org/packages/Lombiq.Analyzers/) to install it for just one project. Once you add the package to your project, all analyzers will be applied.
 
 You can also add the package to all projects in a folder at once from a *Directory.Build.props* file (much like we do in [*CommonPackages.props*](../CommonPackages.props)).
 
-
 ## How to add the analyzers to individual non-SDK-style .NET Framework projects (not solutions)
 
 1. Same as above - add the .NET-Analyzers repository as a submodule to your repository.
 2. Create a *Directory.Build.props* file in every project folder you want to target, next to the *.csproj* file with the following content (import the *NetFx.Build.props* file instead of *Build.props*, adjust the relative path as suitable):
+
    ```xml
    <Project>
      <Import Project="../../../tools/Lombiq.Analyzers/NetFx.Build.props" />
    </Project>
    ```
+
 3. The *NetFx.Build.props* will copy this project's *.editorconfig* file into every project folder that you've created a *Directory.Build.props* in, so you might want to gitignore those:
+
     ```
     .editorconfig
     ```
-    
-This will use the analyzer configuration suitable for Orchard 1 projects. If you want to use this in a non-Orchard .NET Framework app then use the *general.ruleset* file as described above.
 
+This will use the analyzer configuration suitable for Orchard 1 projects. If you want to use this in a non-Orchard .NET Framework app then use the *general.ruleset* file as described above.
 
 ## Introducing analyzers to an existing project
 
@@ -75,11 +78,13 @@ What to do if you're not starting a green-field project but want to add analyzer
 
 1. Fix any existing build warnings. Analyzer violations will be surfaced as warnings so it's best to fix build warnings first.
 2. Enable `TreatWarningsAsErrors` [in CI/CD builds](UsingAnalyzersDuringCommandLineBuilds.md) to make sure you don't introduce more warnings. Or alternatively, at least you can enable `TreatWarningsAsErrors` for all projects so during local build it'll fail on any violation. You can do this from the same *Directory.Build.props* file by adding the following:
+
     ```xml
     <PropertyGroup>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
     ```
+
 3. .NET compatibility:
     - .NET Core and .NET 5 or later projects can use this without anything special.
     - .NET Framework projects:
