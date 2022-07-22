@@ -52,4 +52,4 @@ Example where the `#pragma` suppress is suitable (note how the suppression only 
     }
 ```
 
-For further details see the [official docs](https://docs.microsoft.com/en-us/visualstudio/code-quality/in-source-suppression-overview?view=vs-2022).
+For further details see the [official docs](https://docs.microsoft.com/en-us/visualstudio/code-quality/in-source-suppression-overview).
