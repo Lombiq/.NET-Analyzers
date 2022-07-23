@@ -6,7 +6,7 @@
 
 .NET code analyzers and code convention settings for [Lombiq](https://lombiq.com) projects, predominantly for [Orchard Core](https://orchardcore.net/) apps but also any .NET apps. We use these to enforce common standards across all our .NET projects, including e.g. all of our [open-source Orchard Core extensions](https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions). If you contribute to our open-source projects while using that solution you'll be guided by these rules, too. You can check out a demo video of the project [here](https://www.youtube.com/watch?v=dtbGRi3Cezs).
 
-There is also support for non-SDK-style .NET Framework projects, as long as they use `PackageReference` for their dependencies (in contrast to *packages.config*).
+There is also support for non-SDK-style .NET Framework projects, as long as they use `PackageReference` for their dependencies (in contrast to _packages.config_).
 
 Some other projects you may be interested in:
 
@@ -31,7 +31,7 @@ We added and configured analyzers which are widely used and complement each othe
 - [StyleCop.Analyzers](https://www.nuget.org/packages/StyleCop.Analyzers/)
 - [SonarAnalyzer.CSharp](https://www.nuget.org/packages/SonarAnalyzer.CSharp/)
 
-Furthermore, the project also includes an *.editorconfig* file with additional configuration for compatible editors.
+Furthermore, the project also includes an _.editorconfig_ file with additional configuration for compatible editors.
 
 ## Guides
 
@@ -50,9 +50,9 @@ This project is developed by [Lombiq Technologies](https://lombiq.com/). Commerc
 
 When a new version of the .NET SDK comes out then to the following:
 
-- Change the `LangVersion` and `AnalysisLevel` elements in the *Build.props* file to opt in to new language features and analyzers. This does not concern non-SDK-style .NET Framework projects.
+- Change the `LangVersion` and `AnalysisLevel` elements in the _Build.props_ file to opt in to new language features and analyzers. This does not concern non-SDK-style .NET Framework projects.
 - Wait for all analyzers to support the new SDK (primarily the new language features). Then update all packages to latest.
-- Check if there are new [code analysis categories](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/categories) that we need to surface warnings for by default in the *.editorconfig* file.
+- Check if there are new [code analysis categories](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/categories) that we need to surface warnings for by default in the _.editorconfig_ file.
 
 ### Adding a new analyzer
 
