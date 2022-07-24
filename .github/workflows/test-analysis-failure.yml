@@ -1,0 +1,35 @@
+name: Test Analysis Failure
+
+# Runs for PRs opened for any branch, and pushes to the dev branch.
+on:
+  pull_request:
+  push:
+    branches:
+      - dev
+
+jobs:
+  call-test-analysis-failure-nuget:
+    name: Test Analysis Failure - NuGet PackageReference
+    uses: Lombiq/GitHub-Actions/.github/workflows/test-analysis-failure.yml@dev
+    with:
+      machine-types: "[\"ubuntu-latest\", \"windows-latest\"]"
+      build-directory: TestSolutions/Lombiq.Analyzers.PackageReference
+      timeout-minutes: 30
+      build-expected-code-analysis-errors: |
+        IDE0021: Use expression body for constructors.
+        IDE0044: Make field readonly.
+        S2933: Make 'Number' 'readonly'.
+        S4487: Remove this unread private field 'Number' or refactor the code to use its value.
+
+  call-test-analysis-failure-local:
+    name: Test Analysis Failure - Local ProjectReference
+    uses: Lombiq/GitHub-Actions/.github/workflows/test-analysis-failure.yml@dev
+    with:
+      machine-types: "[\"ubuntu-latest\", \"windows-latest\"]"
+      build-directory: TestSolutions/Lombiq.Analyzers.ProjectReference
+      timeout-minutes: 30
+      build-expected-code-analysis-errors: |
+        IDE0021: Use expression body for constructors.
+        IDE0044: Make field readonly.
+        S2933: Make 'Number' 'readonly'.
+        S4487: Remove this unread private field 'Number' or refactor the code to use its value.
