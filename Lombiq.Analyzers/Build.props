@@ -59,9 +59,6 @@
   <ItemGroup>
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" />
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)SonarLint.xml" Link="SonarLint.xml" />
-    <EditorConfigFiles Condition="'$(NuGetBuild)' == 'true'"
-                       Include="$(MSBuildThisFileDirectory)lombiq.editorconfig"
-                       Link=".editorconfig"/>
   </ItemGroup>
 
   <Target Name="DisableAnalyzers" BeforeTargets="CoreCompile" Condition="'$(RunCodeAnalysis)' == 'false'">
