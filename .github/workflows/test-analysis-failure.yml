@@ -31,5 +31,5 @@ jobs:
       build-expected-code-analysis-errors: |
         IDE0021: Use expression body for constructors.
         IDE0044: Make field readonly.
-        S2933: Make 'Number' 'readonly'.
+        S2933: Make 'Number' 'readonly'. 
         S4487: Remove this unread private field 'Number' or refactor the code to use its value.
