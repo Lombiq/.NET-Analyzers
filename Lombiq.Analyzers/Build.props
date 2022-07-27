@@ -75,7 +75,7 @@
 
   <Target Name="Copy editorconfig"
           AfterTargets="AfterResolveReferences"
-          Condition="'$(SolutionDir)' != '*Undefined*' AND '$(NuGetBuild)' != 'true'">
+          Condition="'$(SolutionDir)' != '*Undefined*'">
     <Copy SourceFiles="$(MSBuildThisFileDirectory)lombiq.editorconfig"
           DestinationFiles="$(SolutionDir).editorconfig"
           SkipUnchangedFiles="true" />
