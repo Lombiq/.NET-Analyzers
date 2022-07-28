@@ -75,7 +75,7 @@
 
   <Target Name="Copy editorconfig"
           AfterTargets="AfterResolveReferences"
-          BeforeTargets="EmbeddModuleAssets;OrchardCoreEmbedModuleAssets;Compile"
+          BeforeTargets="Compile"
           Condition="'$(SolutionDir)' != '*Undefined*'">
     <Copy SourceFiles="$(MSBuildThisFileDirectory).editorconfig" DestinationFolder="$(SolutionDir)" SkipUnchangedFiles="true" />
 
