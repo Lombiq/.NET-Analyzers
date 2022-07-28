@@ -9,6 +9,10 @@
     <Copy SourceFiles="..\AnalyzerViolations.cs" DestinationFolder="$(MSBuildThisFileDirectory)" />
   </Target>
 
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)AnalyzerViolations.cs" WithCulture="false" Type="Non-Resx" />
+  </ItemGroup>
+
   <Import Project="..\..\Lombiq.Analyzers\Build.props" />
 
 </Project>
