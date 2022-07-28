@@ -73,7 +73,7 @@
     <CodeAnalysisTreatWarningsAsErrors>True</CodeAnalysisTreatWarningsAsErrors>
   </PropertyGroup>
 
-  <Target Name="CopyEditorconfig" DependsOnTargets="LombiqNetAnalyzer" AfterTargets="AfterResolveReferences">
+  <Target Name="CopyEditorconfig" DependsOnTargets="LombiqNetAnalyzers" AfterTargets="AfterResolveReferences">
   </Target>
 
   <!-- This target should be used in CI before build, e.g. `dotnet msbuild -target:LombiqNetAnalyzers | Out-Null`. Use
