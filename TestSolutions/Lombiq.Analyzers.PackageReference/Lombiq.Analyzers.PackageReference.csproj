@@ -13,7 +13,7 @@
     <None Remove="IndirectPackageReference\**" />
   </ItemGroup>
 
-  <Target Name="CopyFiles" DependsOnTargets="LombiqNetAnalyzers">
+  <Target Name="CopyFiles" DependsOnTargets="LombiqNetAnalyzers" AfterTargets="AfterResolveReferences">
     <Copy SourceFiles="..\AnalyzerViolations.cs" DestinationFolder="$(MSBuildThisFileDirectory)" />
   </Target>
 
