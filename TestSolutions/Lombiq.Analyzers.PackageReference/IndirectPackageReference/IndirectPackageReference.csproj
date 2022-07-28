@@ -13,7 +13,7 @@
     <PackageReference Include="Lombiq.Analyzers" Version="2.1.1-osoe-110.13" />
   </ItemGroup>
 
-  <Target Name="CopyFiles" BeforeTargets="ResolveProjectReferences">
+  <Target Name="CopyFiles" DependsOnTargets="LombiqNetAnalyzers">
     <Copy SourceFiles="..\..\AnalyzerViolations.cs" DestinationFolder="$(MSBuildThisFileDirectory)" />
   </Target>
 

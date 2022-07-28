@@ -73,14 +73,17 @@
     <CodeAnalysisTreatWarningsAsErrors>True</CodeAnalysisTreatWarningsAsErrors>
   </PropertyGroup>
 
-  <Target Name="Copy editorconfig"
-          AfterTargets="AfterResolveReferences"
-          BeforeTargets="Compile"
-          Condition="'$(SolutionDir)' != '*Undefined*'">
-    <Copy SourceFiles="$(MSBuildThisFileDirectory).editorconfig" DestinationFolder="$(SolutionDir)" SkipUnchangedFiles="true" />
-
-    <ItemGroup>
-      <EmbeddedResource Include="$(SolutionDir).editorconfig" WithCulture="false" Type="Non-Resx" />
-    </ItemGroup>
+  <Target Name="CopyEditorconfig" DependsOnTargets="LombiqNetAnalyzer" AfterTargets="AfterResolveReferences">
   </Target>
+
+  <!-- This target should be used in CI before build, e.g. `dotnet msbuild -target:LombiqNetAnalyzers | Out-Null`. Use
+       `| Out-Null` in PowerShell or `>/dev/null 2>&1` in bash to suppress output because it will complain if not every
+       project has this target, but that's not really relevant. -->
+  <Target Name="LombiqNetAnalyzers">
+    <Copy Condition="'$(SolutionDir)' != '*Undefined*'"
+          SourceFiles="$(MSBuildThisFileDirectory).editorconfig"
+          DestinationFolder="$(SolutionDir)"
+          SkipUnchangedFiles="true" />
+  </Target>
+
 </Project>
