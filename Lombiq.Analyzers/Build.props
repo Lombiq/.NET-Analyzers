@@ -73,11 +73,14 @@
     <CodeAnalysisTreatWarningsAsErrors>True</CodeAnalysisTreatWarningsAsErrors>
   </PropertyGroup>
 
-  <Target Name="Copy editorconfig" AfterTargets="AfterResolveReferences" Condition="'$(SolutionDir)' != '*Undefined*'">
+  <Target Name="Copy editorconfig"
+          AfterTargets="AfterResolveReferences"
+          BeforeTargets="EmbeddModuleAssets;OrchardCoreEmbedModuleAssets;Compile"
+          Condition="'$(SolutionDir)' != '*Undefined*'">
     <Copy SourceFiles="$(MSBuildThisFileDirectory).editorconfig" DestinationFolder="$(SolutionDir)" SkipUnchangedFiles="true" />
-  </Target>
 
-  <ItemGroup Condition="'$(SolutionDir)' != '*Undefined*'">
-    <EmbeddedResource Include="$(SolutionDir).editorconfig" WithCulture="false" Type="Non-Resx" />
-  </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Include="$(SolutionDir).editorconfig" WithCulture="false" Type="Non-Resx" />
+    </ItemGroup>
+  </Target>
 </Project>
