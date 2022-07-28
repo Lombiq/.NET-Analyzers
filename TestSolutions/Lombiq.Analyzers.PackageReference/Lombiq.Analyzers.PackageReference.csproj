@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,7 +13,7 @@
     <None Remove="IndirectPackageReference\**" />
   </ItemGroup>
 
-  <Target Name="CopyFiles" BeforeTargets="PrepareForBuild">
+  <Target Name="CopyFiles" BeforeTargets="ResolveProjectReferences">
     <Copy SourceFiles="..\AnalyzerViolations.cs" DestinationFolder="$(MSBuildThisFileDirectory)" />
   </Target>
 

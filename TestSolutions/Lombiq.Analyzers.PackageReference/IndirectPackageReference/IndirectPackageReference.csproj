@@ -10,10 +10,10 @@
   -->
 
   <ItemGroup Condition="'$(ImportPackageAgain)' == 'true'">
-    <PackageReference Include="Lombiq.Analyzers" Version="2.1.1-osoe-110.7" />
+    <PackageReference Include="Lombiq.Analyzers" Version="2.1.1-osoe-110.13" />
   </ItemGroup>
 
-  <Target Name="CopyFiles" BeforeTargets="PrepareForBuild">
+  <Target Name="CopyFiles" BeforeTargets="ResolveProjectReferences">
     <Copy SourceFiles="..\..\AnalyzerViolations.cs" DestinationFolder="$(MSBuildThisFileDirectory)" />
   </Target>
 

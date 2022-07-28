@@ -6,5 +6,8 @@
 
     <!-- This property prevents the Directory.Build.props in the repository root. -->
     <SkipRootBuildProps>true</SkipRootBuildProps>
+    
+    <!-- This way it's easier to manually test the solutions in this directory. -->
+    <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
   </PropertyGroup>
 </Project>
