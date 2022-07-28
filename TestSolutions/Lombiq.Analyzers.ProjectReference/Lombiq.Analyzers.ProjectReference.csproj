@@ -5,12 +5,10 @@
     <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Include="..\AnalyzerViolations.cs">
-      <Link>AnalyzerViolations.cs</Link>
-    </Compile>
-  </ItemGroup>
+  <Target Name="CopyFiles" BeforeTargets="ResolveProjectReferences">
+    <Copy SourceFiles="..\AnalyzerViolations.cs" DestinationFolder="$(MSBuildThisFileDirectory)" />
+  </Target>
 
-  <Import Project="../../Lombiq.Analyzers/Build.props" />
+  <Import Project="..\..\Lombiq.Analyzers\Build.props" />
 
 </Project>

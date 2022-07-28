@@ -11,10 +11,10 @@
   <ItemGroup>
     <Compile Remove="IndirectPackageReference\**" />
     <None Remove="IndirectPackageReference\**" />
-
-    <Compile Include="..\AnalyzerViolations.cs">
-      <Link>AnalyzerViolations.cs</Link>
-    </Compile>
   </ItemGroup>
+
+  <Target Name="CopyFiles" BeforeTargets="ResolveProjectReferences">
+    <Copy SourceFiles="..\AnalyzerViolations.cs" DestinationFolder="$(MSBuildThisFileDirectory)" />
+  </Target>
 
 </Project>
