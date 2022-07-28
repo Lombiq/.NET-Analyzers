@@ -5,7 +5,7 @@
     <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
   </PropertyGroup>
 
-  <Target Name="CopyFiles" DependsOnTargets="LombiqNetAnalyzers" AfterTargets="AfterResolveReferences">
+  <Target Name="CopyFiles" BeforeTargets="LombiqNetAnalyzers">
     <Copy SourceFiles="..\AnalyzerViolations.cs" DestinationFolder="$(MSBuildThisFileDirectory)" />
   </Target>
 
