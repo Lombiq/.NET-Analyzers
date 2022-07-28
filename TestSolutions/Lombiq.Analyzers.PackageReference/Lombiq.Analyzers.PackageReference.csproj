@@ -12,13 +12,9 @@
     <Compile Remove="IndirectPackageReference\**" />
     <None Remove="IndirectPackageReference\**" />
   </ItemGroup>
-
-  <Target Name="CopyFiles" BeforeTargets="LombiqNetAnalyzers">
+  
+  <Target Name="CopyAnalyzerViolations" DependsOnTargets="LombiqNetAnalyzers" AfterTargets="LombiqNetAnalyzers">
     <Copy SourceFiles="..\AnalyzerViolations.cs" DestinationFolder="$(MSBuildThisFileDirectory)" />
   </Target>
-
-  <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)AnalyzerViolations.cs" WithCulture="false" Type="Non-Resx" />
-  </ItemGroup>
 
 </Project>

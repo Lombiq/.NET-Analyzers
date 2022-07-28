@@ -11,4 +11,5 @@ node_modules/
 /.editorconfig
 /TestSolutions/Lombiq.Analyzers.*/.editorconfig
 /TestSolutions/Lombiq.Analyzers.*/AnalyzerViolations.cs
+/TestSolutions/Lombiq.Analyzers.PackageReference/IndirectPackageReference/AnalyzerViolations.cs
 /Lombiq.Analyzers/Lombiq.Analyzers.nuspec

@@ -12,13 +12,13 @@
   <ItemGroup Condition="'$(ImportPackageAgain)' == 'true'">
     <PackageReference Include="Lombiq.Analyzers" Version="2.1.1-osoe-110.14" />
   </ItemGroup>
-
-  <Target Name="CopyFiles" BeforeTargets="LombiqNetAnalyzers">
-    <Copy SourceFiles="..\..\AnalyzerViolations.cs" DestinationFolder="$(MSBuildThisFileDirectory)" />
+  
+  <!-- Dummy target for when ImportPackageAgain is disabled. -->
+  <Target Name="LombiqNetAnalyzers" Condition="'$(ImportPackageAgain)' != 'true'">
   </Target>
 
-  <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)AnalyzerViolations.cs" WithCulture="false" Type="Non-Resx" />
-  </ItemGroup>
+  <Target Name="CopyAnalyzerViolations" DependsOnTargets="LombiqNetAnalyzers" AfterTargets="LombiqNetAnalyzers">
+    <Copy SourceFiles="..\..\AnalyzerViolations.cs" DestinationFolder="$(MSBuildThisFileDirectory)" />
+  </Target>
 
 </Project>
