@@ -76,4 +76,8 @@
   <Target Name="Copy editorconfig" AfterTargets="AfterResolveReferences" Condition="'$(SolutionDir)' != '*Undefined*'">
     <Copy SourceFiles="$(MSBuildThisFileDirectory).editorconfig" DestinationFolder="$(SolutionDir)" SkipUnchangedFiles="true" />
   </Target>
+
+  <ItemGroup Condition="'$(SolutionDir)' != '*Undefined*'">
+    <EmbeddedResource Include="$(SolutionDir).editorconfig" WithCulture="false" Type="Non-Resx" />
+  </ItemGroup>
 </Project>
