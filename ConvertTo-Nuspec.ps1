@@ -1,14 +1,14 @@
 ﻿param($Version)
 
 $projectPath = Join-Path $PWD Lombiq.Analyzers
-function Open-Xml([string]$File) { [xml](Get-Content (Join-Path $projectPath $File)) }
+function Read-Xml([string]$File) { [xml](Get-Content (Join-Path $projectPath $File)) }
 
-$nuspec = Open-Xml Lombiq.Analyzers.nuspec.template
+$nuspec = Read-Xml Lombiq.Analyzers.nuspec.template
 $dependencies = $nuspec.package.metadata.dependencies
 
 $nuspec.package.metadata.GetElementsByTagName('version')[0].InnerXml = $Version
 
-foreach($dependency in (Open-Xml CommonPackages.props).Project.ItemGroup.AnalyzerPackage)
+foreach($dependency in (Read-Xml CommonPackages.props).Project.ItemGroup.AnalyzerPackage)
 {
     $id = $dependency.Include
     if (-not $id) { continue }
