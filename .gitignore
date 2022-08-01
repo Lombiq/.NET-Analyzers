@@ -9,7 +9,7 @@ node_modules/
 *.user
 .pnpm-debug.log
 /.editorconfig
-/TestSolutions/Lombiq.Analyzers.*/.editorconfig
+/TestSolutions/**/.editorconfig
 /TestSolutions/Lombiq.Analyzers.*/AnalyzerViolations.cs
 /TestSolutions/Lombiq.Analyzers.PackageReference/IndirectPackageReference/AnalyzerViolations.cs
 /Lombiq.Analyzers/Lombiq.Analyzers.nuspec
