@@ -1,4 +1,4 @@
-# This script tries to work around NuGet's validation and the NU5100 warning caused by the presence of these files
+# This script tries to work around NuGet's validation and the NU5100 warning caused by the presence of these files:
 # - bin/Release/netstandard2.0/Lombiq.Analyzers.dll
 # - obj/Release/netstandard2.0/Lombiq.Analyzers.dll
 # The cause is probably that we don't actually do anything in the corresponding csproj, it only exists because we need
