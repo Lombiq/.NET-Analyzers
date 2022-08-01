@@ -10,6 +10,5 @@ node_modules/
 .pnpm-debug.log
 /.editorconfig
 /TestSolutions/**/.editorconfig
-/TestSolutions/Lombiq.Analyzers.*/AnalyzerViolations.cs
-/TestSolutions/Lombiq.Analyzers.PackageReference/IndirectPackageReference/AnalyzerViolations.cs
+/TestSolutions/Lombiq.Analyzers.*/**/AnalyzerViolations.cs
 /Lombiq.Analyzers/Lombiq.Analyzers.nuspec
