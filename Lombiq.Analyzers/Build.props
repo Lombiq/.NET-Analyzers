@@ -79,7 +79,7 @@
   <!-- This target should be used in CI before build, e.g. `dotnet msbuild -target:LombiqNetAnalyzers | Out-Null`. Use
        `| Out-Null` in PowerShell or `>/dev/null 2>&1` in bash to suppress output because it will complain if not every
        project has this target, but that's not really relevant. If you are using NuGet, then the argument should be
-       "-target:Restore;LombiqNetAnalyzers" instead (include the quotes) to load the pacakge first.  -->
+       "-target:Restore;LombiqNetAnalyzers" instead (include the quotes) to restore all package dependencies first. -->
   <Target Name="LombiqNetAnalyzers">
     <Copy Condition="'$(SolutionDir)' != '*Undefined*'"
           SourceFiles="$(MSBuildThisFileDirectory).editorconfig"
