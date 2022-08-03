@@ -1,5 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="..\..\Lombiq.Analyzers\Build.props" />
+
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
@@ -7,7 +9,5 @@
   <Target Name="CopyAnalyzerViolations" AfterTargets="LombiqNetAnalyzers">
     <Copy SourceFiles="..\AnalyzerViolations.cs" DestinationFolder="$(MSBuildThisFileDirectory)" />
   </Target>
-
-  <Import Project="..\..\Lombiq.Analyzers\Build.props" />
 
 </Project>
