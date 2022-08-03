@@ -14,7 +14,7 @@
   </ItemGroup>
   
   <!-- Dummy target for when ImportPackageAgain is disabled. -->
-  <Target Name="LombiqNetAnalyzers" Condition="'$(ImportPackageAgain)' != 'true'">
+  <Target Name="LombiqNetAnalyzers" AfterTargets="AfterResolveReferences" Condition="'$(ImportPackageAgain)' != 'true'">
   </Target>
 
   <Target Name="CopyAnalyzerViolations" DependsOnTargets="LombiqNetAnalyzers" AfterTargets="LombiqNetAnalyzers">
