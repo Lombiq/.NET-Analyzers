@@ -10,7 +10,7 @@
   -->
 
   <ItemGroup Condition="'$(ImportPackageAgain)' == 'true'">
-    <PackageReference Include="Lombiq.Analyzers" Version="2.1.1-osoe-110.14" />
+    <PackageReference Include="Lombiq.Analyzers" Version="2.1.1-osoe-110.16" />
   </ItemGroup>
   
   <!-- Dummy target for when ImportPackageAgain is disabled. -->
