@@ -10,7 +10,13 @@
   -->
 
   <ItemGroup Condition="'$(ImportPackageAgain)' == 'true'">
-    <PackageReference Include="Lombiq.Analyzers" Version="2.1.1-osoe-110.16" />
+    <PackageReference Include="Lombiq.Analyzers" Version="2.1.1-osoe-110.16">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Lombiq.Analyzers.PackageReference.csproj" />
   </ItemGroup>
   
   <!-- Dummy target for when ImportPackageAgain is disabled. -->

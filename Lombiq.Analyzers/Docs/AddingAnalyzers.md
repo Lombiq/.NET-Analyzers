@@ -49,9 +49,17 @@ For at least Visual Studio and JetBrains Rider you don't need any further setup 
 
 ## How to add the analyzers to SDK-style projects from NuGet
 
-The recommended approach for SDK-style projects is adding .NET Analyzers as a submodule as explained above due to the increased control you have over configuration. However, if you aren't using Git or prefer NuGet, you can also use the [NuGet package](https://www.nuget.org/packages/Lombiq.Analyzers/) to install it for just one project. Once you add the package to your project, all analyzers will be applied.
+The recommended approach for SDK-style projects is adding .NET Analyzers as a submodule as explained above due to the increased control you have over configuration. However, if you aren't using Git, dislike submodules or prefer NuGet, you can also use the [NuGet package](https://www.nuget.org/packages/Lombiq.Analyzers/) to install it for just one project. Once you add the package to your project, all analyzers will be applied.
 
-You can also add the package to all projects in a folder at once from a _Directory.Build.props_ file (much like we do in [_CommonPackages.props_](../CommonPackages.props)).
+```csproj
+    <PackageReference Include="Lombiq.Analyzers" Version="2.1.1">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+```
+
+The `<PrivateAssets>all</PrivateAssets>` is necessary to prevent the analyzers "leaking" into other projects that may consume yours.
+
+You can also add the package to all projects inside a folder at once [from a _Directory.Build.props_ file](https://docs.microsoft.com/en-us/visualstudio/msbuild/customize-your-build).
 
 ## How to add the analyzers to individual non-SDK-style .NET Framework projects (not solutions)
 
