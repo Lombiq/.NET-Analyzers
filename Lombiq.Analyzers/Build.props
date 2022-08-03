@@ -66,13 +66,6 @@
       <Analyzer Remove="@(Analyzer)" />
     </ItemGroup>
   </Target>
-
-  <PropertyGroup Condition="'$(NuGetBuild)' == 'true'">
-    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-    <MSBuildTreatWarningsAsErrors>true</MSBuildTreatWarningsAsErrors>
-    <CodeAnalysisTreatWarningsAsErrors>True</CodeAnalysisTreatWarningsAsErrors>
-  </PropertyGroup>
-
   <!-- This target ensures, that LombiqNetAnalyzers is called during Build as well. This way the LombiqNetAnalyzers
        target can remain independent and calling it in itself won't trigger any Build-related targets. This target acts
        as a bridge by being dependent on LombiqNetAnalyzers and running after AfterResolveReferences (which is part of
