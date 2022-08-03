@@ -2,10 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
   </PropertyGroup>
 
-  <Target Name="CopyAnalyzerViolations" DependsOnTargets="LombiqNetAnalyzers" AfterTargets="LombiqNetAnalyzers">
+  <Target Name="CopyAnalyzerViolations" AfterTargets="LombiqNetAnalyzers">
     <Copy SourceFiles="..\AnalyzerViolations.cs" DestinationFolder="$(MSBuildThisFileDirectory)" />
   </Target>
 

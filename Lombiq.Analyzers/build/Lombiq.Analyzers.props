@@ -1,7 +1,6 @@
 <Project>
   <PropertyGroup>
     <NuGetBuild>true</NuGetBuild>
-    <RestoreUseStaticGraphEvaluation>true</RestoreUseStaticGraphEvaluation>
   </PropertyGroup>
 
   <Import Project="../Build.props"/>
