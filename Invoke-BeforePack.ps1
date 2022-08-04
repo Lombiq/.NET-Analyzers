@@ -4,16 +4,6 @@
 # The cause is probably that we don't actually do anything in the corresponding csproj, it only exists because we need
 # an entry point for `dotnet pack` (unlike the older `nuget pack` tooling, which worked with just the .nuspec alone).
 
-$release = Get-ChildItem Lombiq.Analyzers/bin/Release -Recurse -Include Lombiq.Analyzers.dll
-$releasePdb = $release.FullName -replace 'dll$','pdb'
 New-Item -Type Directory -Force lib
-Copy-Item $release lib
-
-if (Test-Path $releasePdb)
-{
-    Copy-Item $releasePdb lib
-}
-else
-{
-    Write-Warning "There is no $releasePdb file!"
-}
+Get-ChildItem bin\Debug | Copy-Item -Destination lib -Recurse -filter Lombiq.Analyzers.dll
+Get-ChildItem bin\Debug | Copy-Item -Destination lib -Recurse -filter Lombiq.Analyzers.pdb
