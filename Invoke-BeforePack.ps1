@@ -5,5 +5,5 @@
 # an entry point for `dotnet pack` (unlike the older `nuget pack` tooling, which worked with just the .nuspec alone).
 
 New-Item -Type Directory -Force lib
-Get-ChildItem bin\Release | Copy-Item -Destination lib -Recurse -filter Lombiq.Analyzers.dll
-Get-ChildItem bin\Release | Copy-Item -Destination lib -Recurse -filter Lombiq.Analyzers.pdb
+Get-ChildItem Lombiq.Analyzers/bin/Release | Copy-Item -Destination lib -Recurse -filter Lombiq.Analyzers.dll
+Get-ChildItem Lombiq.Analyzers/bin/Release | Copy-Item -Destination lib -Recurse -filter Lombiq.Analyzers.pdb
