@@ -18,8 +18,10 @@
   <ItemGroup>
     <ProjectReference Include="..\Lombiq.Analyzers.PackageReference.csproj" />
   </ItemGroup>
-  
-  <!-- Dummy target for when ImportPackageAgain is disabled. -->
+
+  <!-- Fallback target for when ImportPackageAgain is not explicitly set to "true". In that case, Lombiq.Analyzers won't
+       be imported, and the LombiqNetAnalyzers target won't be defined, which is needed it to trigger the
+       CopyAnalyzerViolations target. -->
   <Target Name="LombiqNetAnalyzers" AfterTargets="AfterResolveReferences" Condition="'$(ImportPackageAgain)' != 'true'">
   </Target>
 
