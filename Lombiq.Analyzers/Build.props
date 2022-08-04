@@ -2,8 +2,10 @@
   <PropertyGroup>
     <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)orchardcore.ruleset</CodeAnalysisRuleSet>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <!-- Don't run analyzers during Visual Studio build, not to slow down development. They still run during dotnet build. -->
-    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+    <!-- Don't run analyzers during Visual Studio build, not to slow down development. They still run during dotnet build.
+         By making this conditional, it won't overwrite the value if you set it in the Directory.Build.props file. For
+         Rider users: https://youtrack.jetbrains.com/issue/RIDER-80579 -->
+    <RunAnalyzersDuringBuild Condition="'$(RunAnalyzersDuringBuild)' != 'true'">false</RunAnalyzersDuringBuild>
     <!-- Needed for project targeting versions earlier than .NET 5. Only works with .NET Core and later projects, see:
     https://docs.microsoft.com/en-us/dotnet/core/project-sdk/overview.
     Note that this is not needed if the Microsoft.CodeAnalysis.NetAnalyzers NuGet package is installed. -->
@@ -63,7 +65,22 @@
     </ItemGroup>
   </Target>
 
-  <Target Name="Copy editorconfig" AfterTargets="AfterResolveReferences" Condition="'$(SolutionDir)' != '*Undefined*'">
-    <Copy SourceFiles="$(MSBuildThisFileDirectory).editorconfig" DestinationFolder="$(SolutionDir)" SkipUnchangedFiles="true" />
+  <!-- This target ensures, that LombiqNetAnalyzers is called during Build as well. This way the LombiqNetAnalyzers
+       target can remain independent, and calling it in itself won't trigger any Build-related targets. This target acts
+       as a bridge by being dependent on LombiqNetAnalyzers and running after AfterResolveReferences (which is part of
+       Build). -->
+  <Target Name="CopyEditorconfig" DependsOnTargets="LombiqNetAnalyzers" AfterTargets="AfterResolveReferences">
   </Target>
+
+  <!-- This target should be used in CI before build, e.g. `dotnet msbuild -target:LombiqNetAnalyzers | Out-Null`. Use
+       `| Out-Null` in PowerShell or `>/dev/null 2>&1` in bash to suppress output because it will complain if not every
+       project has this target, but that's not really relevant. If you are using NuGet, then the argument should be
+       "-target:Restore;LombiqNetAnalyzers" (including the quotes) to restore all package dependencies first. -->
+  <Target Name="LombiqNetAnalyzers">
+    <Copy Condition="'$(SolutionDir)' != '*Undefined*'"
+          SourceFiles="$(MSBuildThisFileDirectory).editorconfig"
+          DestinationFolder="$(SolutionDir)"
+          SkipUnchangedFiles="true" />
+  </Target>
+
 </Project>

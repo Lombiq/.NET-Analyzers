@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Lombiq.Analyzers" Version="2.1.1-osoe-110.22">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="IndirectPackageReference\**" />
+    <None Remove="IndirectPackageReference\**" />
+  </ItemGroup>
+
+  <Target Name="CopyAnalyzerViolations" AfterTargets="LombiqNetAnalyzers">
+    <Copy SourceFiles="..\AnalyzerViolations.cs" DestinationFolder="$(MSBuildThisFileDirectory)" />
+  </Target>
+
+</Project>

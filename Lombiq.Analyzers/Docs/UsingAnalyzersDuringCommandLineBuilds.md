@@ -18,7 +18,7 @@ dotnet build MySolution.sln --no-incremental /p:TreatWarningsAsErrors=true
 
 ## .NET code style analysis
 
-If you want code style analysis configured in _.editorconfig_ (i.e. IDE\* rules, this is not applicable to the others) to be checked during build too (it's already checked during editing) then you'll need to run the build with `RunAnalyzersDuringBuild=true`. **Don't** enable `EnforceCodeStyleInBuild` as explained in [the docs](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#code-style-analysis) since that'll always use the analyzers from the .NET SDK, not the explicitly referenced packages, and will cause violations not to show (see [this comment](https://github.com/dotnet/roslyn/issues/50785#issuecomment-768606882)).
+If you want code style analysis configured in _.editorconfig_ (i.e. IDE\* rules, this is not applicable to the others) to be checked during build too (it's already checked during editing) then you'll need to run the build with `RunAnalyzersDuringBuild=true`. **Don't** enable `EnforceCodeStyleInBuild` as explained in [the docs](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#code-style-analysis) because that always uses the analyzers from the .NET SDK, not the explicitly referenced packages, and violations won't show up (see [this comment](https://github.com/dotnet/roslyn/issues/50785#issuecomment-768606882)).
 
 ```ps
 dotnet build MySolution.sln --no-incremental /p:RunAnalyzersDuringBuild=true
@@ -35,6 +35,8 @@ Or if you only want to see the errors and not the full build output (including e
 ```ps
 dotnet build MySolution.sln --no-incremental -warnaserror /p:TreatWarningsAsErrors=true /p:RunAnalyzersDuringBuild=true -nologo -consoleLoggerParameters:NoSummary -verbosity:quiet
 ```
+
+> ⚠ If you are using the NuGet package, run `dotnet msbuild "-t:Restore;LombiqNetAnalyzers" MySolution.sln` first to ensure the _.editorconfig_ file is deployed. This is especially important for CI usage. For local development, you can simply rebuild the solution.
 
 Note that code style analysis is experimental in the .NET 5 SDK and [may change in later versions](https://github.com/dotnet/roslyn/issues/49044).
 

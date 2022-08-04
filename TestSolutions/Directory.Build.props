@@ -1,0 +1,9 @@
+<!-- This file is needed to prevent loading any Directory.Build.props higher up in the directory tree. Even if 
+     everything is commented out inside, it shouldn't be deleted. -->
+<Project>
+  <PropertyGroup>
+    <!-- You can disable analysis on build by commenting this property out. However it makes manual testing easier so
+         it's enabled by default. It works when you import Lombiq.Analyzers from a NuGet package too. -->
+    <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+  </PropertyGroup>
+</Project>
