@@ -1,5 +1,5 @@
-# WARNING: Only edit this file in the Lombiq .NET Analyzers repository's folder. A copy of this file anywhere else will
-# be overwritten.
+# WARNING: Only edit this file in the Lombiq .NET Analyzers repository's "Lombiq.Analyzers" folder. A copy of this file
+# anywhere else will be overwritten.
 
 # Common .NET conventions, code formatting and naming convention rules. Check out possible configs here:
 # https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference
