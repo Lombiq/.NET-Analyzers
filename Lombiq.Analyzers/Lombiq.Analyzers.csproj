@@ -13,7 +13,7 @@
   
   <ItemGroup>
     <None Include="License.md" Pack="true" PackagePath="" />
-    <None Include="Readme.md" />
+    <None Include="..\Readme.md" Link="Readme.md" />
     <None Include="NuGetIcon.png" Pack="true" PackagePath="" />
     <None Include="build\**" Pack="true" PackagePath="build\" />
     <None Include=".editorconfig" Pack="true" PackagePath="" />
