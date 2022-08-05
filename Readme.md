@@ -35,10 +35,10 @@ Furthermore, the project also includes an _.editorconfig_ file with additional c
 
 ## Guides
 
-- [Adding analyzers to your project](Docs/AddingAnalyzers.md)
-- [Using the analyzers during development](Docs/UsingAnalyzersDuringDevelopment.md)
-- [Using the analyzers during command line builds](Docs/UsingAnalyzersDuringCommandLineBuilds.md)
-- [Configuring analyzers](Docs/ConfiguringAnalyzers.md)
+- [Adding analyzers to your project](Lombiq.Analyzers/Docs/AddingAnalyzers.md)
+- [Using the analyzers during development](Lombiq.Analyzers/Docs/UsingAnalyzersDuringDevelopment.md)
+- [Using the analyzers during command line builds](Lombiq.Analyzers/Docs/UsingAnalyzersDuringCommandLineBuilds.md)
+- [Configuring analyzers](Lombiq.Analyzers/Docs/ConfiguringAnalyzers.md)
 
 ## Contributing and support
 
