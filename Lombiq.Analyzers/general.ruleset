@@ -79,6 +79,7 @@
     <Rule Id="MA0102" Action="None" />
     <Rule Id="MA0105" Action="Warning" />
     <Rule Id="MA0106" Action="None" />
+    <Rule Id="MA0111" Action="None" />
   </Rules>
   <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
     <Rule Id="CA1002" Action="Hidden" />
