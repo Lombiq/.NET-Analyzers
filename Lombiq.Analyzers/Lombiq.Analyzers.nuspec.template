@@ -17,4 +17,7 @@
             <!-- Dependencies come here from CommonPackages.props. -->
         </dependencies>
     </metadata>
+    <files>
+        <file src="**" exclude="**\bin\**;**\obj\Release\**" />
+    </files>
 </package>
