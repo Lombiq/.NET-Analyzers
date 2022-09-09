@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>Lombiq.Analyzers</id>
@@ -18,6 +18,11 @@
         </dependencies>
     </metadata>
     <files>
+        <!-- Workaround for NuGet's validation caused by the presence of these files:
+        - bin/Release/netstandard2.0/Lombiq.Analyzers.dll
+        - obj/Release/netstandard2.0/Lombiq.Analyzers.dll
+        The cause is probably that we don't actually do anything in this csproj, it only exists because we need an entry
+        point for `dotnet pack` (unlike the older `nuget pack` tooling, which worked with just the .nuspec alone).-->
         <file src="**" exclude="**\bin\**;**\obj\Release\**" />
     </files>
 </package>
