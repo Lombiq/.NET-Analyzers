@@ -153,6 +153,7 @@
     <Rule Id="CA1308" Action="Warning" />
     <Rule Id="CA1310" Action="Warning" />
     <Rule Id="CA1401" Action="Warning" />
+    <Rule Id="CA1416" Action="None" />
     <Rule Id="CA1508" Action="Hidden" />
     <Rule Id="CA1712" Action="Warning" />
     <Rule Id="CA1713" Action="Warning" />
