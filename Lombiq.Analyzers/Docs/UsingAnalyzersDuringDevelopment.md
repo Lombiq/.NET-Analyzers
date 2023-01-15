@@ -51,4 +51,6 @@ Example where the `#pragma` suppress is suitable (note how the suppression only 
     }
 ```
 
+Fence the smallest possible code block with such `#pragma`s, but do fence the whole code block where it applies (i.e. not necessarily just the line where you get an analyzer violation, since certain analyzer rules may work with multiple lines). This is also necessary because otherwise you may get a "IDE0079 Remove unnecessary suppression" violation.
+
 For further details see the [official docs](https://docs.microsoft.com/en-us/visualstudio/code-quality/in-source-suppression-overview).
