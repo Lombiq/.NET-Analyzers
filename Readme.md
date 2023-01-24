@@ -10,7 +10,7 @@ There is also support for non-SDK-style .NET Framework projects, as long as they
 
 Some other projects you may be interested in:
 
-- Looking for something similar for JavaScript and SCSS? Check out the ESLint and Stylelint integrations of our [Gulp Extensions project](https://github.com/Lombiq/Gulp-Extensions).
+- Looking for something similar for JavaScript and SCSS? Check out the ESLint and Stylelint integrations of our [Node.js Extensions project](https://github.com/Lombiq/NodeJs-Extensions).
 - Looking not just for static code analysis but also dynamic testing? Check out our [UI Testing Toolbox](https://github.com/Lombiq/UI-Testing-Toolbox) and [Testing Toolbox](https://github.com/Lombiq/Testing-Toolbox) projects.
 - Looking for a library that'll help you comply with analyzer rules? Check out our [Helpful Libraries project](https://github.com/Lombiq/Helpful-Libraries).
 
