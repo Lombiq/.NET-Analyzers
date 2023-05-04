@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <DefaultItemExcludes>$(DefaultItemExcludes);.git*;</DefaultItemExcludes>
+  </PropertyGroup>
+
+  <!-- This project is built with an externally generated .nuspec file so NuGet-related properties are not needed here.
+       The package properties can be updated in the Lombiq.Analyzers.nuspec.template file. The dependencies are created
+       from the CommonPackages.props file, although if needed further dependencies can be added to 
+       Lombiq.Analyzers.nuspec.template as well.
+       -->
+  
+  <ItemGroup>
+    <None Include="License.md" Pack="true" PackagePath="" />
+    <None Include="..\Readme.md" Link="Readme.md" />
+    <None Include="NuGetIcon.png" Pack="true" PackagePath="" />
+    <None Include="build\**" Pack="true" PackagePath="build\" />
+    <None Include=".editorconfig" Pack="true" PackagePath="" />
+    <None Include="*.props" Pack="true" PackagePath="" />
+    <None Include="*.ruleset" Pack="true" PackagePath="" />
+    <None Include="*.xml" Pack="true" PackagePath="" />
+    <None Include="*.json" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+</Project>

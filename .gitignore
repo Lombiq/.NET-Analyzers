@@ -8,3 +8,7 @@ wwwroot/
 node_modules/
 *.user
 .pnpm-debug.log
+/.editorconfig
+/TestSolutions/**/.editorconfig
+/TestSolutions/Lombiq.Analyzers.*/**/AnalyzerViolations.cs
+/Lombiq.Analyzers/Lombiq.Analyzers.nuspec

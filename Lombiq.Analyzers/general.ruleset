@@ -79,6 +79,10 @@
     <Rule Id="MA0102" Action="None" />
     <Rule Id="MA0105" Action="Warning" />
     <Rule Id="MA0106" Action="None" />
+    <Rule Id="MA0111" Action="None" />
+    <Rule Id="MA0120" Action="Warning" />
+    <Rule Id="MA0121" Action="Warning" />
+    <Rule Id="MA0122" Action="Warning" />
   </Rules>
   <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
     <Rule Id="CA1002" Action="Hidden" />
@@ -106,6 +110,7 @@
     <Rule Id="CA1507" Action="Warning" />
     <Rule Id="CA1824" Action="Warning" />
     <Rule Id="CA1825" Action="Warning" />
+    <Rule Id="CA1851" Action="Warning" />
     <Rule Id="CA2016" Action="None" />
     <Rule Id="CA2234" Action="Hidden" />
     <Rule Id="CA3076" Action="Warning" />
@@ -117,7 +122,6 @@
     <Rule Id="CA1008" Action="Warning" />
     <Rule Id="CA1010" Action="Warning" />
     <Rule Id="CA1012" Action="Warning" />
-    <Rule Id="CA1014" Action="Hidden" />
     <Rule Id="CA1016" Action="Warning" />
     <Rule Id="CA1018" Action="Warning" />
     <Rule Id="CA1024" Action="Warning" />
@@ -305,6 +309,7 @@
     <Rule Id="CA5403" Action="Warning" />
   </Rules>
   <Rules AnalyzerId="Microsoft.VisualStudio.Threading.Analyzers" RuleNamespace="Microsoft.VisualStudio.Threading.Analyzers">
+    <Rule Id="VSTHRD111" Action="None" />
     <Rule Id="VSTHRD113" Action="Warning" />
     <Rule Id="VSTHRD200" Action="None" />
   </Rules>
@@ -367,6 +372,7 @@
     <Rule Id="S3366" Action="Warning" />
     <Rule Id="S3376" Action="None" />
     <Rule Id="S3441" Action="Warning" />
+    <Rule Id="S3458" Action="None" />
     <Rule Id="S3532" Action="Warning" />
     <Rule Id="S3626" Action="None" />
     <Rule Id="S3693" Action="Warning" />
