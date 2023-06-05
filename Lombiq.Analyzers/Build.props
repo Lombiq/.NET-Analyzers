@@ -2,10 +2,10 @@
   <PropertyGroup>
     <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)orchardcore.ruleset</CodeAnalysisRuleSet>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <RunAnalyzersDuringBuild Condition="'$(RunAnalyzersDuringBuild)' != 'true'">false</RunAnalyzersDuringBuild>
     <!-- Don't run analyzers during Visual Studio build, not to slow down development. They still run during dotnet
          build. By making this conditional, it won't overwrite the value if you set it in the Directory.Build.props
          file. For Rider users: https://youtrack.jetbrains.com/issue/RIDER-80579 -->
+    <RunAnalyzersDuringBuild Condition="'$(RunAnalyzersDuringBuild)' != 'true'">false</RunAnalyzersDuringBuild>
     <!-- Needed for project targeting versions earlier than .NET 5. Only works with .NET Core and later projects, see:
     https://docs.microsoft.com/en-us/dotnet/core/project-sdk/overview.
     Note that this is not needed if the Microsoft.CodeAnalysis.NetAnalyzers NuGet package is installed. -->
