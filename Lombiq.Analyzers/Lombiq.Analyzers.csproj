@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <DefaultItemExcludes>$(DefaultItemExcludes);.git*;</DefaultItemExcludes>
     <!-- This is duplicated with Lombiq.Analyzers.nuspec.template but is needed for the NuGet publishing workflow not to
-    throw a warning. -->
+    throw a warning. See https://github.com/Lombiq/GitHub-Actions/issues/236. -->
     <PackageLicenseFile>License.md</PackageLicenseFile>
   </PropertyGroup>
 
