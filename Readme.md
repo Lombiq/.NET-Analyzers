@@ -46,6 +46,10 @@ Bug reports, feature requests, comments, questions, code contributions and love 
 
 This project is developed by [Lombiq Technologies](https://lombiq.com/). Commercial-grade support is available through Lombiq.
 
+### Publishing a new NuGet package
+
+When publishing a new version of the NuGet package, even if it's just a pre-release, also update the package references under _TestSolutions\Lombiq.Analyzers.PackageReferences_ to the new version. This is necessary to run the tests there.
+
 ### Upgrading to a new version of the .NET SDK
 
 When a new version of the .NET SDK comes out then to the following:
