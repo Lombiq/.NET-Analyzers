@@ -33,7 +33,7 @@
          PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.."> by
          adding "Microsoft.Net.Compilers.Toolset" manually; see:
          https://docs.microsoft.com/en-us/answers/questions/244179/microsoftcodeanalysis-problem.html. -->
-    <PackageReference Include="Microsoft.Net.Compilers.Toolset" Version="4.4.0">
+    <PackageReference Include="Microsoft.Net.Compilers.Toolset" Version="4.6.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
     </PackageReference>
