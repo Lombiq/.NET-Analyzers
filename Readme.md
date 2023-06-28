@@ -14,6 +14,13 @@ Some other projects you may be interested in:
 - Looking not just for static code analysis but also dynamic testing? Check out our [UI Testing Toolbox](https://github.com/Lombiq/UI-Testing-Toolbox) and [Testing Toolbox](https://github.com/Lombiq/Testing-Toolbox) projects.
 - Looking for a library that'll help you comply with analyzer rules? Check out our [Helpful Libraries project](https://github.com/Lombiq/Helpful-Libraries).
 
+We at [Lombiq](https://lombiq.com/) also used this module for the following projects:
+
+- The new [City of Santa Monica website](https://santamonica.gov/) when migrating it from Orchard 1 to Orchard Core ([see case study](https://lombiq.com/blog/helping-the-city-of-santa-monica-with-orchard-core-consulting)).
+- The new [Smithsonian Folkways Recordings website](https://folkways.si.edu/) when migrating it from Orchard 1 to Orchard Core ([see case study](https://lombiq.com/blog/smithsonian-folkways-recordings-now-upgraded-to-orchard-core)).
+- The new [Lombiq website](https://lombiq.com/) when migrating it from Orchard 1 to Orchard Core ([see case study](https://lombiq.com/blog/how-we-renewed-and-migrated-lombiq-com-from-orchard-1-to-orchard-core)).
+- It also makes [DotNest, the Orchard SaaS](https://dotnest.com/) better.
+
 Do you want to quickly try out this project and see it in action? Check it out in our [Open-Source Orchard Core Extensions](https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions) full Orchard Core solution and also see our other useful Orchard Core-related open-source projects!
 
 ## Analyzer packages used
