@@ -39,7 +39,7 @@
          https://docs.microsoft.com/en-us/answers/questions/244179/microsoftcodeanalysis-problem.html. Not updating this
          version in sync with the analyzer packages will result in errors of the "CSC : error CS9057: The analyzer
          assembly
-         'C:\Users\runneradmin\.nuget\packages\microsoft.codeanalysis.csharp.codestyle\4.7.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.CodeStyle.dll'
+         'C:\Users\runneradmin\.nuget\packages\microsoft.codeanalysis.csharp.codestyle\4.7.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.CodeStyle.dll' #spell-check-ignore-line
          references version '4.7.0.0' of the compiler, which is newer than the currently running version '4.6.0.0'."
          kind. -->
     <PackageReference Include="Microsoft.Net.Compilers.Toolset" Version="4.7.0">
