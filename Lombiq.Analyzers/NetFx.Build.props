@@ -22,6 +22,10 @@
          https://github.com/dotnet/roslyn/blob/ff854c695779990b9b269029a8615782a59ec530/src/Compilers/Core/MSBuildTask/Microsoft.Managed.Core.targets#L104.
          -->
     <GenerateMSBuildEditorConfigFile>false</GenerateMSBuildEditorConfigFile>
+    <!-- This prevents unnecessary warnings so the analyzer versions will depend on the repository and not what is
+    installed by the user. See:
+    https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props#_skipupgradenetanalyzersnugetwarning. -->
+    <_SkipUpgradeNetAnalyzersNuGetWarning>true</_SkipUpgradeNetAnalyzersNuGetWarning>
   </PropertyGroup>
 
   <Import Project="$(MSBuildThisFileDirectory)CommonPackages.props" />
