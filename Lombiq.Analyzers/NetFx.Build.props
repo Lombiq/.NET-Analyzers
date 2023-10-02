@@ -25,7 +25,6 @@
     <!-- This prevents unnecessary warnings so the analyzer versions will depend on the repository and not what is
          installed by the user. See:
          https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props#_skipupgradenetanalyzersnugetwarning. -->
-    <_SkipUpgradeNetAnalyzersNuGetWarning>true</_SkipUpgradeNetAnalyzersNuGetWarning>etanalyzersnugetwarning. -->
     <_SkipUpgradeNetAnalyzersNuGetWarning>true</_SkipUpgradeNetAnalyzersNuGetWarning>
   </PropertyGroup>
 
