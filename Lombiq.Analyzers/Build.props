@@ -18,12 +18,14 @@
     https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#latest-updates -->
     <AnalysisLevel>7.0</AnalysisLevel>
     <!-- This is for Microsoft.CodeAnalysis.NetAnalyzers. This way, we have control over it unlike when getting it
-    via the .NET SDK. See: https://docs.microsoft.com/en-us/visualstudio/code-quality/migrate-from-fxcop-analyzers-to-net-analyzers
-    .NET code style analysis is not working with .NET 5 though, see: https://github.com/dotnet/roslyn/issues/33558#issuecomment-867346974. -->
+         via the .NET SDK. See:
+         https://docs.microsoft.com/en-us/visualstudio/code-quality/migrate-from-fxcop-analyzers-to-net-analyzers .NET
+         code style analysis is not working with .NET 5 though, see:
+         https://github.com/dotnet/roslyn/issues/33558#issuecomment-867346974. -->
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
     <!-- This prevents unnecessary warnings so the analyzer versions will depend on the repository and not what is
-    installed by the user. See:
-    https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props#_skipupgradenetanalyzersnugetwarning. -->
+         installed by the user. See:
+         https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props#_skipupgradenetanalyzersnugetwarning. -->
     <_SkipUpgradeNetAnalyzersNuGetWarning>true</_SkipUpgradeNetAnalyzersNuGetWarning>
   </PropertyGroup>
 
