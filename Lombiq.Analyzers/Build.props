@@ -22,7 +22,8 @@
     .NET code style analysis is not working with .NET 5 though, see: https://github.com/dotnet/roslyn/issues/33558#issuecomment-867346974. -->
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
     <!-- This prevents unnecessary warnings so the analyzer versions will depend on the repository and not what is
-    installed by the user. see: https://github.com/dotnet/docs/issues/23232. -->
+    installed by the user. See:
+    https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props#_skipupgradenetanalyzersnugetwarning. -->
     <_SkipUpgradeNetAnalyzersNuGetWarning>true</_SkipUpgradeNetAnalyzersNuGetWarning>
   </PropertyGroup>
 
