@@ -29,11 +29,6 @@
     <_SkipUpgradeNetAnalyzersNuGetWarning>true</_SkipUpgradeNetAnalyzersNuGetWarning>
   </PropertyGroup>
 
-  <!-- .NET-only packages. -->
-  <ItemGroup>
-    <AnalyzerPackage Include="Microsoft.CodeAnalysis.CSharp.CodeStyle" Version="4.7.0"/>
-  </ItemGroup>
-
   <Import Project="$(MSBuildThisFileDirectory)CommonPackages.props" />
 
   <ItemGroup>
