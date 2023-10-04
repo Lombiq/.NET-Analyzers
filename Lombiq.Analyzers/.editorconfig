@@ -23,12 +23,7 @@ trim_trailing_whitespace = true
 # New line preferences
 end_of_line = crlf
 insert_final_newline = true
-dotnet_style_operator_placement_when_wrapping = beginning_of_line
 tab_width = 4
-dotnet_style_coalesce_expression = true:warning
-dotnet_style_null_propagation = true:warning
-dotnet_style_prefer_is_null_check_over_reference_equality_method = true:warning
-dotnet_style_prefer_auto_properties = true:warning
 
 # C# files
 [*.cs]
@@ -64,6 +59,7 @@ dotnet_style_collection_initializer = true:warning
 dotnet_style_explicit_tuple_names = true:warning
 dotnet_style_null_propagation = true:warning
 dotnet_style_object_initializer = true:warning
+dotnet_style_operator_placement_when_wrapping = beginning_of_line
 dotnet_style_prefer_auto_properties = true:warning
 dotnet_style_prefer_compound_assignment = true:warning
 dotnet_style_prefer_conditional_expression_over_assignment = true:warning
