@@ -80,7 +80,7 @@
        project has this target, but that's not really relevant. If you are using NuGet, then the argument should be
        "-target:Restore;LombiqNetAnalyzers" (including the quotes) to restore all package dependencies first.
        .editorconfig needs to be copied since this is the only standard way for every editor to be able to use it (until
-       extending other .editorconfig files will be possible: https://github.com/editorconfig/editorconfig/issues/236).-->
+       extending other .editorconfig files will be possible: https://github.com/editorconfig/editorconfig/issues/236). -->
   <Target Name="LombiqNetAnalyzers">
     <Copy Condition="'$(SolutionDir)' != '*Undefined*'"
           SourceFiles="$(MSBuildThisFileDirectory).editorconfig"
