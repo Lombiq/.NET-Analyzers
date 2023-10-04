@@ -22,6 +22,10 @@
          https://github.com/dotnet/roslyn/blob/ff854c695779990b9b269029a8615782a59ec530/src/Compilers/Core/MSBuildTask/Microsoft.Managed.Core.targets#L104.
          -->
     <GenerateMSBuildEditorConfigFile>false</GenerateMSBuildEditorConfigFile>
+    <!-- This prevents unnecessary warnings so the analyzer versions will depend on the repository and not what is
+         installed by the user. See:
+         https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props#_skipupgradenetanalyzersnugetwarning. -->
+    <_SkipUpgradeNetAnalyzersNuGetWarning>true</_SkipUpgradeNetAnalyzersNuGetWarning>
   </PropertyGroup>
 
   <Import Project="$(MSBuildThisFileDirectory)CommonPackages.props" />
@@ -32,8 +36,13 @@
          Could not load file or assembly 'Microsoft.CodeAnalysis, Version=4.2.0.0, Culture=neutral,
          PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.."> by
          adding "Microsoft.Net.Compilers.Toolset" manually; see:
-         https://docs.microsoft.com/en-us/answers/questions/244179/microsoftcodeanalysis-problem.html. -->
-    <PackageReference Include="Microsoft.Net.Compilers.Toolset" Version="4.6.0">
+         https://docs.microsoft.com/en-us/answers/questions/244179/microsoftcodeanalysis-problem.html. Not updating this
+         version in sync with the analyzer packages will result in errors of the "CSC : error CS9057: The analyzer
+         assembly
+         'C:\Users\runneradmin\.nuget\packages\microsoft.codeanalysis.csharp.codestyle\4.7.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.CodeStyle.dll' #spell-check-ignore-line
+         references version '4.7.0.0' of the compiler, which is newer than the currently running version '4.6.0.0'."
+         kind. -->
+    <PackageReference Include="Microsoft.Net.Compilers.Toolset" Version="4.7.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
     </PackageReference>
