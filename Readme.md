@@ -64,7 +64,7 @@ When a new version of the .NET SDK comes out then to the following:
 
 - Change the `LangVersion` and `AnalysisLevel` elements in the _Build.props_ file to opt in to new language features and analyzers. This does not concern non-SDK-style .NET Framework projects.
 - Wait for all analyzers to support the new SDK (primarily the new language features). Then update all packages to latest.
-- Check if there are new [code analysis categories](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/categories) that we need to surface warnings for by default in the _.editorconfig_ file.
+- Check if there are new [code analysis categories](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/categories) that we need to surface warnings for by default in the _.globalconfig_ files.
 
 ### Adding a new analyzer
 
