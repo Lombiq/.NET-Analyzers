@@ -1,0 +1,17 @@
+is_global = true
+
+# General code analysis rules for Orchard 1 projects, extending Lombiq.Analyzers.General.globalconfig
+
+# To get Visual Studio GUI support for configuring these rules, put it into the solution's startup project's folder and
+# rename it to .editorconfig. See https://github.com/dotnet/roslyn/issues/70326.
+
+# Microsoft.CodeAnalysis.NetAnalyzers rules
+dotnet_diagnostic.CA1016.severity = none
+dotnet_diagnostic.CA3147.severity = none
+
+# SecurityCodeScan.VS2019 rules
+dotnet_diagnostic.SCS0016.severity = none
+
+# SonarAnalyzer.CSharp rules
+dotnet_diagnostic.S3904.severity = none
+dotnet_diagnostic.S4564.severity = none
