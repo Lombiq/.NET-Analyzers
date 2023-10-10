@@ -1,6 +1,5 @@
 <Project>
   <PropertyGroup>
-    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)orchard1.ruleset</CodeAnalysisRuleSet>
     <!-- Simply <GenerateDocumentationFile>true</GenerateDocumentationFile> can't be used because that's for SDK
          projects only, see: https://stackoverflow.com/a/47118584/220230. -->
     <DocumentationDir>$(OutputPath)</DocumentationDir>
@@ -27,6 +26,12 @@
          https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props#_skipupgradenetanalyzersnugetwarning. -->
     <_SkipUpgradeNetAnalyzersNuGetWarning>true</_SkipUpgradeNetAnalyzersNuGetWarning>
   </PropertyGroup>
+
+  <ItemGroup>
+    <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)Lombiq.Analyzers.General.globalconfig" />
+    <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)Lombiq.Analyzers.OrchardCore.globalconfig" />
+    <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)Lombiq.Analyzers.Orchard1.globalconfig" />
+  </ItemGroup>
 
   <Import Project="$(MSBuildThisFileDirectory)CommonPackages.props" />
 
