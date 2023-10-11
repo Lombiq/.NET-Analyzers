@@ -21,7 +21,7 @@
     <None Include="build\**" Pack="true" PackagePath="build\" />
     <None Include=".editorconfig" Pack="true" PackagePath="" />
     <None Include="*.props" Pack="true" PackagePath="" />
-    <None Include="*.ruleset" Pack="true" PackagePath="" />
+    <None Include="*.globalconfig" Pack="true" PackagePath="" />
     <None Include="*.xml" Pack="true" PackagePath="" />
     <None Include="*.json" Pack="true" PackagePath="" />
   </ItemGroup>
