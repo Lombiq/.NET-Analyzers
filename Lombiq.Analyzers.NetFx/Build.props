@@ -28,11 +28,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)Lombiq.Analyzers.globalconfig" />
+    <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)../Lombiq.Analyzers/Lombiq.Analyzers.globalconfig" />
     <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)Lombiq.Analyzers.NetFx.globalconfig" />
   </ItemGroup>
 
-  <Import Project="$(MSBuildThisFileDirectory)AnalyzerPackages.props" />
+  <Import Project="$(MSBuildThisFileDirectory)../Lombiq.Analyzers/AnalyzerPackages.props" />
 
   <ItemGroup>
     <!-- Fixing the <"error CS8032: An instance of analyzer Microsoft.CodeAnalysis.[...]Analyzer cannot be created from
@@ -53,8 +53,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" />
-    <AdditionalFiles Include="$(MSBuildThisFileDirectory)SonarLint.xml" Link="SonarLint.xml" />
+    <AdditionalFiles Include="$(MSBuildThisFileDirectory)../Lombiq.Analyzers/stylecop.json" Link="stylecop.json" />
+    <AdditionalFiles Include="$(MSBuildThisFileDirectory)../Lombiq.Analyzers/SonarLint.xml" Link="SonarLint.xml" />
   </ItemGroup>
 
   <Target Name="DisableAnalyzers" BeforeTargets="CoreCompile" Condition="'$(RunCodeAnalysis)' == 'false'">

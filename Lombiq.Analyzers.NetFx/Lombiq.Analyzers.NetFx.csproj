@@ -17,14 +17,20 @@
   <ItemGroup>
     <!-- Note how these files need to be linked form Lombiq.Analyzers, without a dependency so .NET Framework projects
     don't get .NET configs from its Build.props. -->
+    <None Include="..\Lombiq.Analyzers\.editorconfig" Link=".editorconfig" Pack="true" PackagePath=""  />
     <None Include="..\Lombiq.Analyzers\AnalyzerPackages.props" Link="AnalyzerPackages.props" Pack="true" PackagePath=""  />
     <None Include="..\Lombiq.Analyzers\Lombiq.Analyzers.globalconfig" Link="Lombiq.Analyzers.globalconfig" Pack="true" PackagePath=""  />
+    <None Include="..\Lombiq.Analyzers\SonarLint.xml" Link="SonarLint.xml" Pack="true" PackagePath=""  />
+    <None Include="..\Lombiq.Analyzers\stylecop.json" Link="stylecop.json" Pack="true" PackagePath=""  />
     <None Include="License.md" Pack="true" PackagePath="" />
     <None Include="Readme.md" Link="Readme.md" />
     <None Include="NuGetIcon.png" Pack="true" PackagePath="" />
     <None Include="build\**" Pack="true" PackagePath="build\" />
+    <None Include=".editorconfig" Pack="true" PackagePath="" />
     <None Include="*.props" Pack="true" PackagePath="" />
     <None Include="*.globalconfig" Pack="true" PackagePath="" />
+    <None Include="*.xml" Pack="true" PackagePath="" />
+    <None Include="*.json" Pack="true" PackagePath="" />
   </ItemGroup>
   
   <ItemGroup>
