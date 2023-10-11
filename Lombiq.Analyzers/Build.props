@@ -29,11 +29,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)Lombiq.Analyzers.General.globalconfig" />
-    <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)Lombiq.Analyzers.OrchardCore.globalconfig" />
+    <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)Lombiq.Analyzers.globalconfig" />
   </ItemGroup>
 
-  <Import Project="$(MSBuildThisFileDirectory)CommonPackages.props" />
+  <Import Project="$(MSBuildThisFileDirectory)AnalyzerPackages.props" />
 
   <ItemGroup>
     <!-- Note: This is fixed as of SDK version 6.0.202. If you need to build the solution on a system with an older SDK

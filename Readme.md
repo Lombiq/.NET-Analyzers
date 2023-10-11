@@ -1,6 +1,6 @@
 # Lombiq .NET Analyzers
 
-[![Lombiq.Analyzers NuGet](https://img.shields.io/nuget/v/Lombiq.Analyzers?label=Lombiq.Analyzers)](https://www.nuget.org/packages/Lombiq.Analyzers/)
+[![Lombiq.Analyzers NuGet](https://img.shields.io/nuget/v/Lombiq.Analyzers?label=Lombiq.Analyzers)](https://www.nuget.org/packages/Lombiq.Analyzers/) [![Lombiq.Analyzers.OrchardCore NuGet](https://img.shields.io/nuget/v/Lombiq.Analyzers.OrchardCore?label=Lombiq.Analyzers)](https://www.nuget.org/packages/Lombiq.Analyzers.OrchardCore/)
 
 ## About
 
