@@ -10,7 +10,7 @@
 
   <!-- This project is built with an externally generated .nuspec file so NuGet-related properties are not needed here.
        The package properties can be updated in the Lombiq.Analyzers.OrchardCore.nuspec.template file. The dependencies are created
-       from the CommonPackages.props file, although if needed further dependencies can be added to 
+       from the AnalyzerPackages.props file, although if needed further dependencies can be added to 
        Lombiq.Analyzers.OrchardCore.nuspec.template as well.
        -->
   
