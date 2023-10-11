@@ -3,7 +3,8 @@
 $packages = @(
     'Lombiq.Analyzers',
     'Lombiq.Analyzers.NetFx',
-    'Lombiq.Analyzers.OrchardCore'
+    'Lombiq.Analyzers.OrchardCore',
+    'Lombiq.Analyzers.Orchard1'
 )
 
 # Iterate through the packages to replace

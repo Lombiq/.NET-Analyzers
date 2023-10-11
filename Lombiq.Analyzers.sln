@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lombiq.Analyzers", "Lombiq.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lombiq.Analyzers.OrchardCore", "Lombiq.Analyzers.OrchardCore\Lombiq.Analyzers.OrchardCore.csproj", "{56EB2C63-4689-40E8-B967-8E78D401E25B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lombiq.Analyzers.NetFx", "Lombiq.Analyzers.NetFx\Lombiq.Analyzers.NetFx.csproj", "{5706CF69-091E-4F97-A6CE-3440F9CEACC7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lombiq.Analyzers.Orchard1", "Lombiq.Analyzers.Orchard1\Lombiq.Analyzers.Orchard1.csproj", "{0FD2BD1A-0411-4AB0-B478-C8ECAE8759E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,8 +25,19 @@ Global
 		{56EB2C63-4689-40E8-B967-8E78D401E25B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56EB2C63-4689-40E8-B967-8E78D401E25B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56EB2C63-4689-40E8-B967-8E78D401E25B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5706CF69-091E-4F97-A6CE-3440F9CEACC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5706CF69-091E-4F97-A6CE-3440F9CEACC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5706CF69-091E-4F97-A6CE-3440F9CEACC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5706CF69-091E-4F97-A6CE-3440F9CEACC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FD2BD1A-0411-4AB0-B478-C8ECAE8759E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FD2BD1A-0411-4AB0-B478-C8ECAE8759E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FD2BD1A-0411-4AB0-B478-C8ECAE8759E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FD2BD1A-0411-4AB0-B478-C8ECAE8759E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CF592D6A-8CAC-4389-89C7-593C104DB561}
 	EndGlobalSection
 EndGlobal
