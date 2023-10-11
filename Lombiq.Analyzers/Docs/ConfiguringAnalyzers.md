@@ -70,10 +70,9 @@ using System.Diagnostics.CodeAnalysis;
 You can't as easily do the same as with ruleset files with _.editorconfig_ rules. [It's not possible to define explicit inheritance between _.editorconfig_ files](https://github.com/editorconfig/editorconfig/issues/236) so [the only option is to use the folder hierarchy](https://stackoverflow.com/questions/58543855/can-visual-studio-use-an-editorconfig-not-in-the-directory-hierarchy/58556556#58556556): The _Build.props_ file of this project copies the default _.editorconfig_ file into the solution root. If you put your projects below that in the folder hierarchy and use your own _.editorconfig_ there then the latter will take precedence and you can override the default rules. E.g. you can override certain analyzer rules for a whole folder (even a folder within a project) like this:
 
 ```editor-config
-# All files
-[*]
+[*.{config,csproj,json,props,targets}]
 
-guidelines = 150 1px solid a0ffc000, 180 1px solid 80ff0000
+indent_size = 4
 ```
 
 While eventually all analyzer rules in the .NET ecosystem will live in _.editorconfig_ this is not the case yet. However, you can override _.editorconfig_ rules from a ruleset file: You can open the ruleset file in Visual Studio and under the `Microsoft.CodeAnalysis.CSharp.Features` section you'll also be able to configure each IDE\* rule.
