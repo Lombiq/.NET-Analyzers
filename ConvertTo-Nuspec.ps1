@@ -33,7 +33,7 @@ foreach ($package in $packages)
             $dependencies.AppendChild($node)
         }
     }
-    
+
     $outputPath = Join-Path $projectPath "$package.nuspec"
     $nuspec.Save($outputPath)
 }
