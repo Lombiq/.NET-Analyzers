@@ -17,6 +17,7 @@
             <!-- Dependencies come here from AnalyzerPackages.props. Lombiq.Analyzers is intentionally not a dependency
             because then its Build.props would be applied to .NET Framework projects too. -->
         </dependencies>
+        <developmentDependency>true</developmentDependency>
     </metadata>
     <files>
         <!-- Workaround for NuGet's validation caused by the presence of these files:

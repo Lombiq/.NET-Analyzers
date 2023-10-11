@@ -16,6 +16,7 @@
         <dependencies>
             <!-- Dependencies come here from AnalyzerPackages.props. -->
         </dependencies>
+        <developmentDependency>true</developmentDependency>
     </metadata>
     <files>
         <!-- Workaround for NuGet's validation caused by the presence of these files:

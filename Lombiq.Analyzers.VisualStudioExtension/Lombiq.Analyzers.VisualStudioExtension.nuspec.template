@@ -17,6 +17,7 @@
             <!-- Dependencies come here from AnalyzerPackages.props too. -->
             <dependency id="Lombiq.Analyzers.NetFx" version="$version$" />
         </dependencies>
+        <developmentDependency>true</developmentDependency>
     </metadata>
     <files>
         <!-- Workaround for NuGet's validation caused by the presence of these files:
