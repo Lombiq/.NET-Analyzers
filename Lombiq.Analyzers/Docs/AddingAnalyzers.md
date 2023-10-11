@@ -71,6 +71,7 @@ You can also add the package to all projects inside a folder at once [from a _Di
      <Import Project="../../../tools/Lombiq.Analyzers/NetFx.Build.props" />
    </Project>
    ```
+   If you do this for multiple projects, it's recommended to add your own central props file (like _Analyzers.Build.props_) where you do the above and import that in each project instead.
 
 3. The _NetFx.Build.props_ will copy this project's _.editorconfig_ file into every project folder that you've created a _Directory.Build.props_ in, so you might want to gitignore those:
 
