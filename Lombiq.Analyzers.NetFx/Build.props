@@ -64,6 +64,6 @@
   </Target>
 
   <Target Name="Copy editorconfig" AfterTargets="AfterResolveReferences">
-    <Copy SourceFiles="$(MSBuildThisFileDirectory).editorconfig" DestinationFolder="$(MSBuildProjectDirectory)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="$(MSBuildThisFileDirectory)../Lombiq.Analyzers/.editorconfig" DestinationFolder="$(MSBuildProjectDirectory)" SkipUnchangedFiles="true" />
   </Target>
 </Project>
