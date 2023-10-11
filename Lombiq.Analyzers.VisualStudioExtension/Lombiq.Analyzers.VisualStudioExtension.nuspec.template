@@ -9,9 +9,9 @@
         <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
         <icon>NuGetIcon.png</icon>
         <projectUrl>https://github.com/Lombiq/.NET-Analyzers/blob/dev/Lombiq.Analyzers.VisualStudioExtension</projectUrl>
-        <description>Lombiq .NET Analyzers for Visual Studio Extensions: .NET code analyzers and code convention settings for Orchard 1 (https://orchardcore.net/orchardcms) apps. See the project website for detailed documentation.</description>
+        <description>Lombiq .NET Analyzers for Visual Studio Extensions: .NET code analyzers and code convention settings for Visual Studio Extensions. See the project website for detailed documentation.</description>
         <copyright>Copyright © 2020, Lombiq Technologies Ltd.</copyright>
-        <tags>Orchard Lombiq AspNet CodeAnalysis DotNetAnalyzers Analyzer Analyzers Diagnostic Roslyn Refactoring AsyncFixer Meziantou.Analyzer StyleCop</tags>
+        <tags>VisualStudioExtension VisualStudio Lombiq AspNet CodeAnalysis DotNetAnalyzers Analyzer Analyzers Diagnostic Roslyn Refactoring AsyncFixer Meziantou.Analyzer StyleCop</tags>
         <repository type="git" url="https://github.com/Lombiq/.NET-Analyzers" commit="86d47a37c4d37bb5d8417eae9adfc4680e09fd91" />
         <dependencies>
             <!-- Dependencies come here from AnalyzerPackages.props too. -->
