@@ -3,15 +3,15 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <DefaultItemExcludes>$(DefaultItemExcludes);.git*;</DefaultItemExcludes>
-    <!-- This is duplicated with Lombiq.Analyzers.OrchardCore.nuspec.template but is needed for the NuGet publishing workflow not to
-    throw a warning. See https://github.com/Lombiq/GitHub-Actions/issues/236. -->
+    <!-- This is duplicated with Lombiq.Analyzers.NetFx.nuspec.template but is needed for the NuGet publishing workflow
+    not to throw a warning. See https://github.com/Lombiq/GitHub-Actions/issues/236. -->
     <PackageLicenseFile>License.md</PackageLicenseFile>
   </PropertyGroup>
 
   <!-- This project is built with an externally generated .nuspec file so NuGet-related properties are not needed here.
-       The package properties can be updated in the Lombiq.Analyzers.OrchardCore.nuspec.template file. The dependencies are created
-       from the AnalyzerPackages.props file, although if needed further dependencies can be added to 
-       Lombiq.Analyzers.OrchardCore.nuspec.template as well.
+       The package properties can be updated in the Lombiq.Analyzers.NetFx.nuspec.template file. The dependencies are
+       created from the AnalyzerPackages.props file, although if needed further dependencies can be added to
+       Lombiq.Analyzers.NetFx.nuspec.template as well.
        -->
   
   <ItemGroup>
