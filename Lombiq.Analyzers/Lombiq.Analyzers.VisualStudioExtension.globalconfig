@@ -1,7 +1,7 @@
 is_global = true
-global_level = 30
+global_level = 20
 
-# General code analysis rules for Visual Studio extension projects, extending Lombiq.Analyzers.General.globalconfig
+# Code analysis rules for Visual Studio extension projects, extending Lombiq.Analyzers.NetFx.globalconfig.
 
 # To get Visual Studio GUI support for configuring these rules, put it into the solution's startup project's folder and
 # rename it to .editorconfig. See https://github.com/dotnet/roslyn/issues/70326.

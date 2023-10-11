@@ -1,7 +1,7 @@
 is_global = true
 global_level = 0
 
-# General code analysis rules for any .NET project.
+# General code analysis rules for any .NET and .NET Framework project.
 
 # To get Visual Studio GUI support for configuring these rules, put it into the solution's startup project's folder and
 # rename it to .editorconfig. See https://github.com/dotnet/roslyn/issues/70326.
