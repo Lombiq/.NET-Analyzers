@@ -11,9 +11,9 @@ $packages = @(
 foreach ($package in $packages)
 {
     $projectPath = Join-Path $PWD $package
-    function Read-Xml([string]$File) { [xml](Get-Content (Join-Path $projectPath $File)) }
+    function Read-Xml([string]$File) { [xml](Get-Content (Join-Path $File)) }
     
-    $nuspec = Read-Xml "$package.nuspec.template"
+    $nuspec = Read-Xml (Join-Path $projectPath "$package.nuspec.template")
     $dependencies = $nuspec.package.metadata.dependencies
     
     $nuspec.package.metadata.GetElementsByTagName('version')[0].InnerXml = $Version
