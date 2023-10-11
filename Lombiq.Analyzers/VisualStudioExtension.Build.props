@@ -1,6 +1,0 @@
-<Project>
-  <ItemGroup>
-    <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)Lombiq.Analyzers.VisualStudioExtension.globalconfig" />
-  </ItemGroup>
-  <Import Project="$(MSBuildThisFileDirectory)NetFx.Build.props" />
-</Project>
