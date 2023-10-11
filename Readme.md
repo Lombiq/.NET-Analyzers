@@ -1,6 +1,6 @@
 # Lombiq .NET Analyzers
 
-[![Lombiq.Analyzers NuGet](https://img.shields.io/nuget/v/Lombiq.Analyzers?label=Lombiq.Analyzers)](https://www.nuget.org/packages/Lombiq.Analyzers/) [![Lombiq.Analyzers.OrchardCore NuGet](https://img.shields.io/nuget/v/Lombiq.Analyzers.OrchardCore?label=Lombiq.Analyzers)](https://www.nuget.org/packages/Lombiq.Analyzers.OrchardCore/)
+[![Lombiq.Analyzers NuGet](https://img.shields.io/nuget/v/Lombiq.Analyzers?label=Lombiq.Analyzers)](https://www.nuget.org/packages/Lombiq.Analyzers/) [![Lombiq.Analyzers.NetFx NuGet](https://img.shields.io/nuget/v/Lombiq.Analyzers.NetFx?label=Lombiq.Analyzers.NetFx)](https://www.nuget.org/packages/Lombiq.Analyzers.NetFx/) [![Lombiq.Analyzers.OrchardCore NuGet](https://img.shields.io/nuget/v/Lombiq.Analyzers.OrchardCore?label=Lombiq.Analyzers.OrchardCore)](https://www.nuget.org/packages/Lombiq.Analyzers.OrchardCore/) [![Lombiq.Analyzers.Orchard1 NuGet](https://img.shields.io/nuget/v/Lombiq.Analyzers.Orchard1?label=Lombiq.Analyzers.Orchard1)](https://www.nuget.org/packages/Lombiq.Analyzers.Orchard1/) [![Lombiq.Analyzers.VisualStudioExtension NuGet](https://img.shields.io/nuget/v/Lombiq.Analyzers.VisualStudioExtension?label=Lombiq.Analyzers.VisualStudioExtension)](https://www.nuget.org/packages/Lombiq.Analyzers.VisualStudioExtension/)
 
 ## About
 
