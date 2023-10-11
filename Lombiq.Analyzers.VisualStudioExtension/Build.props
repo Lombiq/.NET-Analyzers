@@ -1,0 +1,6 @@
+<Project>
+  <ItemGroup>
+    <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)Lombiq.Analyzers.VisualStudioExtension.globalconfig" />
+  </ItemGroup>
+  <Import Project="$(MSBuildThisFileDirectory)../Lombiq.Analyzers.NetFx/Build.props" Condition="'$(NuGetBuild)' != 'true'" />
+</Project>
