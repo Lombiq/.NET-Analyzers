@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <Import Project="..\..\Lombiq.Analyzers\Build.props" />
+  <Import Project="..\..\Lombiq.Analyzers.OrchardCore\Build.props" />
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
