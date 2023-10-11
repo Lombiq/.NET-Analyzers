@@ -2,9 +2,7 @@
 
 $packages = @(
     "Lombiq.Analyzers",
-    "Lombiq.Analyzers.OrchardCore",
-    "Lombiq.Analyzers.Orchard1",
-    "Lombiq.Analyzers.VisualStudioExtension"
+    "Lombiq.Analyzers.OrchardCore"
 )
 
 # Iterate through the packages to replace
