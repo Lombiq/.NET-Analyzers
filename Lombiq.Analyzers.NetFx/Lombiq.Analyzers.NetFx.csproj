@@ -32,9 +32,5 @@
     <None Include="*.xml" Pack="true" PackagePath="" />
     <None Include="*.json" Pack="true" PackagePath="" />
   </ItemGroup>
-  
-  <ItemGroup>
-    <GlobalAnalyzerConfigFiles Remove="..\Lombiq.Analyzers\Lombiq.Analyzers.globalconfig" />
-  </ItemGroup>
 
 </Project>
