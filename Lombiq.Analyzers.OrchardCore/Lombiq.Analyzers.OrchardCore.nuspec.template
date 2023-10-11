@@ -14,7 +14,8 @@
         <tags>OrchardCore Lombiq AspNetCore CodeAnalysis DotNetAnalyzers Analyzer Analyzers Diagnostic Roslyn Refactoring AsyncFixer Meziantou.Analyzer StyleCop</tags>
         <repository type="git" url="https://github.com/Lombiq/.NET-Analyzers" commit="86d47a37c4d37bb5d8417eae9adfc4680e09fd91" />
         <dependencies>
-            <!-- Dependencies come here from CommonPackages.props. -->
+            <!-- Dependencies come here from AnalyzerPackages.props too. -->
+            <dependency id="Lombiq.Analyzer" version="$version$" />
         </dependencies>
     </metadata>
     <files>
