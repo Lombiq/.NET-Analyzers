@@ -1,5 +1,5 @@
 is_global = true
-global_level = 10
+global_level = 30
 
 # General code analysis rules for Visual Studio extension projects, extending Lombiq.Analyzers.General.globalconfig
 
