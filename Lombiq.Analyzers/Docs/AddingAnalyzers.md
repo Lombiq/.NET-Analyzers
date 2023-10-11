@@ -1,5 +1,17 @@
 # Adding analyzers to your project
 
+## Selecting which analyzer project/package to use
+
+Lombiq .NET Analyzers is split into multiple projects/packages so you can select the one most suitable for your application. Depending on your use case, select one of the following:
+
+- `Lombiq.Analyzers`: General .NET projects.
+- `Lombiq.Analyzers.NetFx`: .NET Framework projects.
+- `Lombiq.Analyzers.OrchardCore`: [Orchard Core](https://orchardcore.net/) projects.
+- `Lombiq.Analyzers.Orchard1`: Orchard 1 projects.
+- `Lombiq.Analyzers.VisualStudioExtension`: Visual Studio extension projects.
+
+You only need to reference a single project; e.g., even though Orchard Core apps are also .NET apps, you only need to use `Lombiq.Analyzers.OrchardCore` for them.
+
 ## How to add the analyzers to your whole repository of SDK-style projects
 
 1. Add to _.gitmodules_ file (we use the _tools_ subfolder for the submodule's folder here but feel free to use something else):
@@ -12,7 +24,7 @@
    ```
 
    _`path` can target anything but we suggest either the folder where the solution `.sln` file is located (mostly the repository root) or a "tools" subfolder therein._
-2. Create a _Directory.Build.props_ file in the folder where the solution _.sln_ file is located (mostly the repository root) with the following content (if you've put the submodule into a different folder then change the path):
+2. Create a _Directory.Build.props_ file in the folder where the solution _.sln_ file is located (mostly the repository root) with the following content, referencing the analyzer project you selected above (if you've put the submodule into a different folder then change the path):
 
    ```xml
    <Project>
@@ -25,14 +37,6 @@
     ```gitignore
     /.editorconfig
     ```
-
-This will use the analyzer configuration suitable for Orchard Core projects. If you want to use the this in a non-Orchard .NET app then switch over to the general configuration by adding the following to the _Directory.Build.props_ file:
-
-```xml
-<PropertyGroup>
-    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)tools/Lombiq.Analyzers/general.ruleset</CodeAnalysisRuleSet>
-</PropertyGroup>
-```
 
 For at least Visual Studio and JetBrains Rider you don't need any further setup for IDE support. For [OmniSharp-integrated editors](http://www.omnisharp.net/#integrations) like Visual Studio Code you'll also need to add an _omnisharp.json_ file to the root of the solution:
 
@@ -49,7 +53,7 @@ For at least Visual Studio and JetBrains Rider you don't need any further setup 
 
 ## How to add the analyzers to SDK-style projects from NuGet
 
-The recommended approach for SDK-style projects is adding .NET Analyzers as a submodule as explained above due to the increased control you have over configuration. However, if you aren't using Git, dislike submodules or prefer NuGet, you can also use the [NuGet package](https://www.nuget.org/packages/Lombiq.Analyzers/) to install it for just one project. Once you add the package to your project, all analyzers will be applied. Check for the latest version number [on NuGet](https://www.nuget.org/packages/Lombiq.Analyzers/).
+If you don't want to stay on the cutting-edge version, nor do you intend to contribute to Lombiq .NET Analyzers, you can use one of the NuGet packages. Install the package suitable for your project, as selected above. Check for the latest version number [on NuGet](https://www.nuget.org/packages/Lombiq.Analyzers/).
 
 ```csproj
     <PackageReference Include="Lombiq.Analyzers" Version="<latest version>">
@@ -64,11 +68,11 @@ You can also add the package to all projects inside a folder at once [from a _Di
 ## How to add the analyzers to individual non-SDK-style .NET Framework projects (not solutions)
 
 1. Same as above - add the .NET-Analyzers repository as a submodule to your repository.
-2. Create a _Directory.Build.props_ file in every project folder you want to target, next to the _.csproj_ file with the following content (import the _NetFx.Build.props_ file instead of _Build.props_, adjust the relative path as suitable):
+2. Create a _Directory.Build.props_ file in every project folder you want to target, next to the _.csproj_ file with the following content, either referencing `Lombiq.Analyzers.NetFx` or `Lombiq.Analyzers.Orchard1` (adjust the relative path as suitable):
 
    ```xml
    <Project>
-     <Import Project="../../../tools/Lombiq.Analyzers/NetFx.Build.props" />
+     <Import Project="../../../tools/Lombiq.Analyzers.NetFx/Build.props" />
    </Project>
    ```
 
@@ -79,8 +83,6 @@ You can also add the package to all projects inside a folder at once [from a _Di
     ```gitignore
     .editorconfig
     ```
-
-This will use the analyzer configuration suitable for Orchard 1 projects. If you want to use this in a non-Orchard .NET Framework app then use the _general.ruleset_ file as described above.
 
 ## Introducing analyzers to an existing project
 
