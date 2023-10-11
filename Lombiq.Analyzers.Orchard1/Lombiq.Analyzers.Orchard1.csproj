@@ -15,6 +15,7 @@
        -->
   
   <ItemGroup>
+    <None Include="..\Lombiq.Analyzers.OrchardCore\Lombiq.Analyzers.OrchardCore.globalconfig" Link="Lombiq.Analyzers.OrchardCore.globalconfig" Pack="true" PackagePath=""  />
     <None Include="License.md" Pack="true" PackagePath="" />
     <None Include="Readme.md" Link="Readme.md" />
     <None Include="NuGetIcon.png" Pack="true" PackagePath="" />

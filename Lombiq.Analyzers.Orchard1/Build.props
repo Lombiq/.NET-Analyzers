@@ -1,6 +1,7 @@
 <Project>
   <ItemGroup>
     <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)Lombiq.Analyzers.Orchard1.globalconfig" />
+    <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)../Lombiq.Analyzers.OrchardCore/Lombiq.Analyzers.OrchardCore.globalconfig" />
   </ItemGroup>
   <Import Project="$(MSBuildThisFileDirectory)../Lombiq.Analyzers.NetFx/Build.props" Condition="'$(NuGetBuild)' != 'true'" />
 </Project>
