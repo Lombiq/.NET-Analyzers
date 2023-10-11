@@ -3,7 +3,7 @@
     <metadata>
         <id>Lombiq.Analyzers.VisualStudioExtension</id>
         <version>$version$</version>
-        <title>Lombiq .NET Analyzers for Visual Studio Extensions/title>
+        <title>Lombiq .NET Analyzers for Visual Studio Extensions</title>
         <authors>Lombiq Technologies</authors>
         <license type="file">License.md</license>
         <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
