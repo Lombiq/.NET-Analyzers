@@ -11,7 +11,7 @@ $packages = @(
 foreach ($package in $packages)
 {
     $projectPath = Join-Path $PWD $package
-    function Read-Xml([string]$File) { [xml](Get-Content (Join-Path $File)) }
+    function Read-Xml([string]$File) { [xml](Get-Content $File) }
     
     $nuspec = Read-Xml (Join-Path $projectPath "$package.nuspec.template")
     $dependencies = $nuspec.package.metadata.dependencies
