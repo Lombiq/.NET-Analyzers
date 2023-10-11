@@ -2,6 +2,7 @@
 
 $packages = @(
     'Lombiq.Analyzers',
+    'Lombiq.Analyzers.NetFx',
     'Lombiq.Analyzers.OrchardCore'
 )
 

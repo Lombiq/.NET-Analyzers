@@ -55,11 +55,6 @@
     </PackageReference>  -->
   </ItemGroup>
 
-  <!-- Packages only for .NET Core and later. -->
-  <ItemGroup>
-    <!-- For future use. -->
-  </ItemGroup>
-
   <ItemGroup>
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" />
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)SonarLint.xml" Link="SonarLint.xml" />
