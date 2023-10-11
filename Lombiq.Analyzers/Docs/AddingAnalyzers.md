@@ -5,10 +5,10 @@
 Lombiq .NET Analyzers is split into multiple projects/packages so you can select the one most suitable for your application. Depending on your use case, select one of the following:
 
 - [`Lombiq.Analyzers`](../Readme.md): General .NET projects.
-- [`Lombiq.Analyzers.NetFx`](../..Lombiq.Analyzers.NetFx/Readme.md): .NET Framework projects.
-- [`Lombiq.Analyzers.OrchardCore`](../..Lombiq.Analyzers.OrchardCore/Readme.md): [Orchard Core](https://orchardcore.net/) projects.
-- [`Lombiq.Analyzers.Orchard1`](../..Lombiq.Analyzers.Orchard1/Readme.md): Orchard 1 projects.
-- [`Lombiq.Analyzers.VisualStudioExtension`](../..Lombiq.Analyzers.VisualStudioExtension/Readme.md): Visual Studio extension projects.
+- [`Lombiq.Analyzers.NetFx`](../../Lombiq.Analyzers.NetFx/Readme.md): .NET Framework projects.
+- [`Lombiq.Analyzers.OrchardCore`](../../Lombiq.Analyzers.OrchardCore/Readme.md): [Orchard Core](https://orchardcore.net/) projects.
+- [`Lombiq.Analyzers.Orchard1`](../../Lombiq.Analyzers.Orchard1/Readme.md): Orchard 1 projects.
+- [`Lombiq.Analyzers.VisualStudioExtension`](../../Lombiq.Analyzers.VisualStudioExtension/Readme.md): Visual Studio extension projects.
 
 You only need to reference a single project; e.g., even though Orchard Core apps are also .NET apps, you only need to use `Lombiq.Analyzers.OrchardCore` for them.
 
