@@ -1,4 +1,4 @@
-# Lombiq .NET Analyzers for Orchard Core
+# Lombiq .NET Analyzers for Orchard 1
 
 ## About
 
