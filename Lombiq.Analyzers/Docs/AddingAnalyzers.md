@@ -12,9 +12,25 @@ Lombiq .NET Analyzers is split into multiple projects/packages so you can select
 
 You only need to reference a single project; e.g., even though Orchard Core apps are also .NET apps, you only need to use `Lombiq.Analyzers.OrchardCore` for them.
 
-## How to add the analyzers to your whole repository of SDK-style projects
+## How to add the analyzers to SDK-style projects from NuGet
 
-1. Add to _.gitmodules_ file (we use the _tools_ subfolder for the submodule's folder here but feel free to use something else):
+If you don't want to stay on the cutting-edge version, nor do you intend to contribute to Lombiq .NET Analyzers, you can use one of the NuGet packages. Install the package suitable for your project, as selected above. Check for the latest version number [on NuGet](https://www.nuget.org/packages/Lombiq.Analyzers/).
+
+```csproj
+    <PackageReference Include="Lombiq.Analyzers" Version="<latest version>">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+```
+
+The `<PrivateAssets>all</PrivateAssets>` is necessary to prevent the analyzers "leaking" into other projects that may consume yours.
+
+You can also add the package to all projects inside a folder at once [from a _Directory.Build.props_ file](https://docs.microsoft.com/en-us/visualstudio/msbuild/customize-your-build).
+
+## How to add the analyzers to SDK-style projects from a Git submodule
+
+Use this approach if you always want to use the very latest version, or if you'd like to contribute to Lombiq .NET Analyzers.
+
+1. Add to the following to the _.gitmodules_ file (we use the _tools_ subfolder for the submodule's folder here but feel free to use something else):
 
    ```gitmodules
    [submodule "Lombiq.Analyzers"]
@@ -51,24 +67,20 @@ For at least Visual Studio and JetBrains Rider you don't need any further setup 
 }
 ```
 
-## How to add the analyzers to SDK-style projects from NuGet
-
-If you don't want to stay on the cutting-edge version, nor do you intend to contribute to Lombiq .NET Analyzers, you can use one of the NuGet packages. Install the package suitable for your project, as selected above. Check for the latest version number [on NuGet](https://www.nuget.org/packages/Lombiq.Analyzers/).
-
-```csproj
-    <PackageReference Include="Lombiq.Analyzers" Version="<latest version>">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-```
-
-The `<PrivateAssets>all</PrivateAssets>` is necessary to prevent the analyzers "leaking" into other projects that may consume yours.
-
-You can also add the package to all projects inside a folder at once [from a _Directory.Build.props_ file](https://docs.microsoft.com/en-us/visualstudio/msbuild/customize-your-build).
-
 ## How to add the analyzers to individual non-SDK-style .NET Framework projects (not solutions)
 
-1. Same as above - add the .NET-Analyzers repository as a submodule to your repository.
-2. Create a _Directory.Build.props_ file in every project folder you want to target, next to the _.csproj_ file with the following content, either referencing `Lombiq.Analyzers.NetFx` or `Lombiq.Analyzers.Orchard1` (adjust the relative path as suitable):
+The key difference compared to .NET projects is that for non-SDK-style .NET Framework projects, you need to add Lombiq .NET Analyzers to each project.
+
+1. Same as above - add the .NET-Analyzers repository as a Git submodule to your repository or add the NuGet package in the next step.
+2. Create a _Directory.Build.props_ file in every project folder you want to target, next to the _.csproj_ file with the following content, either referencing `Lombiq.Analyzers.NetFx` or `Lombiq.Analyzers.Orchard1`:
+ 
+   ```csproj
+   <PackageReference Include="Lombiq.Analyzers.NetFx" Version="<latest version>">
+       <PrivateAssets>all</PrivateAssets>
+   </PackageReference>
+   ```
+
+   Or if you're using a Git submodule (adjust the relative path as suitable):
 
    ```xml
    <Project>
@@ -78,7 +90,7 @@ You can also add the package to all projects inside a folder at once [from a _Di
 
    If you do this for multiple projects, it's recommended to add your own central props file (like _Analyzers.Build.props_) where you do the above and import that in each project instead.
 
-3. The _NetFx.Build.props_ will copy this project's _.editorconfig_ file into every project folder that you've created a _Directory.Build.props_ in, so you might want to gitignore those:
+3. _Build.props_ will copy this project's _.editorconfig_ file into every project folder that you've created a _Directory.Build.props_ in, so you might want to gitignore those:
 
     ```gitignore
     .editorconfig
@@ -101,7 +113,7 @@ What to do if you're not starting a green-field project but want to add analyzer
     - .NET Core and .NET 5 or later projects can use this without anything special.
     - .NET Framework projects:
       - Projects using the new SDK-style csproj format don't need anything special. You [can convert projects manually](https://docs.microsoft.com/en-us/dotnet/core/porting/#per-project-steps) from the non-SDK-style csproj format or automatically with the [try-convert](https://github.com/dotnet/try-convert) utility. You'll also need to manually remove any leftover _packages.config_ files and adjust _NuGet.config_ files.
-      - Projects using the legacy, non-SDK-style csproj format should use _NetFx.Build.props_ as described above, but the including project needs to use `PackageReference`s. You can convert your _packages.config_-based project to `PackageReference`s using [this walkthrough](https://docs.microsoft.com/en-us/nuget/consume-packages/migrate-packages-config-to-package-reference).  
+      - Projects using the legacy, non-SDK-style csproj format should use `Lombiq.Analyzers.NetFx` as described above, but the including project needs to use `PackageReference`s. You can convert your _packages.config_-based project to `PackageReference`s using [this walkthrough](https://docs.microsoft.com/en-us/nuget/consume-packages/migrate-packages-config-to-package-reference).  
 4. Now you can add this project to yours as explained above.
 5. Introduce analyzers gradually unless it's a small project and you can fix every analyzer violation at once. To do this, only enable a handful of analyzers first (or enable them just for a couple of projects in a given solution), fix the violations, get used to them, then enable more later. See [the docs on configuring analyzers](ConfiguringAnalyzers.md) for how to do disable certain analyzers of the default configuration and thus activating analyzers in your code base gradually. We recommend enabling analyzers and fixing violations in at least three stages:
     1. All the simpler rules, i.e. all rules except the ones in the next steps (that means, if you're working with the default configuration, to disable the rules mentioned in the next steps). These are quite straightforward to fix, to an extent can be done even automatically. It's the best if you group warnings by code in the Error List and fix them one by one, committing to the repository after completing each. It's better to batch this work in a way that you fix a particular type of warning for all projects of a solution at once, as opposed to fixing multiple type of warnings for just selected projects. This is because it's more efficient to just repeat the same kind of fix for all projects (can sometimes even be done automatically) in one go instead of revisiting it in multiple iterations. For tips on how to make fixing violations easier see [this page](UsingAnalyzersDuringDevelopment.md).

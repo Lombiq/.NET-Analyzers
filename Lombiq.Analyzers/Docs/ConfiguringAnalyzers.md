@@ -14,7 +14,7 @@ Place a _Directory.Build.props_ file into the project's folder (or folder with s
 </Project>
 ```
 
-This will completely disable code analysis packages. To also disable .NET SDK analysis override them from an _.editorconfig_ file placed into the given project's folder. There you can disable any unwanted rules, like disabling .NET code style analysis completely:
+This will completely disable code analysis packages. To also disable .NET SDK analysis override them from an _.globalconfig_ file placed into the given project's folder. There you can disable any unwanted rules, like disabling .NET code style analysis completely:
 
 ```editorconfig
 [*.cs]
@@ -35,9 +35,9 @@ If not all the configuration in this project is suitable for your solution then 
 
 ### Overriding analyzer configuration from a _.globalconfig_ file
 
-1. Create your own _.globalconfig_ file with your own rule configuration, similar to this project's _general.ruleset_ file (see [the official docs on this file format](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/configuration-files#global-analyzerconfig)).
+1. Create your own _.globalconfig_ file with your own rule configuration, similar to this project's _.globalconfig_ files (see [the official docs on this file format](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/configuration-files#global-analyzerconfig)).
 2. Place the file into the folder under which you want the configuration to apply to all projects.
-3. Now every rule you've defined in your _.globalconfig_ file will take precedence over the default ones. For everything else, the default ones will be applied.
+3. Now every rule you've configured in your _.globalconfig_ file will take precedence over the default ones. For everything else, the default ones will be applied.
 
 Note that if you add your _.globalconfig_ file to the solution you'll get GUI support for it in Visual Studio and you'll be able to configure rules without manually editing the configuration text.
 
@@ -67,15 +67,13 @@ using System.Diagnostics.CodeAnalysis;
 
 ### Overriding _.editorconfig_ rules
 
-You can't as easily do the same as with ruleset files with _.editorconfig_ rules. [It's not possible to define explicit inheritance between _.editorconfig_ files](https://github.com/editorconfig/editorconfig/issues/236) so [the only option is to use the folder hierarchy](https://stackoverflow.com/questions/58543855/can-visual-studio-use-an-editorconfig-not-in-the-directory-hierarchy/58556556#58556556): The _Build.props_ file of this project copies the default _.editorconfig_ file into the solution root. If you put your projects below that in the folder hierarchy and use your own _.editorconfig_ there then the latter will take precedence and you can override the default rules. E.g. you can override certain analyzer rules for a whole folder (even a folder within a project) like this:
+You can't as easily do the same as with _.globalconfig_ files with _.editorconfig_ rules. [It's not possible to define explicit inheritance between _.editorconfig_ files](https://github.com/editorconfig/editorconfig/issues/236) so [the only option is to use the folder hierarchy](https://stackoverflow.com/questions/58543855/can-visual-studio-use-an-editorconfig-not-in-the-directory-hierarchy/58556556#58556556): The _Build.props_ files of this project copy the default _.editorconfig_ file into the solution root. If you put your projects below that in the folder hierarchy and use your own _.editorconfig_ there then the latter will take precedence and you can override the default rules. E.g. you can override certain analyzer rules for a whole folder (even a folder within a project) like this:
 
 ```editor-config
 [*.{config,csproj,json,props,targets}]
 
 indent_size = 4
 ```
-
-While eventually all analyzer rules in the .NET ecosystem will live in _.editorconfig_ this is not the case yet. However, you can override _.editorconfig_ rules from a ruleset file: You can open the ruleset file in Visual Studio and under the `Microsoft.CodeAnalysis.CSharp.Features` section you'll also be able to configure each IDE\* rule.
 
 ### Overriding _stylecop.json_ and _SonarLint.xml_ configuration
 

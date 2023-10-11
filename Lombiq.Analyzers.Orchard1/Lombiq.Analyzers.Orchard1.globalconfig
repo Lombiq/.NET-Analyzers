@@ -5,7 +5,7 @@ global_level = 20
 # Lombiq.Analyzers.OrchardCore.globalconfig.
 
 # To get Visual Studio GUI support for configuring these rules, put it into the solution's startup project's folder and
-# rename it to .editorconfig. See https://github.com/dotnet/roslyn/issues/70326.
+# rename it to .editorconfig. This should eventually not be necessary, see https://github.com/dotnet/roslyn/issues/70326.
 
 # Microsoft.CodeAnalysis.NetAnalyzers rules
 dotnet_diagnostic.CA3147.severity = none
