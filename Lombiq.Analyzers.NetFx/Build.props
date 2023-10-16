@@ -1,6 +1,5 @@
 <Project>
   <PropertyGroup>
-    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)orchard1.ruleset</CodeAnalysisRuleSet>
     <!-- Simply <GenerateDocumentationFile>true</GenerateDocumentationFile> can't be used because that's for SDK
          projects only, see: https://stackoverflow.com/a/47118584/220230. -->
     <DocumentationDir>$(OutputPath)</DocumentationDir>
@@ -28,7 +27,12 @@
     <_SkipUpgradeNetAnalyzersNuGetWarning>true</_SkipUpgradeNetAnalyzersNuGetWarning>
   </PropertyGroup>
 
-  <Import Project="$(MSBuildThisFileDirectory)CommonPackages.props" />
+  <ItemGroup>
+    <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)../Lombiq.Analyzers/Lombiq.Analyzers.globalconfig" />
+    <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)Lombiq.Analyzers.NetFx.globalconfig" />
+  </ItemGroup>
+
+  <Import Project="$(MSBuildThisFileDirectory)../Lombiq.Analyzers/AnalyzerPackages.props" />
 
   <ItemGroup>
     <!-- Fixing the <"error CS8032: An instance of analyzer Microsoft.CodeAnalysis.[...]Analyzer cannot be created from
@@ -49,8 +53,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" />
-    <AdditionalFiles Include="$(MSBuildThisFileDirectory)SonarLint.xml" Link="SonarLint.xml" />
+    <AdditionalFiles Include="$(MSBuildThisFileDirectory)../Lombiq.Analyzers/stylecop.json" Link="stylecop.json" />
+    <AdditionalFiles Include="$(MSBuildThisFileDirectory)../Lombiq.Analyzers/SonarLint.xml" Link="SonarLint.xml" />
   </ItemGroup>
 
   <Target Name="DisableAnalyzers" BeforeTargets="CoreCompile" Condition="'$(RunCodeAnalysis)' == 'false'">
@@ -60,6 +64,6 @@
   </Target>
 
   <Target Name="Copy editorconfig" AfterTargets="AfterResolveReferences">
-    <Copy SourceFiles="$(MSBuildThisFileDirectory).editorconfig" DestinationFolder="$(MSBuildProjectDirectory)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="$(MSBuildThisFileDirectory)../Lombiq.Analyzers/.editorconfig" DestinationFolder="$(MSBuildProjectDirectory)" SkipUnchangedFiles="true" />
   </Target>
 </Project>

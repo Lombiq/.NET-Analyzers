@@ -1,6 +1,5 @@
 <Project>
   <PropertyGroup>
-    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)orchardcore.ruleset</CodeAnalysisRuleSet>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <!-- Don't run analyzers during Visual Studio build, not to slow down development. They still run during dotnet
          build. By making this conditional, it won't overwrite the value if you set it in the Directory.Build.props
@@ -29,7 +28,11 @@
     <_SkipUpgradeNetAnalyzersNuGetWarning>true</_SkipUpgradeNetAnalyzersNuGetWarning>
   </PropertyGroup>
 
-  <Import Project="$(MSBuildThisFileDirectory)CommonPackages.props" />
+  <ItemGroup>
+    <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)Lombiq.Analyzers.globalconfig" />
+  </ItemGroup>
+
+  <Import Project="$(MSBuildThisFileDirectory)AnalyzerPackages.props" />
 
   <ItemGroup>
     <!-- Note: This is fixed as of SDK version 6.0.202. If you need to build the solution on a system with an older SDK
@@ -50,11 +53,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
     </PackageReference>  -->
-  </ItemGroup>
-
-  <!-- Packages only for .NET Core and later. -->
-  <ItemGroup>
-    <!-- For future use. -->
   </ItemGroup>
 
   <ItemGroup>
@@ -78,7 +76,9 @@
   <!-- This target should be used in CI before build, e.g. `dotnet msbuild -target:LombiqNetAnalyzers | Out-Null`. Use
        `| Out-Null` in PowerShell or `>/dev/null 2>&1` in bash to suppress output because it will complain if not every
        project has this target, but that's not really relevant. If you are using NuGet, then the argument should be
-       "-target:Restore;LombiqNetAnalyzers" (including the quotes) to restore all package dependencies first. -->
+       "-target:Restore;LombiqNetAnalyzers" (including the quotes) to restore all package dependencies first.
+       .editorconfig needs to be copied since this is the only standard way for every editor to be able to use it (until
+       extending other .editorconfig files will be possible: https://github.com/editorconfig/editorconfig/issues/236). -->
   <Target Name="LombiqNetAnalyzers">
     <Copy Condition="'$(SolutionDir)' != '*Undefined*'"
           SourceFiles="$(MSBuildThisFileDirectory).editorconfig"

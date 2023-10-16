@@ -1,10 +1,10 @@
 # Lombiq .NET Analyzers
 
-[![Lombiq.Analyzers NuGet](https://img.shields.io/nuget/v/Lombiq.Analyzers?label=Lombiq.Analyzers)](https://www.nuget.org/packages/Lombiq.Analyzers/)
+[![Lombiq.Analyzers NuGet](https://img.shields.io/nuget/v/Lombiq.Analyzers?label=Lombiq.Analyzers)](https://www.nuget.org/packages/Lombiq.Analyzers/) [![Lombiq.Analyzers.NetFx NuGet](https://img.shields.io/nuget/v/Lombiq.Analyzers.NetFx?label=Lombiq.Analyzers.NetFx)](https://www.nuget.org/packages/Lombiq.Analyzers.NetFx/) [![Lombiq.Analyzers.OrchardCore NuGet](https://img.shields.io/nuget/v/Lombiq.Analyzers.OrchardCore?label=Lombiq.Analyzers.OrchardCore)](https://www.nuget.org/packages/Lombiq.Analyzers.OrchardCore/) [![Lombiq.Analyzers.Orchard1 NuGet](https://img.shields.io/nuget/v/Lombiq.Analyzers.Orchard1?label=Lombiq.Analyzers.Orchard1)](https://www.nuget.org/packages/Lombiq.Analyzers.Orchard1/) [![Lombiq.Analyzers.VisualStudioExtension NuGet](https://img.shields.io/nuget/v/Lombiq.Analyzers.VisualStudioExtension?label=Lombiq.Analyzers.VisualStudioExtension)](https://www.nuget.org/packages/Lombiq.Analyzers.VisualStudioExtension/)
 
 ## About
 
-.NET code analyzers and code convention settings for [Lombiq](https://lombiq.com) projects, predominantly for [Orchard Core](https://orchardcore.net/) apps but also any .NET apps. We use these to enforce common standards across all our .NET projects, including e.g. all of our [open-source Orchard Core extensions](https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions). If you contribute to our open-source projects while using that solution you'll be guided by these rules, too. You can check out a demo video of the project [here](https://www.youtube.com/watch?v=dtbGRi3Cezs), and the Orchard Harvest 2023 conference talk about automated QA in Orchard Core [here](https://youtu.be/CHdhwD2NHBU).
+.NET code analyzers and code convention settings for [Lombiq](https://lombiq.com) projects, for [Orchard Core](https://orchardcore.net/) and any other .NET and .NET Framework apps. We use these to enforce common standards across all our .NET projects, including e.g. all of our [open-source Orchard Core extensions](https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions). If you contribute to our open-source projects while using that solution you'll be guided by these rules, too. You can check out a demo video of the project [here](https://www.youtube.com/watch?v=dtbGRi3Cezs), and the Orchard Harvest 2023 conference talk about automated QA in Orchard Core [here](https://youtu.be/CHdhwD2NHBU).
 
 There is also support for non-SDK-style .NET Framework projects, as long as they use `PackageReference` for their dependencies (in contrast to _packages.config_).
 
@@ -64,7 +64,7 @@ When a new version of the .NET SDK comes out then to the following:
 
 - Change the `LangVersion` and `AnalysisLevel` elements in the _Build.props_ file to opt in to new language features and analyzers. This does not concern non-SDK-style .NET Framework projects.
 - Wait for all analyzers to support the new SDK (primarily the new language features). Then update all packages to latest.
-- Check if there are new [code analysis categories](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/categories) that we need to surface warnings for by default in the _.editorconfig_ file.
+- Check if there are new [code analysis categories](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/categories) that we need to surface warnings for by default in the _Lombiq.Analyzers.globalconfig_ file.
 
 ### Adding a new analyzer
 
@@ -75,4 +75,5 @@ When adding a new analyzer package, do the following:
 - Go through all rules in the package and decide one by one whether we need them.
   - Check for rules that are already covered by some other analyzer and disable duplicates.
   - All rules that we need should be surfaced as Warnings. This allows to only break the build on analyzer violations when we need it, i.e. during CI builds but not during development.
+  - Add rule configuration to the _.globalconfig_ file of the relevant project, depending on which kind of applications they're applicable to. Editor-only configuration should be in _.editorconfig_ files.
 - Test it on multiple significant solutions. Using the [Hastlayer SDK](https://github.com/Lombiq/Hastlayer-SDK) is a good example as it's a large C# solution.

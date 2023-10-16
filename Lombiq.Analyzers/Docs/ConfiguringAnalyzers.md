@@ -14,14 +14,14 @@ Place a _Directory.Build.props_ file into the project's folder (or folder with s
 </Project>
 ```
 
-This will completely disable code analysis packages. To also disable .NET SDK analysis override them from an _.editorconfig_ file placed into the given project's folder. There you can disable any unwanted rules, like disabling .NET code style analysis completely:
+This will completely disable code analysis packages. To also disable .NET SDK analysis override them from an _.globalconfig_ file placed into the given project's folder. There you can disable any unwanted rules, like disabling .NET code style analysis completely:
 
 ```editorconfig
 [*.cs]
 dotnet_analyzer_diagnostic.category-Style.severity = none
 ```
 
-## How to disable analyzers during `dotnet build`
+## How to disable all analyzers during `dotnet build`
 
 By default the `dotnet build` command runs analyzers and produces code analysis warnings if there are any but it makes the build slower. Pass the `/p:RunCodeAnalysis=false` parameter to disable analyzers during build, like:
 
@@ -33,36 +33,19 @@ dotnet build MySolution.sln /p:RunCodeAnalysis=false
 
 If not all the configuration in this project is suitable for your solution then you can also override them globally. This way, the default configuration will be merged with your custom configuration and you can override any number of rules conveniently at one place for all projects in your solution.
 
-### Overriding analyzer configuration from a ruleset file
+### Overriding analyzer configuration from a _.globalconfig_ file
 
-1. Create your own ruleset file, similar to this project's _general.ruleset_ file. Make sure the file name is all lower-case, because if you edit it in Visual Studio it will be converted anyway and that could cause problems on Unix-like systems. Add any rule configurations there that you want to override. Also, include this project's _general.ruleset_ file as a child, allowing its rules to be available by default. In the end you should have something like this (the included rules only serve as an example):
+1. Create your own _.globalconfig_ file with your own rule configuration, similar to this project's _.globalconfig_ files (see [the official docs on this file format](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/configuration-files#global-analyzerconfig)).
+2. Place the file into the folder under which you want the configuration to apply to all projects.
+3. Now every rule you've configured in your _.globalconfig_ file will take precedence over the default ones. For everything else, the default ones will be applied.
 
-    ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <RuleSet Name="General C# rules" ToolsVersion="16.0">
-      <Include Path="tools\Lombiq.Analyzers\general.ruleset" Action="Default" />
-      <Rules AnalyzerId="SecurityCodeScan" RuleNamespace="SecurityCodeScan">
-        <Rule Id="SCS0005" Action="None" />
-      </Rules>
-      <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
-        <Rule Id="SA1312" Action="Warning" />
-      </Rules>
-    </RuleSet>
-    ```
+Note that if you add your _.globalconfig_ file to the solution you'll get GUI support for it in Visual Studio and you'll be able to configure rules without manually editing the configuration text.
 
-2. In the _Directory.Build.props_ file of your solution add a reference to your own ruleset file, overriding the default:
+More complex configuration is also available:
 
-    ```xml
-    <PropertyGroup>
-      <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)my.ruleset</CodeAnalysisRuleSet>
-    </PropertyGroup>
-    ```
-
-3. Now every rule you've defined in _my.ruleset_ will take precedence over the default ones. For everything else, the default ones will be applied.
-
-Note that if you add your ruleset file to the solution you'll get GUI support for it in Visual Studio and you'll be able to configure rules without manually editing the XML.
-
-You can similarly add such `ruleset` files to subfolders, to just override rules for projects in that folder.
+- You can similarly add such _.globalconfig_ files to subfolders, to just override rules for projects in that folder.
+- Such files can be placed outside of the folder hierarchy too and referenced from csproj or props files with the `<GlobalAnalyzerConfigFiles>` element, see [the docs](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/configuration-files#naming).
+- You can further adjust the precedence of _.globalconfig_ files with their names and the `global_level` entry, see [the docs](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/configuration-files#precedence).
 
 ### Suppressing analyzers from code for a whole project
 
@@ -84,17 +67,13 @@ using System.Diagnostics.CodeAnalysis;
 
 ### Overriding _.editorconfig_ rules
 
-You can't as easily do the same as with ruleset files with _.editorconfig_ rules. [It's not possible to define explicit inheritance between _.editorconfig_ files](https://github.com/editorconfig/editorconfig/issues/236) so [the only option is to use the folder hierarchy](https://stackoverflow.com/questions/58543855/can-visual-studio-use-an-editorconfig-not-in-the-directory-hierarchy/58556556#58556556): The _Build.props_ file of this project copies the default _.editorconfig_ file into the solution root. If you put your projects below that in the folder hierarchy and use your own _.editorconfig_ there then the latter will take precedence and you can override the default rules. E.g. you can override certain analyzer rules for a whole folder (even a folder within a project) like this:
+You can't as easily do the same as with _.globalconfig_ files with _.editorconfig_ rules. [It's not possible to define explicit inheritance between _.editorconfig_ files](https://github.com/editorconfig/editorconfig/issues/236) so [the only option is to use the folder hierarchy](https://stackoverflow.com/questions/58543855/can-visual-studio-use-an-editorconfig-not-in-the-directory-hierarchy/58556556#58556556): The _Build.props_ files of this project copy the default _.editorconfig_ file into the solution root. If you put your projects below that in the folder hierarchy and use your own _.editorconfig_ there then the latter will take precedence and you can override the default rules. E.g. you can override certain analyzer rules for a whole folder (even a folder within a project) like this:
 
 ```editor-config
-# C# files
-[*.cs]
+[*.{config,csproj,json,props,targets}]
 
-# MA0016: Prefer return collection abstraction instead of implementation
-dotnet_diagnostic.MA0016.severity = none
+indent_size = 4
 ```
-
-While eventually all analyzer rules in the .NET ecosystem will live in _.editorconfig_ this is not the case yet. However, you can override _.editorconfig_ rules from a ruleset file: You can open the ruleset file in Visual Studio and under the `Microsoft.CodeAnalysis.CSharp.Features` section you'll also be able to configure each IDE\* rule.
 
 ### Overriding _stylecop.json_ and _SonarLint.xml_ configuration
 

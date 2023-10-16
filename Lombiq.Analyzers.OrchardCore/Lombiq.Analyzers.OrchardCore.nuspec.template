@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
-        <id>Lombiq.Analyzers</id>
+        <id>Lombiq.Analyzers.OrchardCore</id>
         <version>$version$</version>
-        <title>Lombiq .NET Analyzers</title>
+        <title>Lombiq .NET Analyzers for Orchard Core</title>
         <authors>Lombiq Technologies</authors>
         <license type="file">License.md</license>
         <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
         <icon>NuGetIcon.png</icon>
-        <projectUrl>https://github.com/Lombiq/.NET-Analyzers/blob/dev/Lombiq.Analyzers</projectUrl>
-        <description>Lombiq .NET Analyzers: .NET code analyzers and code convention settings for general .NET projects. See the project website for detailed documentation.</description>
+        <projectUrl>https://github.com/Lombiq/.NET-Analyzers/blob/dev/Lombiq.Analyzers.OrchardCore</projectUrl>
+        <description>Lombiq .NET Analyzers for Orchard Core: .NET code analyzers and code convention settings for Orchard Core (https://orchardcore.net/) apps. See the project website for detailed documentation.</description>
         <copyright>Copyright © 2020, Lombiq Technologies Ltd.</copyright>
-        <tags>Lombiq CodeAnalysis DotNetAnalyzers Analyzer Analyzers Diagnostic Roslyn Refactoring AsyncFixer Meziantou.Analyzer StyleCop</tags>
+        <tags>OrchardCore Lombiq AspNetCore CodeAnalysis DotNetAnalyzers Analyzer Analyzers Diagnostic Roslyn Refactoring AsyncFixer Meziantou.Analyzer StyleCop</tags>
         <repository type="git" url="https://github.com/Lombiq/.NET-Analyzers" commit="86d47a37c4d37bb5d8417eae9adfc4680e09fd91" />
         <dependencies>
-            <!-- Dependencies come here from AnalyzerPackages.props. -->
+            <!-- Dependencies come here from AnalyzerPackages.props too. -->
+            <dependency id="Lombiq.Analyzers" version="$version$" />
         </dependencies>
-        <developmentDependency>true</developmentDependency>
     </metadata>
     <files>
         <!-- Workaround for NuGet's validation caused by the presence of these files:
-        - bin/Release/netstandard2.0/Lombiq.Analyzers.dll
-        - obj/Release/netstandard2.0/Lombiq.Analyzers.dll
+        - bin/Release/netstandard2.0/Lombiq.Analyzers.OrchardCore.dll
+        - obj/Release/netstandard2.0/Lombiq.Analyzers.OrchardCore.dll
         The cause is probably that we don't actually do anything in this csproj, it only exists because we need an entry
         point for `dotnet pack` (unlike the older `nuget pack` tooling, which worked with just the .nuspec alone).-->
         <file src="**" exclude="**\bin\**;**\obj\Release\**" />
