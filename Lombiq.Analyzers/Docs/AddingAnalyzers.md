@@ -14,7 +14,7 @@ You only need to reference a single project; e.g., even though Orchard Core apps
 
 ## How to add the analyzers to SDK-style projects from NuGet
 
-If you don't want to stay on the cutting-edge version, nor do you intend to contribute to Lombiq .NET Analyzers, you can use one of the NuGet packages. Install the package suitable for your project, as selected above. Check for the latest version number [on NuGet](https://www.nuget.org/packages/Lombiq.Analyzers/).
+If you don't want to stay on the cutting-edge version, nor do you intend to contribute to Lombiq .NET Analyzers, you can use one of the NuGet packages. Install the package suitable for your project, as described above. Check for the latest version number [on NuGet](https://www.nuget.org/packages/Lombiq.Analyzers/).
 
 ```csproj
     <PackageReference Include="Lombiq.Analyzers" Version="<latest version>">
