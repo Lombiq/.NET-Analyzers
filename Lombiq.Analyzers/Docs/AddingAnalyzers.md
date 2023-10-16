@@ -72,7 +72,7 @@ For at least Visual Studio and JetBrains Rider you don't need any further setup 
 The key difference compared to .NET projects is that for non-SDK-style .NET Framework projects, you need to add Lombiq .NET Analyzers to each project.
 
 1. Same as above - add the .NET-Analyzers repository as a Git submodule to your repository or add the NuGet package in the next step.
-2. Create a _Directory.Build.props_ file in every project folder you want to target, next to the _.csproj_ file with the following content, either referencing `Lombiq.Analyzers.NetFx` or `Lombiq.Analyzers.Orchard1`:
+2. Create a _Directory.Build.props_ file in a common root folder of your projects, or in every project folder you want to target, next to the _.csproj_ file with the following content, either referencing `Lombiq.Analyzers.NetFx` or `Lombiq.Analyzers.Orchard1`:
 
    ```csproj
    <PackageReference Include="Lombiq.Analyzers.NetFx" Version="<latest version>">
