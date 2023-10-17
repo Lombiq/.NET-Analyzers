@@ -68,7 +68,7 @@ using System.Diagnostics.CodeAnalysis;
 
 You can't as easily do the same as with _.globalconfig_ files with _.editorconfig_ rules. [It's not possible to define explicit inheritance between _.editorconfig_ files](https://github.com/editorconfig/editorconfig/issues/236) so [the only option is to use the folder hierarchy](https://stackoverflow.com/questions/58543855/can-visual-studio-use-an-editorconfig-not-in-the-directory-hierarchy/58556556#58556556): The _Build.props_ files of this project copy the default _.editorconfig_ file into the solution root. If you put your projects below that in the folder hierarchy and use your own _.editorconfig_ there then the latter will take precedence and you can override the default rules. E.g. you can override certain analyzer rules for a whole folder (even a folder within a project) like this:
 
-```editor-config
+```editorconfig
 [*.{config,csproj,json,props,targets}]
 
 indent_size = 4
