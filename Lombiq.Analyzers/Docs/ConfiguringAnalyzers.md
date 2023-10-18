@@ -21,6 +21,18 @@ This will completely disable code analysis packages. To also disable .NET SDK an
 dotnet_analyzer_diagnostic.category-Style.severity = none
 ```
 
+Note that MSBuild only loads in the closest _Directory.Build.props_ file to the project being built. So if you also used a _Directory.Build.props_ file to enable _Lombiq.Analyzers_ in a higher directory, it is now overridden. This can be a problem if you rely on `Lombiq.Analyzers` to set up compiler properties such as `<LangVersion>`. Put this into the _Directory.Build.props_ file instead:
+
+```xml
+<Project>
+    <PropertyGroup>
+        <RunCodeAnalysis>false</RunCodeAnalysis>
+    </PropertyGroup>
+
+    <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+</Project>
+```
+
 ## How to disable all analyzers during `dotnet build`
 
 By default the `dotnet build` command runs analyzers and produces code analysis warnings if there are any but it makes the build slower. Pass the `/p:RunCodeAnalysis=false` parameter to disable analyzers during build, like:
