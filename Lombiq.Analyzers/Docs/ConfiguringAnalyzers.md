@@ -14,10 +14,9 @@ Place a _Directory.Build.props_ file into the project's folder (or folder with s
 </Project>
 ```
 
-This will completely disable code analysis packages. To also disable .NET SDK analysis override them from an _.globalconfig_ file placed into the given project's folder. There you can disable any unwanted rules, like disabling .NET code style analysis completely:
+This will completely disable code analysis packages. To also disable .NET SDK analysis override them from a _.globalconfig_ file placed into the given project's folder. There you can disable any unwanted rules, like disabling .NET code style analysis completely:
 
 ```editorconfig
-[*.cs]
 dotnet_analyzer_diagnostic.category-Style.severity = none
 ```
 
@@ -81,7 +80,7 @@ using System.Diagnostics.CodeAnalysis;
 
 You can't as easily do the same as with _.globalconfig_ files with _.editorconfig_ rules. [It's not possible to define explicit inheritance between _.editorconfig_ files](https://github.com/editorconfig/editorconfig/issues/236) so [the only option is to use the folder hierarchy](https://stackoverflow.com/questions/58543855/can-visual-studio-use-an-editorconfig-not-in-the-directory-hierarchy/58556556#58556556): The _Build.props_ files of this project copy the default _.editorconfig_ file into the solution root. If you put your projects below that in the folder hierarchy and use your own _.editorconfig_ there then the latter will take precedence and you can override the default rules. E.g. you can override certain analyzer rules for a whole folder (even a folder within a project) like this:
 
-```editor-config
+```editorconfig
 [*.{config,csproj,json,props,targets}]
 
 indent_size = 4
