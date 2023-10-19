@@ -8,19 +8,16 @@ Place a _Directory.Build.props_ file into the project's folder (or folder with s
 
 ```xml
 <Project>
-  <ItemGroup> 
-      <Analyzer Remove="@(Analyzer)" /> 
-  </ItemGroup>
 </Project>
 ```
 
-This will completely disable code analysis packages. To also disable .NET SDK analysis override them from a _.globalconfig_ file placed into the given project's folder. There you can disable any unwanted rules, like disabling .NET code style analysis completely:
+MSBuild only loads in the closest _Directory.Build.props_ file to the project being built. So this empty props file will supersede any parent _Directory.Build.props_. To also disable .NET SDK analysis override them from a _.globalconfig_ file placed into the given project's folder. There you can disable any unwanted rules, like disabling .NET code style analysis completely:
 
 ```editorconfig
 dotnet_analyzer_diagnostic.category-Style.severity = none
 ```
 
-Note that MSBuild only loads in the closest _Directory.Build.props_ file to the project being built. So if you also used a _Directory.Build.props_ file to enable _Lombiq.Analyzers_ in a higher directory, it is now overridden. This can be a problem if you rely on `Lombiq.Analyzers` to set up compiler properties such as `<LangVersion>`. Put this into the _Directory.Build.props_ file instead:
+If you rely on `Lombiq.Analyzers` to set up compiler properties such as `<LangVersion>` you may still want to import the parent _Directory.Build.props_ file and just disable the code analyzers. Put this into the _Directory.Build.props_ file instead:
 
 ```xml
 <Project>
