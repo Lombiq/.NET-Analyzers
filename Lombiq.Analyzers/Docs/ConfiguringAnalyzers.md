@@ -29,6 +29,8 @@ If you rely on `Lombiq.Analyzers` to set up compiler properties such as `<LangVe
 </Project>
 ```
 
+Or if you added `Lombiq.Analyzers` to only a single project as a package reference, you can just add the `<RunCodeAnalysis>false</RunCodeAnalysis>` element.
+
 ## How to disable all analyzers during `dotnet build`
 
 By default the `dotnet build` command runs analyzers and produces code analysis warnings if there are any but it makes the build slower. Pass the `/p:RunCodeAnalysis=false` parameter to disable analyzers during build, like:
