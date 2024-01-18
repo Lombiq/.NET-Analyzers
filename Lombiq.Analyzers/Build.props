@@ -12,10 +12,10 @@
     <!-- Strict mode for the C# compiler, see: https://www.meziantou.net/csharp-compiler-strict-mode.htm. -->
     <Features>strict</Features>
     <!-- Useful to set here since the language version affects which analyzers to use and how to configure them. -->
-    <LangVersion>11.0</LangVersion>
+    <LangVersion>12.0</LangVersion>
     <!-- Setting the analysis level explicitly lets us opt in to new analyzers with SDK upgrades. See:
     https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#latest-updates -->
-    <AnalysisLevel>7.0</AnalysisLevel>
+    <AnalysisLevel>8.0</AnalysisLevel>
     <!-- This is for Microsoft.CodeAnalysis.NetAnalyzers. This way, we have control over it unlike when getting it
          via the .NET SDK. See:
          https://docs.microsoft.com/en-us/visualstudio/code-quality/migrate-from-fxcop-analyzers-to-net-analyzers .NET
