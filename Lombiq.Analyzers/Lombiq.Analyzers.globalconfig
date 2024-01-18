@@ -96,6 +96,8 @@ dotnet_diagnostic.IDE0130.severity = none
 # IDE0079 Remove unnecessary suppression
 dotnet_diagnostic.IDE0079.severity = warning
 dotnet_diagnostic.IDE0022.severity = warning
+dotnet_diagnostic.IDE0290.severity = warning
+
 
 # 'var' preferences
 dotnet_diagnostic.IDE0007.severity = warning
@@ -634,6 +636,7 @@ dotnet_diagnostic.S881.severity = warning
 # StyleCop.Analyzers rules
 dotnet_diagnostic.SA0001.severity = none
 dotnet_diagnostic.SA1009.severity = none
+dotnet_diagnostic.SA1010.severity = none
 dotnet_diagnostic.SA1101.severity = none
 dotnet_diagnostic.SA1111.severity = none
 dotnet_diagnostic.SA1118.severity = none

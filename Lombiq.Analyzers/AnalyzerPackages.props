@@ -6,7 +6,7 @@
   <ItemGroup>
     <AnalyzerPackage Include="AsyncFixer" Version="1.6.0"/>
     <AnalyzerPackage Include="DotNetAnalyzers.DocumentationAnalyzers" Version="1.0.0-beta.59"/>
-    <AnalyzerPackage Include="Meziantou.Analyzer" Version="2.0.136"/>
+    <AnalyzerPackage Include="Meziantou.Analyzer" Version="2.0.85"/>
     <AnalyzerPackage Include="Microsoft.CodeAnalysis.CSharp.CodeStyle" Version="4.8.0"/>
     <AnalyzerPackage Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0"/>
     <AnalyzerPackage Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.8.14"/>
