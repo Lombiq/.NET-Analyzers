@@ -604,6 +604,7 @@ dotnet_diagnostic.S3376.severity = none
 dotnet_diagnostic.S3441.severity = warning
 dotnet_diagnostic.S3458.severity = none
 dotnet_diagnostic.S3532.severity = warning
+dotnet_diagnostic.S3604.severity = none
 dotnet_diagnostic.S3626.severity = none
 dotnet_diagnostic.S3693.severity = warning
 dotnet_diagnostic.S3717.severity = warning
