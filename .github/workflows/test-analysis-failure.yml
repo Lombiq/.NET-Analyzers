@@ -31,6 +31,4 @@ jobs:
       build-expected-code-analysis-errors: |
         IDE0021: Use expression body for constructors.
         IDE0044: Make field readonly.
-        IDE0290: Use primary constructor.
-        S2933: Fields that are only assigned in the constructor should be "readonly"
         S4487: Remove this unread private field 'Number' or refactor the code to use its value.
