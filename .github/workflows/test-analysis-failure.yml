@@ -32,3 +32,4 @@ jobs:
         IDE0021: Use expression body for constructors.
         IDE0044: Make field readonly.
         S2933: Fields that are only assigned in the constructor should be "readonly"
+        S4487: Remove this unread private field 'Number' or refactor the code to use its value.
