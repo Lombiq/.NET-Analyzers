@@ -96,7 +96,8 @@ dotnet_diagnostic.IDE0130.severity = none
 # IDE0079 Remove unnecessary suppression
 dotnet_diagnostic.IDE0079.severity = warning
 dotnet_diagnostic.IDE0022.severity = warning
-dotnet_diagnostic.IDE0290.severity = warning
+# IDE0290 Use Primary Constructors
+dotnet_diagnostic.IDE0290.severity = none
 
 # 'var' preferences
 dotnet_diagnostic.IDE0007.severity = warning
