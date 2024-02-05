@@ -574,7 +574,7 @@ dotnet_diagnostic.S134.severity = warning
 dotnet_diagnostic.S1696.severity = warning
 dotnet_diagnostic.S1698.severity = warning
 dotnet_diagnostic.S1858.severity = warning
-dotnet_diagnostic.S2094.severity = warning
+dotnet_diagnostic.S2094.severity = none
 dotnet_diagnostic.S2148.severity = warning
 dotnet_diagnostic.S2197.severity = warning
 dotnet_diagnostic.S2278.severity = warning
@@ -639,8 +639,6 @@ dotnet_diagnostic.S881.severity = warning
 # StyleCop.Analyzers rules
 dotnet_diagnostic.SA0001.severity = none
 dotnet_diagnostic.SA1009.severity = none
-# SA1010 interferes with IDE0055, see https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3794
-dotnet_diagnostic.SA1010.severity = none
 dotnet_diagnostic.SA1101.severity = none
 dotnet_diagnostic.SA1111.severity = none
 dotnet_diagnostic.SA1118.severity = none
