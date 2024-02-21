@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
   <!-- This project demonstrates that the package reference doesn't transfer the analyzer effect to its dependents. If
@@ -10,7 +10,7 @@
   -->
 
   <ItemGroup Condition="'$(ImportPackageAgain)' == 'true'">
-    <PackageReference Include="Lombiq.Analyzers.OrchardCore" Version="4.0.0">
+    <PackageReference Include="Lombiq.Analyzers.OrchardCore" Version="5.0.0">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
