@@ -96,6 +96,8 @@ dotnet_diagnostic.IDE0130.severity = none
 # IDE0079 Remove unnecessary suppression
 dotnet_diagnostic.IDE0079.severity = warning
 dotnet_diagnostic.IDE0022.severity = warning
+# IDE0290 Use Primary Constructors
+dotnet_diagnostic.IDE0290.severity = none
 
 # 'var' preferences
 dotnet_diagnostic.IDE0007.severity = warning
@@ -539,6 +541,7 @@ dotnet_diagnostic.MA0101.severity = none
 dotnet_diagnostic.MA0102.severity = none
 dotnet_diagnostic.MA0105.severity = warning
 dotnet_diagnostic.MA0106.severity = none
+dotnet_diagnostic.MA0110.severity = warning
 dotnet_diagnostic.MA0111.severity = none
 dotnet_diagnostic.MA0120.severity = warning
 dotnet_diagnostic.MA0121.severity = warning
@@ -571,6 +574,7 @@ dotnet_diagnostic.S134.severity = warning
 dotnet_diagnostic.S1696.severity = warning
 dotnet_diagnostic.S1698.severity = warning
 dotnet_diagnostic.S1858.severity = warning
+dotnet_diagnostic.S2094.severity = none
 dotnet_diagnostic.S2148.severity = warning
 dotnet_diagnostic.S2197.severity = warning
 dotnet_diagnostic.S2278.severity = warning
@@ -602,6 +606,7 @@ dotnet_diagnostic.S3376.severity = none
 dotnet_diagnostic.S3441.severity = warning
 dotnet_diagnostic.S3458.severity = none
 dotnet_diagnostic.S3532.severity = warning
+dotnet_diagnostic.S3604.severity = warning
 dotnet_diagnostic.S3626.severity = none
 dotnet_diagnostic.S3693.severity = warning
 dotnet_diagnostic.S3717.severity = warning
