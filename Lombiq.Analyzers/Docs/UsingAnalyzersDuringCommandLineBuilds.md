@@ -1,6 +1,8 @@
 # Using the analyzers during command line builds
 
-The following notes are useful if you're building not from within and IDE but from the command line, like in a CI environment. **Note** the instructions for non-SDK-style .NET Framework projects at the bottom; those projects can't use `dotnet build`!
+The following notes are useful if you're building not from within and IDE but from the command line, like in a CI environment. For CI builds we recommend using [Lombiq GitHub Actions](https://github.com/Lombiq/GitHub-Actions).
+
+**Note** the instructions for non-SDK-style .NET Framework projects at the bottom; those projects can't use `dotnet build`!
 
 ## Showing analyzer warnings during `dotnet build`
 
