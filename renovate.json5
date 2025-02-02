@@ -26,9 +26,5 @@
             ],
             enabled: false,
         },
-        {
-            groupName: 'All packages',
-            matchUpdateTypes: ['*'],
-        },
     ],
 }
