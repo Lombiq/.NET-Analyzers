@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AnalysisInput>
     <Settings>
+        <!-- Razor code analysis has at least one unavoidable breaking bug
+        (https://community.sonarsource.com/t/s3353-false-positive-for-razor-inject/134400) and violations can't be
+        suppressed (https://github.com/SonarSource/sonar-dotnet/issues/8050). So, not using it until these are fixed. -->
+        <Setting>
+            <Key>sonar.cs.analyzeRazorCode</Key>
+            <Value>false</Value>
+        </Setting>
     </Settings>
     <Rules>
         <Rule>
