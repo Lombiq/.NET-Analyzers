@@ -1,6 +1,5 @@
 {
     '$schema': 'https://docs.renovatebot.com/renovate-schema.json',
-    'extends': ['github>Lombiq/renovate-config:default-dotnet.json5'],
     extends: [
         'github>Lombiq/renovate-config:default-dotnet.json5',
         'github>Lombiq/Open-Source-Orchard-Core-Extensions:renovate-osoce-submodule.json5',
