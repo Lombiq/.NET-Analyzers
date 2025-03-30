@@ -9,6 +9,8 @@
     <DocumentationFile>$(DocumentationDir)/$(MSBuildProjectName).xml</DocumentationFile>
     <!-- Don't run analyzers during Visual Studio build to avoid local slowdown. They still run during dotnet build. -->
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+    <!-- <LangVersion> needn't be set since it's 7.3 for all .NET Framework projects:
+    https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning#defaults. -->
     <!-- Setting the analysis level explicitly lets us opt in to new analyzers with SDK upgrades. See:
          https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#latest-updates. -->
     <AnalysisLevel>5.0</AnalysisLevel>
