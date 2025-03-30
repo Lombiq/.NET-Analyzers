@@ -38,7 +38,8 @@
 
   <ItemGroup>
     <!-- This needs to be on 2.0.110 for .NET Framework projects, see
-    https://github.com/meziantou/Meziantou.Analyzer/issues/791. -->
+    https://github.com/meziantou/Meziantou.Analyzer/issues/791. If this can be updated, then move the package reference
+    to the common AnalyzerPackages.props file and remove the package rule in the root Renovate config file. -->
     <PackageReference Include="Meziantou.Analyzer" Version="2.0.110" IncludeInPackage="true">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>

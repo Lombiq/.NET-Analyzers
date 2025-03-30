@@ -29,5 +29,15 @@
             ],
             enabled: false,
         },
+        {
+            // Meziantou.Analyzer needs to be kept on the version in that file.
+            matchPackageNames: [
+                'Meziantou.Analyzer',
+            ],
+            matchFileNames: [
+                'Lombiq.Analyzers.NetFx/Build.props',
+            ],
+            enabled: false,
+        },
     ],
 }
