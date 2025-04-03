@@ -35,6 +35,13 @@
   <Import Project="$(MSBuildThisFileDirectory)AnalyzerPackages.props" />
 
   <ItemGroup>
+    <!-- This needs to be on 2.0.110 for .NET Framework projects, see
+    https://github.com/meziantou/Meziantou.Analyzer/issues/791. -->
+    <PackageReference Include="Meziantou.Analyzer" Version="2.0.189" IncludeInPackage="true">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
+    </PackageReference>
+    
     <!-- Note: This is fixed as of SDK version 6.0.202. If you need to build the solution on a system with an older SDK
          version, please uncomment the PackageReferences below. Leave this commented out unless you are certain you need
          it, because it is a risky workaround as it makes us use the compiler from NuGet instead of the SDK, which is

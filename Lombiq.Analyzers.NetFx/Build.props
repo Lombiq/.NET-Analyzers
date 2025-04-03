@@ -9,6 +9,8 @@
     <DocumentationFile>$(DocumentationDir)/$(MSBuildProjectName).xml</DocumentationFile>
     <!-- Don't run analyzers during Visual Studio build to avoid local slowdown. They still run during dotnet build. -->
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+    <!-- <LangVersion> needn't be set since it's 7.3 for all .NET Framework projects:
+    https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning#defaults. -->
     <!-- Setting the analysis level explicitly lets us opt in to new analyzers with SDK upgrades. See:
          https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#latest-updates. -->
     <AnalysisLevel>5.0</AnalysisLevel>
@@ -35,6 +37,14 @@
   <Import Project="$(MSBuildThisFileDirectory)../Lombiq.Analyzers/AnalyzerPackages.props" />
 
   <ItemGroup>
+    <!-- This needs to be on 2.0.110 for .NET Framework projects, see
+    https://github.com/meziantou/Meziantou.Analyzer/issues/791. If this can be updated, then move the package reference
+    to the common AnalyzerPackages.props file and remove the package rule in the root Renovate config file. -->
+    <PackageReference Include="Meziantou.Analyzer" Version="2.0.110" IncludeInPackage="true">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
+    </PackageReference>
+    
     <!-- Fixing the <"error CS8032: An instance of analyzer Microsoft.CodeAnalysis.[...]Analyzer cannot be created from
          [...]\.nuget\packages\microsoft.codeanalysis.csharp.codestyle\4.2.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.CodeStyle.dll:
          Could not load file or assembly 'Microsoft.CodeAnalysis, Version=4.2.0.0, Culture=neutral,
