@@ -1,5 +1,5 @@
 {
-    '$schema': 'https://docs.renovatebot.com/renovate-schema.json',
+    $schema: 'https://docs.renovatebot.com/renovate-schema.json',
     extends: [
         'github>Lombiq/renovate-config:default-dotnet.json5',
         'github>Lombiq/Open-Source-Orchard-Core-Extensions:renovate-osoce-submodule.json5',
@@ -8,13 +8,15 @@
         {
             // AnalyzerPackages.props contains NuGet package references in a custom format. Supporting it here.
             customType: 'regex',
-            fileMatch: ['(^|/)AnalyzerPackages\\.props$'],
+            managerFilePatterns: [
+                '/(^|/)AnalyzerPackages\\.props$/',
+            ],
             matchStrings: [
                 // The capture group names are required as such.
-                '<AnalyzerPackage Include="(?<depName>[^"]+)" Version="(?<currentValue>[^"]+)"/>'
+                '<AnalyzerPackage Include="(?<depName>[^"]+)" Version="(?<currentValue>[^"]+)"/>',
             ],
             datasourceTemplate: 'nuget',
-            versioningTemplate: 'nuget'
+            versioningTemplate: 'nuget',
         },
     ],
     packageRules: [
