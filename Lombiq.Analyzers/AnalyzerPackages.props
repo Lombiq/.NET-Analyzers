@@ -8,7 +8,7 @@
     <AnalyzerPackage Include="DotNetAnalyzers.DocumentationAnalyzers" Version="1.0.0-beta.59"/>
     <AnalyzerPackage Include="Microsoft.CodeAnalysis.CSharp.CodeStyle" Version="4.10.0"/>
     <AnalyzerPackage Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0"/>
-    <AnalyzerPackage Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.13.61"/>
+    <AnalyzerPackage Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.14.15"/>
     <AnalyzerPackage Include="SecurityCodeScan.VS2019" Version="5.6.7"/>
     <AnalyzerPackage Include="SonarAnalyzer.CSharp" Version="10.9.0.115408"/>
     <AnalyzerPackage Include="StyleCop.Analyzers" Version="1.2.0-beta.556"/>
