@@ -56,7 +56,7 @@
          'C:\Users\runneradmin\.nuget\packages\microsoft.codeanalysis.csharp.codestyle\4.7.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.CodeStyle.dll'
          references version '4.7.0.0' of the compiler, which is newer than the currently running version '4.6.0.0'."
          kind. -->
-    <PackageReference Include="Microsoft.Net.Compilers.Toolset" Version="4.13.0">
+    <PackageReference Include="Microsoft.Net.Compilers.Toolset" Version="4.14.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
     </PackageReference>
