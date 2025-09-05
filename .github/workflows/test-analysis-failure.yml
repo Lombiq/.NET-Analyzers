@@ -8,11 +8,11 @@ on:
       - dev
 
 jobs:
-  call-test-analysis-failure-nuget:
+  test-analysis-failure-nuget:
     name: Test Analysis Failure - NuGet PackageReference
     uses: Lombiq/GitHub-Actions/.github/workflows/test-analysis-failure.yml@dev
     with:
-      machine-types: '["ubuntu-24.04", "windows-2022"]'
+      machine-types: '["ubuntu-24.04", "windows-2025"]'
       build-directory: TestSolutions/Lombiq.Analyzers.PackageReference
       timeout-minutes: 30
       build-expected-code-analysis-errors: |
@@ -21,11 +21,11 @@ jobs:
         S2933: Make 'Number' 'readonly'.
         S4487: Remove this unread private field 'Number' or refactor the code to use its value.
 
-  call-test-analysis-failure-local:
+  test-analysis-failure-local:
     name: Test Analysis Failure - Local ProjectReference
     uses: Lombiq/GitHub-Actions/.github/workflows/test-analysis-failure.yml@dev
     with:
-      machine-types: '["ubuntu-24.04", "windows-2022"]'
+      machine-types: '["ubuntu-24.04", "windows-2025"]'
       build-directory: TestSolutions/Lombiq.Analyzers.ProjectReference
       timeout-minutes: 30
       build-expected-code-analysis-errors: |
