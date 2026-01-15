@@ -7,6 +7,10 @@ global_level = 10
 # rename it to .editorconfig. This should eventually not be necessary, see https://github.com/dotnet/roslyn/issues/70326.
 
 
+# AsyncFixer rules
+# Flags too many instances of normal OC and ASP.NET Core API usage.
+dotnet_diagnostic.AsyncFixer06.severity = none
+
 # Microsoft.CodeAnalysis.CSharp rules
 dotnet_diagnostic.CS1591.severity = none
 
