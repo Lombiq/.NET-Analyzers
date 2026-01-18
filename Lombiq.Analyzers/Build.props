@@ -12,7 +12,7 @@
     <!-- Strict mode for the C# compiler, see: https://www.meziantou.net/csharp-compiler-strict-mode.htm. -->
     <Features>strict</Features>
     <!-- Useful to set here since the language version affects which analyzers to use and how to configure them. -->
-    <LangVersion>12.0</LangVersion>
+    <LangVersion>14.0</LangVersion>
     <!-- Setting the analysis level explicitly lets us opt in to new analyzers with SDK upgrades. See:
     https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#latest-updates -->
     <AnalysisLevel>8.0</AnalysisLevel>
