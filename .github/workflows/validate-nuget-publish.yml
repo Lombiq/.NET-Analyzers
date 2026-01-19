@@ -9,7 +9,7 @@ on:
 jobs:
   validate-nuget-publish:
     name: Validate NuGet Publish
-    uses: Lombiq/GitHub-Actions/.github/workflows/validate-nuget-publish.yml@dev
+    uses: Lombiq/GitHub-Actions/.github/workflows/validate-nuget-publish.yml@issue/OSOE-925
     with:
       # Don't generate any symbol package because we're not including the Lombiq.Analyzers.dll in the NuGet package
       # itself, either. See Invoke-BeforePack.ps1 for details.
