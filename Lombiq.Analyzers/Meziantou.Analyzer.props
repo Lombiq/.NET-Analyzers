@@ -1,0 +1,21 @@
+<Project>
+
+  <!-- This package needs to be on frozen on a lower version for .NET Framework projects but can be up-to-date for
+       everything else. See https://github.com/meziantou/Meziantou.Analyzer/issues/791. Also since we pass it on, we
+       have to handle if the consuming project uses centralized package versions or not. -->
+
+  <ItemGroup Condition="'$(ManagePackageVersionsCentrally)' != 'true'">
+    <PackageReference Include="Meziantou.Analyzer" IncludeInPackage="true" Version="2.0.286">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(ManagePackageVersionsCentrally)' == 'true'">
+    <PackageReference Include="Meziantou.Analyzer" IncludeInPackage="true" VersionOverride="2.0.286">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  
+</Project>
