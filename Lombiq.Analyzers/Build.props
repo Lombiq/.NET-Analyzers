@@ -34,12 +34,20 @@
 
   <Import Project="$(MSBuildThisFileDirectory)AnalyzerPackages.props" />
 
+  <!-- This needs to be on 2.0.110 for .NET Framework projects, see 
+       https://github.com/meziantou/Meziantou.Analyzer/issues/791. -->
+  <PropertyGroup>
+    <MeziantouAnalyzerVersion>2.0.286</MeziantouAnalyzerVersion>
+    <MeziantouAnalyzerVersion Condition="$(TargetFramework.StartsWith('net4'))">2.0.285</MeziantouAnalyzerVersion>
+  </PropertyGroup>
   <ItemGroup>
-    <!-- This needs to be on 2.0.110 for .NET Framework projects, see
-    https://github.com/meziantou/Meziantou.Analyzer/issues/791. -->
-    <PackageReference Include="Meziantou.Analyzer" Version="2.0.285" IncludeInPackage="true">
+    <PackageReference Include="Meziantou.Analyzer" IncludeInPackage="true">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
+      <!-- Providing the version in a child element with the "Condition" attribute avoids errors when centralized
+           package version management is enabled. -->
+      <Version Condition="'$(ManagePackageVersionsCentrally)' != 'true'">$(MeziantouAnalyzerVersion)</Version>
+      <VersionOverride Condition="'$(ManagePackageVersionsCentrally)' == 'true'">$(MeziantouAnalyzerVersion)</VersionOverride>
     </PackageReference>
     
     <!-- Note: This is fixed as of SDK version 6.0.202. If you need to build the solution on a system with an older SDK
