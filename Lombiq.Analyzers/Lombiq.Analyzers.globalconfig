@@ -307,6 +307,10 @@ dotnet_diagnostic.CA1309.severity = warning
 dotnet_diagnostic.CA1310.severity = warning
 dotnet_diagnostic.CA1401.severity = warning
 dotnet_diagnostic.CA1507.severity = warning
+# Disabling "CA1515: Because an application's API isn't typically referenced from outside the assembly, types can be 
+# made internal" because it often triggers on model types which need to be public for serialization or other
+# under-the-hood type usage.
+dotnet_diagnostic.CA1515.severity = none
 dotnet_diagnostic.CA1508.severity = silent
 dotnet_diagnostic.CA1712.severity = warning
 dotnet_diagnostic.CA1713.severity = warning
@@ -342,6 +346,9 @@ dotnet_diagnostic.CA1836.severity = warning
 dotnet_diagnostic.CA1837.severity = warning
 dotnet_diagnostic.CA1838.severity = warning
 dotnet_diagnostic.CA1851.severity = warning
+# Disabled "CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled" because it
+# returns a lot of false positives, including all property access even when it's trivial and inexpensive.
+dotnet_diagnostic.CA1873.severity = none
 dotnet_diagnostic.CA2000.severity = warning
 dotnet_diagnostic.CA2002.severity = warning
 dotnet_diagnostic.CA2007.severity = warning
