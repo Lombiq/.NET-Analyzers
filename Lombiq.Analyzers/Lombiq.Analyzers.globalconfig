@@ -307,10 +307,6 @@ dotnet_diagnostic.CA1309.severity = warning
 dotnet_diagnostic.CA1310.severity = warning
 dotnet_diagnostic.CA1401.severity = warning
 dotnet_diagnostic.CA1507.severity = warning
-# Disabling "CA1515: Because an application's API isn't typically referenced from outside the assembly, types can be 
-# made internal" because it often triggers on model types which need to be public for serialization or other
-# under-the-hood type usage.
-dotnet_diagnostic.CA1515.severity = none
 dotnet_diagnostic.CA1508.severity = silent
 dotnet_diagnostic.CA1712.severity = warning
 dotnet_diagnostic.CA1713.severity = warning
