@@ -7,7 +7,7 @@
     <AnalyzerPackage Include="AsyncFixer" Version="2.1.0"/>
     <AnalyzerPackage Include="DotNetAnalyzers.DocumentationAnalyzers" Version="1.0.0-beta.59"/>
     <AnalyzerPackage Include="Microsoft.CodeAnalysis.CSharp.CodeStyle" Version="4.10.0"/>
-    <AnalyzerPackage Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0"/>
+    <AnalyzerPackage Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="10.0.100"/>
     <AnalyzerPackage Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.14.15"/>
     <AnalyzerPackage Include="SecurityCodeScan.VS2019" Version="5.6.7"/>
     <AnalyzerPackage Include="SonarAnalyzer.CSharp" Version="10.17.0.131074"/>
