@@ -37,7 +37,7 @@
   <ItemGroup>
     <!-- This needs to be on 2.0.110 for .NET Framework projects, see
     https://github.com/meziantou/Meziantou.Analyzer/issues/791. -->
-    <PackageReference Include="Meziantou.Analyzer" Version="3.0.6" IncludeInPackage="true">
+    <PackageReference Include="Meziantou.Analyzer" Version="3.0.22" IncludeInPackage="true">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
     </PackageReference>
