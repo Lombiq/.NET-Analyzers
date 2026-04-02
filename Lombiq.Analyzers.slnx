@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Lombiq.Analyzers.NetFx/Lombiq.Analyzers.NetFx.csproj" />
+  <Project Path="Lombiq.Analyzers.Orchard1/Lombiq.Analyzers.Orchard1.csproj" />
+  <Project Path="Lombiq.Analyzers.OrchardCore/Lombiq.Analyzers.OrchardCore.csproj" />
+  <Project Path="Lombiq.Analyzers.VisualStudioExtension/Lombiq.Analyzers.VisualStudioExtension.csproj" />
+  <Project Path="Lombiq.Analyzers/Lombiq.Analyzers.csproj" />
+</Solution>
