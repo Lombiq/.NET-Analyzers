@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="../Directory.Build.props" />
+  </Folder>
+  <Project Path="../../Lombiq.Analyzers.OrchardCore/Lombiq.Analyzers.OrchardCore.csproj" />
+  <Project Path="../../Lombiq.Analyzers/Lombiq.Analyzers.csproj" />
+  <Project Path="Lombiq.Analyzers.ProjectReference.csproj" />
+</Solution>
