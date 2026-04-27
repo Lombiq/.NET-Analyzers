@@ -10,7 +10,7 @@ on:
 jobs:
   test-analysis-failure-nuget:
     name: Test Analysis Failure - NuGet PackageReference
-    uses: Lombiq/GitHub-Actions/.github/workflows/test-analysis-failure.yml@issue/OSOE-1199
+    uses: Lombiq/GitHub-Actions/.github/workflows/test-analysis-failure.yml@issue/OSOE-925
     with:
       machine-types: '["ubuntu-24.04", "windows-2025"]'
       build-directory: TestSolutions/Lombiq.Analyzers.PackageReference
@@ -23,7 +23,7 @@ jobs:
 
   test-analysis-failure-local:
     name: Test Analysis Failure - Local ProjectReference
-    uses: Lombiq/GitHub-Actions/.github/workflows/test-analysis-failure.yml@issue/OSOE-1199
+    uses: Lombiq/GitHub-Actions/.github/workflows/test-analysis-failure.yml@issue/OSOE-925
     with:
       machine-types: '["ubuntu-24.04", "windows-2025"]'
       build-directory: TestSolutions/Lombiq.Analyzers.ProjectReference
