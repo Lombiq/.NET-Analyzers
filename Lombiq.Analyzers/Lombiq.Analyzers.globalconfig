@@ -549,6 +549,8 @@ dotnet_diagnostic.MA0111.severity = none
 dotnet_diagnostic.MA0120.severity = warning
 dotnet_diagnostic.MA0121.severity = warning
 dotnet_diagnostic.MA0122.severity = warning
+# Reset rule to its default value, see https://github.com/meziantou/Meziantou.Analyzer/issues/1159#issuecomment-4445536655
+dotnet_diagnostic.MA0127.severity = suggestion
 dotnet_diagnostic.MA0165.severity = silent
 
 
