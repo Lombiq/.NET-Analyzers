@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/.github/" />
+  <Folder Name="/.github/workflows/">
+    <File Path=".github\workflows\create-jira-issues-for-community-activities.yml" />
+    <File Path=".github\workflows\publish-nuget.yml" />
+    <File Path=".github\workflows\test-analysis-failure.yml" />
+    <File Path=".github\workflows\validate-nuget-publish.yml" />
+    <File Path=".github\workflows\validate-pull-request.yml" />
+  </Folder>
+  <Project Path="Lombiq.Analyzers.NetFx/Lombiq.Analyzers.NetFx.csproj" />
+  <Project Path="Lombiq.Analyzers.Orchard1/Lombiq.Analyzers.Orchard1.csproj" />
+  <Project Path="Lombiq.Analyzers.OrchardCore/Lombiq.Analyzers.OrchardCore.csproj" />
+  <Project Path="Lombiq.Analyzers.VisualStudioExtension/Lombiq.Analyzers.VisualStudioExtension.csproj" />
+  <Project Path="Lombiq.Analyzers/Lombiq.Analyzers.csproj" />
+</Solution>

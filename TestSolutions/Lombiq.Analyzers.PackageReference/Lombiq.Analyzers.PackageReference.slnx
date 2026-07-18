@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="../AnalyzerViolations.cs" />
+    <File Path="../Directory.Build.props" />
+  </Folder>
+  <Project Path="IndirectPackageReference/IndirectPackageReference.csproj" />
+  <Project Path="Lombiq.Analyzers.PackageReference.csproj" />
+</Solution>

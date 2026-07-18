@@ -342,6 +342,9 @@ dotnet_diagnostic.CA1836.severity = warning
 dotnet_diagnostic.CA1837.severity = warning
 dotnet_diagnostic.CA1838.severity = warning
 dotnet_diagnostic.CA1851.severity = warning
+# Disabled "CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled" because it
+# returns a lot of false positives, including all property access even when it's trivial and inexpensive.
+dotnet_diagnostic.CA1873.severity = none
 dotnet_diagnostic.CA2000.severity = warning
 dotnet_diagnostic.CA2002.severity = warning
 dotnet_diagnostic.CA2007.severity = warning

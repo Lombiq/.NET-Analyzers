@@ -12,3 +12,4 @@ node_modules/
 /TestSolutions/**/.editorconfig
 /TestSolutions/Lombiq.Analyzers.*/**/AnalyzerViolations.cs
 /Lombiq.Analyzers/Lombiq.Analyzers.nuspec
+*.orig
