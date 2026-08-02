@@ -2,5 +2,18 @@
   <ItemGroup>
     <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)Lombiq.Analyzers.VisualStudioExtension.globalconfig" />
   </ItemGroup>
+
+  <ItemGroup>
+    <!-- Limit these analyzer/toolset packages to build-time assets only. Without this, transitive runtime assemblies
+         can leak into .NET Framework VSIX projects and cause ResolveAssemblyReference conflicts (for example MSB3277
+         on different System.Memory versions) in CI builds. -->
+    <PackageReference Update="Meziantou.Analyzer">
+      <IncludeAssets>build;analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Update="Microsoft.Net.Compilers.Toolset">
+      <IncludeAssets>build;analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
   <Import Project="$(MSBuildThisFileDirectory)../Lombiq.Analyzers.NetFx/Build.props" Condition="'$(NuGetBuild)' != 'true'" />
 </Project>
