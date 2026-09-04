@@ -79,6 +79,12 @@ dotnet_analyzer_diagnostic.category-CodeQuality.severity = warning
 # The "when-multiline:warning" config is not actually for cases when the if body is in another line so we have to turn
 # this off completely, see: https://github.com/dotnet/roslyn/issues/40912.
 dotnet_diagnostic.IDE0011.severity = none
+# MA0219: Set the language attribute in XML comment.
+# Its own docs say the default severity is hidden/IDE-only by design (it's just a convention, not part of the XML doc
+# spec, and tools may ignore it), see: https://github.com/meziantou/Meziantou.Analyzer/blob/main/docs/Rules/MA0219.md.
+# Our blanket "Documentation" category escalation to warning (further escalated to error by warnaserror in CI) wasn't
+# meant to cover this one.
+dotnet_diagnostic.MA0219.severity = none
 # IDE0050: Convert to tuple
 # Quite dangerous as we most frequently use anonymous types to interface with other APIs (like generating routes) and
 # those can fail on this silently in runtime while building correctly.
