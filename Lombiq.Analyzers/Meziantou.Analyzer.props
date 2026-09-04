@@ -6,14 +6,14 @@
        consuming project uses centralized package versions or not. -->
 
   <ItemGroup Condition="'$(ManagePackageVersionsCentrally)' != 'true'">
-    <PackageReference Include="Meziantou.Analyzer" IncludeInPackage="true" Version="3.0.173">
+    <PackageReference Include="Meziantou.Analyzer" IncludeInPackage="true" Version="3.0.200">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
     </PackageReference>
   </ItemGroup>
 
   <ItemGroup Condition="'$(ManagePackageVersionsCentrally)' == 'true'">
-    <PackageReference Include="Meziantou.Analyzer" IncludeInPackage="true" VersionOverride="3.0.173">
+    <PackageReference Include="Meziantou.Analyzer" IncludeInPackage="true" VersionOverride="3.0.200">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
     </PackageReference>
