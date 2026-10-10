@@ -56,9 +56,6 @@ dotnet_style_readonly_field = true:warning
 # Parameter preferences
 dotnet_code_quality_unused_parameters = non_pubic:suggestion
 
-# Note that currently both IDE* rules and csharp_style_* rules are necessary, because only IDE rules will be enforced
-# during build, see: https://github.com/dotnet/roslyn/issues/44201.
-
 # Default severity for analyzer diagnostics for all categories (escalated to build warnings). See
 # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/categories for the list of categories.
 dotnet_analyzer_diagnostic.category-Design.severity = warning
