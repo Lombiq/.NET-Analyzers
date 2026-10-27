@@ -1,5 +1,7 @@
 ﻿param($Version)
 
+function Read-Xml([string]$File) { [xml](Get-Content $File) }
+
 function Add-Dependency($NuSpec, $Dependencies, $Id, $Version)
 {
     $node = $NuSpec.CreateElement('dependency')
@@ -21,8 +23,6 @@ $packages = @(
 foreach ($package in $packages)
 {
     $projectPath = Join-Path $PWD $package
-    function Read-Xml([string]$File) { [xml](Get-Content $File) }
-
     $nuspec = Read-Xml (Join-Path $projectPath "$package.nuspec.template")
     $dependencies = $nuspec.package.metadata.dependencies
 
