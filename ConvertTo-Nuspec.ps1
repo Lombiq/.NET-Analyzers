@@ -1,5 +1,14 @@
 ﻿param($Version)
 
+function Add-Dependency($NuSpec, $Dependencies, $Id, $Version)
+{
+    $node = $NuSpec.CreateElement('dependency')
+    $node.SetAttribute('id', $Id)
+    $node.SetAttribute('version', $Version)
+
+    $Dependencies.AppendChild($node)
+}
+
 $packages = @(
     'Lombiq.Analyzers',
     'Lombiq.Analyzers.NetFx',
@@ -26,13 +35,10 @@ foreach ($package in $packages)
         foreach ($dependency in (Read-Xml $analyzerPackagesPropsFile).Project.ItemGroup.AnalyzerPackage)
         {
             $id = $dependency.Include
-            if (-not $id) { continue }
-
-            $node = $nuspec.CreateElement('dependency')
-            $node.SetAttribute('id', $id)
-            $node.SetAttribute('version', $dependency.Version)
-
-            $dependencies.AppendChild($node)
+            if ($id)
+            {
+                Add-Dependency -NuSpec $nuspec -Dependencies $dependencies -Id $id -Version $dependency.Version
+            }
         }
     }
 
