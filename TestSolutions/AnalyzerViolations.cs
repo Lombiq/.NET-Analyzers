@@ -16,7 +16,7 @@ public class Class1
     public Class1(int number)
     {
         Number = number;
-        SetterMethod(null);
+        SetterMethod(null); // This should cause MA0003 (Name the parameter to improve code readability).
     }
 #pragma warning restore IDE0051
 
