@@ -9,7 +9,7 @@
             // AnalyzerPackages.props contains NuGet package references in a custom format. Supporting it here.
             customType: 'regex',
             managerFilePatterns: [
-                '/(^|/)AnalyzerPackages\\.props$/',
+                '/.*AnalyzerPackages\\.props$/',
             ],
             matchStrings: [
                 // The capture group names are required as such.
@@ -37,7 +37,7 @@
                 'Meziantou.Analyzer',
             ],
             matchFileNames: [
-                'Lombiq.Analyzers.NetFx/Build.props',
+                'Lombiq.Analyzers.NetFx/AnalyzerPackages.props',
             ],
             enabled: false,
         },
