@@ -34,7 +34,10 @@
     <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)Lombiq.Analyzers.NetFx.globalconfig" />
   </ItemGroup>
 
-  <Import Project="$(MSBuildThisFileDirectory)../Lombiq.Analyzers/AnalyzerPackages.props" />
+  <!-- The order matters here, because the props file in "Lombiq.Analyzers" is the one that convert the
+       "AnalyzerPackage" items into "PackageReference" so it has to be the last in chain. -->
+  <Import Project="$(MSBuildThisFileDirectory)AnalyzerPackages.props" />
+  <Import Project="$(MSBuildThisFileDirectory)../Lombiq.Analyzers/AnalyzerPackages.props" Condition="'$(NuGetBuild)' != 'true'" />
 
   <ItemGroup>
     <!-- Fixing the <"error CS8032: An instance of analyzer Microsoft.CodeAnalysis.[...]Analyzer cannot be created from

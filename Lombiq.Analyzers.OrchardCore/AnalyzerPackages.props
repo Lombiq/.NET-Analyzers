@@ -7,11 +7,4 @@
     <AnalyzerPackage Include="Meziantou.Analyzer" Version="3.0.312"/>
   </ItemGroup>
 
-  <ItemGroup Condition="'$(NuGetBuild)' != 'true'">
-    <PackageReference Include="@(AnalyzerPackage)" Version="%(Version)" IncludeInPackage="true">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers;</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
-
 </Project>
