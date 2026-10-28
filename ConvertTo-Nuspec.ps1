@@ -2,15 +2,6 @@
 
 function Read-Xml([string]$File) { [xml](Get-Content $File) }
 
-function Add-Dependency($NuSpec, $Dependencies, $Id, $Version)
-{
-    $node = $NuSpec.CreateElement('dependency')
-    $node.SetAttribute('id', $Id)
-    $node.SetAttribute('version', $Version)
-
-    $Dependencies.AppendChild($node)
-}
-
 $packages = @(
     'Lombiq.Analyzers',
     'Lombiq.Analyzers.NetFx',
@@ -35,10 +26,15 @@ foreach ($package in $packages)
         foreach ($dependency in (Read-Xml $analyzerPackagesPropsFile).Project.ItemGroup.AnalyzerPackage)
         {
             $id = $dependency.Include
-            if ($id)
-            {
-                Add-Dependency -NuSpec $nuspec -Dependencies $dependencies -Id $id -Version $dependency.Version
-            }
+            $version = $dependency.Version
+            
+            if (-not $id -or -not $version) { continue }
+
+            $node = $nuspec.CreateElement('dependency')
+            $node.SetAttribute('id', $id)
+            $node.SetAttribute('version', $version)
+
+            $dependencies.AppendChild($node)
         }
     }
 
