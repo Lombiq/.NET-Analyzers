@@ -30,7 +30,7 @@ foreach ($package in $packages)
             
             if (-not $id -or -not $version) { continue }
 
-            $node = $nuspec.CreateElement('dependency')
+            $node = $nuspec.CreateElement('dependency', $nuspec.package.NamespaceURI)
             $node.SetAttribute('id', $id)
             $node.SetAttribute('version', $version)
 
