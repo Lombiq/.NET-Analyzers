@@ -12,6 +12,7 @@
        -->
 
   <ItemGroup>
+    <None Include="..\ConvertTo-Nuspec.ps1" Link="ConvertTo-Nuspec.ps1" Pack="false"  />
     <None Include="Readme.md" Link="Readme.md" />
     <None Include="NuGetIcon.png" Pack="true" PackagePath="" />
     <None Include="build\**" Pack="true" PackagePath="build\" />

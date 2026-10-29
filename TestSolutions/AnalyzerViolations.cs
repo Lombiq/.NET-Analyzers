@@ -10,10 +10,15 @@ public class Class1
 {
     private int Number;
 
+    public object Other { get; private set; }
+
 #pragma warning disable IDE0051 // IDE0051: Remove unused member. This should trigger IDE0079.
     public Class1(int number)
     {
         Number = number;
+        SetterMethod(null); // This should cause MA0003 (Name the parameter to improve code readability).
     }
 #pragma warning restore IDE0051
+
+    public void SetterMethod(object value) => Other = value;
 }

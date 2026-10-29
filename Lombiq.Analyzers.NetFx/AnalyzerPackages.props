@@ -1,0 +1,10 @@
+<Project>
+
+  <!-- The Meziantou.Analyzer package needs to be on frozen on a lower version for .NET Framework projects but can be
+       up-to-date for everything else. See https://github.com/meziantou/Meziantou.Analyzer/issues/791). -->
+
+  <ItemGroup>
+    <AnalyzerPackage Include="Meziantou.Analyzer" Version="2.0.110"/>
+  </ItemGroup>
+
+</Project>

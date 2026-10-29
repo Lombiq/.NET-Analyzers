@@ -32,7 +32,7 @@ We added and configured analyzers which are widely used and complement each othe
 - [.NET code quality analysis](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview#code-quality-analysis)
 - [AsyncFixer](https://www.nuget.org/packages/AsyncFixer)
 - [DotNetAnalyzers.DocumentationAnalyzers](https://www.nuget.org/packages/DotNetAnalyzers.DocumentationAnalyzers/)
-- [Meziantou.Analyzer](https://www.nuget.org/packages/Meziantou.Analyzer/)
+- [Meziantou.Analyzer](https://www.nuget.org/packages/Meziantou.Analyzer/) (Note: not used directly in `Lombiq.Analyzers`, different versions of the package are used in `Lombiq.Analyzers.OrchardCore` and `Lombiq.Analyzers.NetFx`)
 - [Microsoft.CodeAnalysis.NetAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.NetAnalyzers)
 - [Microsoft.VisualStudio.Threading.Analyzers](https://www.nuget.org/packages/microsoft.visualstudio.threading.analyzers)
 - [SecurityCodeScan.VS2019](https://www.nuget.org/packages/SecurityCodeScan.VS2019/)

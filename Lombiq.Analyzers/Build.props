@@ -33,7 +33,6 @@
   </ItemGroup>
 
   <Import Project="$(MSBuildThisFileDirectory)AnalyzerPackages.props" />
-  <Import Project="$(MSBuildThisFileDirectory)Meziantou.Analyzer.props" />
 
   <ItemGroup>
     <!-- Note: This is fixed as of SDK version 6.0.202. If you need to build the solution on a system with an older SDK
